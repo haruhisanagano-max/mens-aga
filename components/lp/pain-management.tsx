@@ -7,7 +7,7 @@ import { PAIN_CONTENT } from '@/edit/pain-content'
 
 export default function PainManagement() {
   // ---------------------------------------------------------
-  // ★ デザイン統一用リモコン（AGA・強烈線状光源＆扇状グロウ強化決定版）
+  // ★ デザイン統一用リモコン（AGA・中央短縮光源＆扇状グロウ決定版）
   // ---------------------------------------------------------
   /* 🔤 極太(font-black)をやめ、誠実さと高級感を出す太字(font-bold)へ。白文字で統一。 */
   const fontTitle = "font-sans font-bold tracking-tight text-slate-100" 
@@ -17,16 +17,17 @@ export default function PainManagement() {
   /* 📐 角の丸みを少しシャープ（1rem ➔ 0.75rem / rounded-xl）にし、男性的なテック感をプラス。 */
   const cardRounded = "rounded-xl" 
   
-  /* 💡 境界線：上・左は上品な光のフチ。
-     【最重要】下フチ（border-b）を、強烈に光るスカイブルー（sky-300）にし、光源であることを表現。 */
-  const cardBorder = "border border-slate-900/60 border-t-white/10 border-l-white/5 border-b-2 border-b-sky-300 transition-all duration-500 hover:border-sky-400/20"
+  /* 💡 境界線：
+     【最重要】下部の不自然な硬い線を完全に削除！
+     全体をチャコールグレーに美しく馴染む、薄い境界線（border-slate-700/30）に統一しました。 */
+  const cardBorder = "border border-slate-700/30 transition-all duration-500 hover:border-sky-400/20"
   
-  /* 💡 影：外側の影はそのまま（下方向限定）。 */
-  const cardShadow = "shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),0_30px_60px_-15px_rgba(56,189,248,0.1)] bg-[#1E293B]"
+  /* 💡 影：カード本体（bg-[#1E293B]）を背景と分離させるため、当初のように「カードの下部だけ」に医療ブルー（SkyBlue）の光がポロポロと微弱に漏れ出るような、下方向限定のドロップシャドウをブレンドしています。 */
+  const cardShadow = "shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),0_20px_30px_-10px_rgba(56,189,248,0.06)] bg-[#1E293B]"
   // ---------------------------------------------------------
 
   return (
-    /* 全体の背景：くすんだ墨色から、洗練された高級インテリジェンスを感じる「ディープネイビーグレー（#0B111E）」へ微調整 */
+    /* 💡 全体の背景：くすんだ墨色から、洗練された高級インテリジェンスを感じる「ディープネイビーグレー（#0B111E）」へ微調整 */
     <section id="pain" className={`${sectionPadding} relative bg-[#0B111E] text-slate-400 overflow-hidden`}>
       
       {/* 🖼️ 最背面：背景テクスチャ */}
@@ -47,7 +48,7 @@ export default function PainManagement() {
           <h2 className={`${fontTitle} text-3xl sm:text-5xl font-extrabold mb-6 leading-tight`}>
             {PAIN_CONTENT.mainTitle.split('\n').map((line, i) => <span key={i} className="block">{line}</span>)}
           </h2>
-          <p className="text-slate-400 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium opacity-80 opacity-70 leading-relaxed font-medium opacity-70">
+          <p className="text-slate-400 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium opacity-80 opacity-70">
             {PAIN_CONTENT.mainSubtitle}
           </p>
         </div>
@@ -86,8 +87,9 @@ export default function PainManagement() {
                 overflow-hidden /* 💡 光をカードの枠内に綺麗に閉じ込める設定 */
               `}>
                 
-                {/* 💡 【扇状発光の強化】不透明度を 25% (0.25) に上げ、白を混ぜてはっきりと灯る光に。 */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[140%] h-[50%] bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,0.25),rgba(56,189,248,0.1),transparent_70%)] pointer-events-none z-0" />
+                {/* 💡 【扇状発光の復活】カード最下部から、上に向かって扇状にポワッと「控えめ」に灯る医療ブルーの光のグラデーション
+                   不透明度を 12% (rgba(56,189,248,0.12)) に上げ、より「気持ち強め」の光が滲み出るようにしました。 */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[140%] h-[50%] bg-[radial-gradient(ellipse_at_bottom,rgba(56,189,248,0.12),transparent_75%)] pointer-events-none z-0" />
 
                 {/* 文字が光の裏に隠れないように z-10 で手前に引き上げ */}
                 <div className="space-y-5 relative z-10">
@@ -115,10 +117,10 @@ export default function PainManagement() {
                   </p>
                 </div>
                 
-                {/* 💡 【新発明：線状光源の存在感強化】
-                   単純なグラデーションではなく、強烈に光るスカイブルーの「光の線（光源）」を、ボカシを強くして配置。
-                   これで提供スクショのように、最下部から強烈な光（Glow）が滲み出る光源エフェクトを仕込み直しました。単純な線ではなく、中央から滲み出るようなボカシのある明るいモヤです。 */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-[2px] bg-sky-200 blur-[3px] opacity-[1] pointer-events-none z-0" />
+                {/* 💡 【新発明：中央短縮光源】不自然な長さを解消！
+                   幅を w-[25%] に大幅に短縮し、「真ん中に短めに少し」ある光源（インナーグロウ）に変更。単純な線ではなく、中央から滲み出るようなボカシのある明るいモヤです。単純な線ではなく、中央から滲み出るようなボカシのある明るいモヤです。
+                   幅が狭くなった分、明るさを rgba(255,255,255,0.8) に引き上げ、存在感を維持。 */}
+                <div className="absolute bottom-[-1px] left-1/2 -translate-x-1/2 w-[25%] h-[6px] bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,0.8),rgba(56,189,248,0.3),transparent_70%)] blur-[4px] opacity-[1] pointer-events-none z-0" />
               </div>
 
               {/* カードの下部を影みたいに当初のように下方向限定で光らせる */}
