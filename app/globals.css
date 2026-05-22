@@ -1,0 +1,125 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --emerald: #004B40;
+  --gold: #C9A962;
+  --offwhite: #FAFCFB;
+  --charcoal: #1A2F2A;
+  --mint-dark: #C5E5D8;
+  --border: var(--mint-dark);
+  /* 🔴 基準線：キャンペーンカード(max-w-2xl)と同じ 672px */
+  --content-width: 672px; 
+}
+
+@theme {
+  /* 🟢 最重要：全てのレスポンシブスイッチ（sm, md, lg）を 9999px に飛ばします。
+     これにより、PCで見ても md: や lg: の指示が「絶対に」発動しなくなります。
+     結果、あなたが作った「スマホ用の縦並びデザイン」が 100% そのまま表示されます。 */
+  --breakpoint-sm: 9999px;
+  --breakpoint-md: 9999px;
+  --breakpoint-lg: 9999px;
+  --breakpoint-xl: 9999px;
+
+  --color-gold: var(--gold);
+  --color-gold-dark: #C9A962;
+  --color-charcoal: var(--charcoal);
+  --color-border: var(--border);
+  --font-sans: var(--font-sans), 'Noto Sans JP', sans-serif;
+  --font-serif: var(--font-serif), 'Noto Serif JP', serif;
+}
+
+@layer base {
+  body { 
+    background-color: #F3F4F6;
+    color: var(--charcoal);
+    margin: 0;
+  }
+}
+
+/* 🟢 PC(1024px以上)における iPad (820px) ビューの絶対ルール */
+@media (min-width: 1024px) {
+  main {
+    width: 820px !important; 
+    max-width: 820px !important;
+    margin: 0 auto !important;
+    background-color: white !important;
+    box-shadow: 0 0 100px rgba(0,0,0,0.1);
+    position: relative;
+    overflow-x: hidden !important;
+  }
+  header {
+    display: none !important;
+  }
+
+  /* 🔴 【聖域保護1】左メニュー（PCSidebar）
+     820px の箱の左横に固定します。中身には干渉しません。 */
+  .pc-nav-fixed, .pc-sidebar-nav {
+    display: flex !important;
+    position: fixed !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: calc(50% - 580px) !important;
+    z-index: 100;
+  }
+
+  /* 🔴 【聖域保護2】トップ画像（FirstView）
+     画像が 820px の幅いっぱいに広がる迫力を維持します。 */
+  main > section:first-of-type > div {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* 🔴 【余白の完全統一】
+     トップ画像以外の全セクションの中身を、キャンペーンカードと同じ 672px に固定します。
+     これで、左右の端が全てのパーツで一直線に揃います。 */
+  main > section:not(:first-of-type) > div {
+    max-width: var(--content-width) !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* 🔴 余計な一括 !important（.grid 等）は全て削除しました。
+     breakpoint の 9999px 設定だけで、自然にスマホの縦並びになります。 */
+
+  /* ヘッダー・追従ボタンを 820px 枠の中央に同期 */
+  header, 
+  div[class*="fixed bottom-0"] {
+    width: 820px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    right: auto !important;
+  }
+}
+
+/* 🟢 スマホ実機(1023px以下)への影響を遮断 */
+@media (max-width: 1023px) {
+  main section > div {
+    padding-left: 1.5rem !important; /* px-6 (24px) */
+    padding-right: 1.5rem !important;
+  }
+}
+
+/* 背景グラデーション（維持） */
+.bg-unified-gradient {
+  background: radial-gradient(ellipse 120% 60% at 10% 15%, rgba(110, 185, 44, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse 90% 70% at 20% 70%, rgba(110, 185, 44, 0.06) 0%, transparent 55%), var(--offwhite);
+  background-attachment: fixed;
+}
+
+/* アニメーション（維持） */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
