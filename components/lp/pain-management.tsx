@@ -7,7 +7,7 @@ import { PAIN_CONTENT } from '@/edit/pain-content'
 
 export default function PainManagement() {
   // ---------------------------------------------------------
-  // ★ デザイン統一用リモコン（AGA・中央短縮光源＆扇状グロウ決定版）
+  // ★ デザイン統一用リモコン（AGA・中央短縮＆強烈光源決定版）
   // ---------------------------------------------------------
   /* 🔤 極太(font-black)をやめ、誠実さと高級感を出す太字(font-bold)へ。白文字で統一。 */
   const fontTitle = "font-sans font-bold tracking-tight text-slate-100" 
@@ -17,13 +17,13 @@ export default function PainManagement() {
   /* 📐 角の丸みを少しシャープ（1rem ➔ 0.75rem / rounded-xl）にし、男性的なテック感をプラス。 */
   const cardRounded = "rounded-xl" 
   
-  /* 💡 境界線：
-     【最重要】下部の不自然な硬い線を完全に削除！
+  /* 💡 境界線：上・左は上品な光のフチ。下部は光源のモヤが滲み出るように設定。
+     【最重要】下部の不自然な硬い線を完全に削除した状態を維持！
      全体をチャコールグレーに美しく馴染む、薄い境界線（border-slate-700/30）に統一しました。 */
   const cardBorder = "border border-slate-700/30 transition-all duration-500 hover:border-sky-400/20"
   
   /* 💡 影：カード本体（bg-[#1E293B]）を背景と分離させるため、当初のように「カードの下部だけ」に医療ブルー（SkyBlue）の光がポロポロと微弱に漏れ出るような、下方向限定のドロップシャドウをブレンドしています。 */
-  const cardShadow = "shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),0_20px_30px_-10px_rgba(56,189,248,0.06)] bg-[#1E293B]"
+  const cardShadow = "shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),0_30px_60px_-15px_rgba(56,189,248,0.1)] bg-[#1E293B]"
   // ---------------------------------------------------------
 
   return (
@@ -48,7 +48,7 @@ export default function PainManagement() {
           <h2 className={`${fontTitle} text-3xl sm:text-5xl font-extrabold mb-6 leading-tight`}>
             {PAIN_CONTENT.mainTitle.split('\n').map((line, i) => <span key={i} className="block">{line}</span>)}
           </h2>
-          <p className="text-slate-400 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium opacity-80 opacity-70">
+          <p className="text-slate-400 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium opacity-80 opactiy-70">
             {PAIN_CONTENT.mainSubtitle}
           </p>
         </div>
@@ -117,10 +117,11 @@ export default function PainManagement() {
                   </p>
                 </div>
                 
-                {/* 💡 【新発明：中央短縮光源】不自然な長さを解消！
-                   幅を w-[25%] に大幅に短縮し、「真ん中に短めに少し」ある光源（インナーグロウ）に変更。単純な線ではなく、中央から滲み出るようなボカシのある明るいモヤです。単純な線ではなく、中央から滲み出るようなボカシのある明るいモヤです。
-                   幅が狭くなった分、明るさを rgba(255,255,255,0.8) に引き上げ、存在感を維持。 */}
-                <div className="absolute bottom-[-1px] left-1/2 -translate-x-1/2 w-[25%] h-[6px] bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,0.8),rgba(56,189,248,0.3),transparent_70%)] blur-[4px] opacity-[1] pointer-events-none z-0" />
+                {/* 💡 【新発明：中央短縮＆強烈光源】小さすぎる問題を完全に解消！
+                   幅を w-[25%] (中央に短く) に保ちつつ、明るさを劇的に強化。
+                   単純な線ではなく、中央から滲み出るような強烈なボカシのある明るいモヤです。単純な線ではなく、中央から滲み出るようなボカシのある明るいモヤです。
+                   不透明度を MAX (1) にし、色を白に近づけることで存在感を爆上げしました。 */}
+                <div className="absolute bottom-[-1px] left-1/2 -translate-x-1/2 w-[25%] h-[6px] bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,1),rgba(56,189,248,0.5),transparent_70%)] blur-[3px] opacity-[1] pointer-events-none z-0" />
               </div>
 
               {/* カードの下部を影みたいに当初のように下方向限定で光らせる */}
