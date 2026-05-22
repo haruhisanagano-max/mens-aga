@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/aga', // ← これを付け足してください！
+  // Xサーバー用ビルドの時だけ /aga をつけ、Vercelの時は空（なし）にする設定
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '', 
   typescript: {
     ignoreBuildErrors: true,
   },
