@@ -7,24 +7,25 @@ import { PAIN_CONTENT } from '@/edit/pain-content'
 
 export default function PainManagement() {
   // ---------------------------------------------------------
-  // ★ デザイン統一用リモコン（AGA・洗練された医療Glowカスタム）
+  // ★ デザイン統一用リモコン（AGA・重さ解消・ラグジュアリーガラスカスタム）
   // ---------------------------------------------------------
-  /* 🔤 極太(font-black)をやめ、誠実さと高級感を出す太字(font-bold)へ。白文字で統一。 */
   const fontTitle = "font-sans font-bold tracking-tight text-slate-100" 
   const sectionPadding = "py-16 sm:py-28"
   const headerBottomMargin = "mb-12 sm:mb-20"
-  
-  /* 📐 角の丸みを少しシャープ（1rem ➔ 0.75rem / rounded-xl）にし、男性的なテック感をプラス。 */
   const cardRounded = "rounded-xl" 
-  /* 境界線をさらにダークにし、ホバー時には蛍光ではなく落ち着いたゴールドへ。 */
-  const cardBorder = "border border-slate-900/80 hover:border-amber-400/20 transition-all duration-500"
-  /* 【最重要】安っぽいネオンから、高級医療機器のような「柔らかく、奥から滲み出る白い光」へ変更。 */
-  const cardShadow = "shadow-[0_0_50px_rgba(255,255,255,0.06),0_0_15px_rgba(56,189,248,0.1)] bg-slate-950/90 backdrop-blur-xl"
+  
+  /* 💡 境界線：上と左のフチを白・青系の光で繊細にハイライトして、ガラスの端のキラリとした質感を出し、背景から切り離します */
+  const cardBorder = "border border-slate-800/40 border-t-white/20 border-l-white/10"
+  
+  /* 💡 【重要】影と背景の魔法：
+     外側のネオンを完全に消す代わりに、カードの真後ろに「超微弱な白い光のモヤ（rgba(255,255,255,0.03)）」を配置。
+     さらにカードの内側を「ほんのり奥が透ける半透明（backdrop-blur-xl）」にして、内側発光グラデーションをブレンド。これで重さが消えます！ */
+  const cardShadow = "shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7),0_0_50px_rgba(255,255,255,0.02)] bg-gradient-to-br from-slate-900/90 via-slate-950/95 to-slate-950/100 backdrop-blur-xl"
   // ---------------------------------------------------------
 
   return (
-    /* 重厚感のあるディープチャコール（墨色ベース）は維持。 */
-    <section id="pain" className={`${sectionPadding} relative bg-[#0B1320] text-slate-400 overflow-hidden`}>
+    /* 💡 全体の背景：くすんだ墨色から、洗練された高級インテリジェンスを感じる「ディープネイビーグレー（#0B111E）」へ微調整 */
+    <section id="pain" className={`${sectionPadding} relative bg-[#0B111E] text-slate-400 overflow-hidden`}>
       
       {/* 🖼️ 最背面：背景テクスチャ */}
       <div className="absolute inset-0 z-0 pointer-events-none">
