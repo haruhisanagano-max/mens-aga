@@ -118,10 +118,10 @@ export default function PainManagement() {
                 </div>
                 
                 {/* 💡 【新発明：中央短縮＆強烈光源】小さすぎる問題を完全に解消！
-                   幅を w-[45%] (中央に短く) に保ちつつ、明るさを劇的に強化。
+                   幅を w-[65%] (中央に短く) に保ちつつ、明るさを劇的に強化。
                    単純な線ではなく、中央から滲み出るような強烈なボカシのある明るいモヤです。単純な線ではなく、中央から滲み出るようなボカシのある明るいモヤです。
                    不透明度を MAX (1) にし、色を白に近づけることで存在感を爆上げしました。 */}
-                <div className="absolute bottom-[-1px] left-1/2 -translate-x-1/2 w-[45%] h-[6px] bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,1),rgba(56,189,248,0.5),transparent_70%)] blur-[3px] opacity-[1] pointer-events-none z-0" />
+                <div className="absolute bottom-[-1px] left-1/2 -translate-x-1/2 w-[65%] h-[6px] bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,1),rgba(56,189,248,0.5),transparent_70%)] blur-[3px] opacity-[1] pointer-events-none z-0" />
               </div>
 
               {/* カードの下部を影みたいに当初のように下方向限定で光らせる */}
