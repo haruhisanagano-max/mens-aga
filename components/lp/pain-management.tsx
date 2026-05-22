@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { Minus, ShieldCheck, TrendingUp } from 'lucide-react'
+import { ShieldCheck } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { PAIN_CONTENT } from '@/edit/pain-content'
 
@@ -9,28 +9,17 @@ export default function PainManagement() {
   // ---------------------------------------------------------
   // ★ デザイン統一用リモコン（AGA・中央短縮＆強烈光源決定版）
   // ---------------------------------------------------------
-  /* 🔤 極太(font-black)をやめ、誠実さと高級感を出す太字(font-bold)へ。白文字で統一。 */
   const fontTitle = "font-sans font-bold tracking-tight text-slate-100" 
   const sectionPadding = "py-16 sm:py-28"
   const headerBottomMargin = "mb-12 sm:mb-20"
-  
-  /* 📐 角の丸みを少しシャープ（1rem ➔ 0.75rem / rounded-xl）にし、男性的なテック感をプラス。 */
   const cardRounded = "rounded-xl" 
-  
-  /* 💡 境界線：上・左は上品な光のフチ。下部は光源のモヤが滲み出るように設定。
-     【最重要】下部の不自然な硬い線を完全に削除した状態を維持！
-     全体をチャコールグレーに美しく馴染む、薄い境界線（border-slate-700/30）に統一しました。 */
   const cardBorder = "border border-slate-700/30 transition-all duration-500 hover:border-sky-400/20"
-  
-  /* 💡 影：カード本体（bg-[#1E293B]）を背景と分離させるため、当初のように「カードの下部だけ」に医療ブルー（SkyBlue）の光がポロポロと微弱に漏れ出るような、下方向限定のドロップシャドウをブレンドしています。 */
   const cardShadow = "shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),0_30px_60px_-15px_rgba(56,189,248,0.1)] bg-[#1E293B]"
   // ---------------------------------------------------------
 
   return (
-    /* 💡 全体の背景：くすんだ墨色から、洗練された高級インテリジェンスを感じる「ディープネイビーグレー（#0B111E）」へ微調整 */
     <section id="pain" className={`${sectionPadding} relative bg-[#0B111E] text-slate-400 overflow-hidden`}>
       
-      {/* 🖼️ 最背面：背景テクスチャ */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {PAIN_CONTENT.sectionBgImage && (
           <Image src={PAIN_CONTENT.sectionBgImage} alt="" fill className="object-cover opacity-[0.02] mix-blend-overlay" priority />
@@ -41,14 +30,13 @@ export default function PainManagement() {
         
         {/* 🔴 Header */}
         <div className={`text-center ${headerBottomMargin}`}>
-          {/* アクセントゴールドの発光感を、より柔らかく洗練された白系へ重ねる。 */}
           <span className="text-[10px] font-bold tracking-[0.5em] text-amber-300 block mb-4 uppercase drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">
             {PAIN_CONTENT.badge}
           </span>
           <h2 className={`${fontTitle} text-3xl sm:text-5xl font-extrabold mb-6 leading-tight`}>
             {PAIN_CONTENT.mainTitle.split('\n').map((line, i) => <span key={i} className="block">{line}</span>)}
           </h2>
-          <p className="text-slate-400 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium opacity-80 opactiy-70">
+          <p className="text-slate-400 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium opacity-70">
             {PAIN_CONTENT.mainSubtitle}
           </p>
         </div>
@@ -58,7 +46,6 @@ export default function PainManagement() {
           {PAIN_CONTENT.measures.map((m, i) => (
             <div key={i} className={`relative grid lg:grid-cols-12 gap-0 items-center`}>
               
-              {/* 背後の特大ID：デジタルな発光をやめ、背景に深く静かに溶け込む透かしデザイン（漆黒の透かし） */}
               <span className={`font-sans text-[12rem] sm:text-[22rem] font-black text-slate-900 opacity-[0.25] absolute -top-16 ${i % 2 === 0 ? '-right-4' : '-left-4'} italic pointer-events-none select-none z-0`}>
                 {m.id}
               </span>
@@ -72,7 +59,6 @@ export default function PainManagement() {
                     fill 
                     className="object-cover transition-transform duration-700 hover:scale-105" 
                   />
-                  {/* 画像の上のグラデーションも少しダークに引き締め */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent" />
                 </div>
               </div>
@@ -84,22 +70,17 @@ export default function PainManagement() {
                 mt-[-40px] lg:mt-0 
                 ${i % 2 === 0 ? 'lg:-ml-20' : 'lg:-mr-20'} 
                 p-8 sm:p-14 ${cardRounded} ${cardBorder} ${cardShadow}
-                overflow-hidden /* 💡 光をカードの枠内に綺麗に閉じ込める設定 */
+                overflow-hidden
               `}>
                 
-                {/* 💡 【扇状発光の復活】カード最下部から、上に向かって扇状にポワッと「控えめ」に灯る医療ブルーの光のグラデーション
-                   不透明度を 12% (rgba(56,189,248,0.12)) に上げ、より「気持ち強め」の光が滲み出るようにしました。 */}
+                {/* 💡 扇状発光 */}
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[140%] h-[50%] bg-[radial-gradient(ellipse_at_bottom,rgba(56,189,248,0.12),transparent_75%)] pointer-events-none z-0" />
 
-                {/* 文字が光の裏に隠れないように z-10 で手前に引き上げ */}
                 <div className="space-y-5 relative z-10">
-                  <div className="flex items-center gap-3">
+                  {/* 💡 ここが修正された左寄せ・隙間なしバッジです */}
+                  <div className="flex items-center gap-2">
                     <span className="font-sans text-xl font-bold italic text-amber-300 drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]">{m.id}</span>
-                    <Minus className="w-8 h-[1px] text-slate-700" />
-                    
-                    {/* 💡 タグだけピカピカ光るビミョーな感じを廃止！
-                       光を消して、背景のチャコールグレーに美しく馴染む上質なマットデザイン（大人の男らしさ）に変えました */}
-                    <span className="text-[9px] font-bold text-sky-400/90 bg-sky-500/5 border border-sky-400/20 px-2.5 py-0.5 rounded tracking-[0.2em] uppercase shadow-[0_0_10px_rgba(56,189,248,0.15)]">
+                    <span className="text-[9px] font-extrabold text-sky-400/90 bg-sky-500/10 border border-sky-400/20 px-2 py-0.5 rounded tracking-wide uppercase">
                       Medical Approach
                     </span>
                   </div>
@@ -112,56 +93,32 @@ export default function PainManagement() {
                     {m.subTitle}
                   </div>
                   
-                  <p className="text-sm text-slate-300 leading-loose font-medium pt-2 border-t border-slate-900支線 leading-loose font-medium pt-2 border-t border-slate-700/30">
+                  <p className="text-sm text-slate-300 leading-loose font-medium pt-2 border-t border-slate-700/30">
                     {m.description}
                   </p>
                 </div>
                 
-                {/* 💡 【新発明：中央短縮＆強烈光源】小さすぎる問題を完全に解消！
-                   幅を w-[65%] (中央に短く) に保ちつつ、明るさを劇的に強化。
-                   単純な線ではなく、中央から滲み出るような強烈なボカシのある明るいモヤです。単純な線ではなく、中央から滲み出るようなボカシのある明るいモヤです。
-                   不透明度を MAX (1) にし、色を白に近づけることで存在感を爆上げしました。 */}
-                <div className="absolute bottom-[-1px] left-1/2 -translate-x-1/2 w-[65%] h-[6px] bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,1),rgba(56,189,248,0.5),transparent_70%)] blur-[3px] opacity-[1] pointer-events-none z-0" />
+                {/* 💡 光源カスタマイズ（幅45%） */}
+                <div className="absolute bottom-[-2px] left-1/2 -translate-x-1/2 w-[45%] h-[8px] bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,1),rgba(56,189,248,0.6),transparent_65%)] blur-[3px] opacity-[1] pointer-events-none z-0" />
               </div>
 
-              {/* カードの下部を影みたいに当初のように下方向限定で光らせる */}
+              {/* カードの下部外部のシャドウ */}
               <div className="absolute inset-0 z-0 bottom-[-30px] left-1/2 -translate-x-1/2 w-[70%] h-[30px] bg-sky-400/10 blur-[20px] pointer-events-none rounded-full" />
             </div>
           ))}
         </div>
 
         {/* 🔴 Reassurance：下部の安心エリア */}
-        <div className="max-w-4xl mx-auto pt-12 sm:pt-16 border-t border-slate-950 border-t border-slate-900/60">
+        <div className="max-w-4xl mx-auto pt-12 sm:pt-16 border-t border-slate-900/60">
           <div className="flex flex-col items-center text-center">
-            
-            {/* 中央のラインも、鋭く静かな細い光の針へ */}
             <div className="w-[1px] h-12 bg-gradient-to-b from-sky-400/20 via-sky-500/5 to-transparent mb-8" />
-
             <div className="space-y-8">
               <h3 className="font-sans text-2xl sm:text-4xl font-extrabold text-slate-100 leading-tight tracking-tighter">
                 {PAIN_CONTENT.reassurance.title}
               </h3>
-              
-              <div className="space-y-6">
-                <div className="space-y-2">
-                  <p className="text-slate-400 text-sm sm:text-base font-medium opacity-80 opacity-80">
-                    {PAIN_CONTENT.reassurance.body1}
-                  </p>
-                  <div>
-                    {/* 文字の後ろからの発光を、より柔らかい白系へ */}
-                    <span className="relative z-10 text-slate-100 font-bold text-xl sm:text-3xl tracking-tighter drop-shadow-[0_0_10px_rgba(255,255,255,0.15)]">
-                    </span>
-                  </div>
-                </div>
-
-                {/* 最も強いメッセージの派手なグラデーションをやめ、清潔な白からゴールドへ流れるシックな文字色へ */}
-                <p className="whitespace-pre-line text-transparent bg-clip-text bg-gradient-to-r from-slate-100 via-slate-200 to-amber-200 font-bold text-xl sm:text-2xl tracking-tighter leading-snug max-w-2xl mx-auto drop-shadow-[0_2px_10px_rgba(255,255,255,0.1)]">
-                </p>
-              </div>
-
-              <div className="mt-4 inline-flex items-center gap-3 px-6 py-3 bg-slate-950/80 rounded-full text-slate-400 text-[10px] sm:text-xs border border-slate-900 rounded-full text-slate-400 text-[10px] sm:text-xs border border-slate-800/60 font-bold shadow-inner">
-                <ShieldCheck className="w-4 h-4 text-sky-400 drop-shadow-[0_0_4px_rgba(56,189,248,0.4)] text-sky-400/60" />
-                <span></span>
+              <div className="mt-4 inline-flex items-center gap-3 px-6 py-3 bg-slate-950/80 rounded-full text-slate-400 text-[10px] sm:text-xs border border-slate-800/60 font-bold shadow-inner">
+                <ShieldCheck className="w-4 h-4 text-sky-400/60" />
+                <span>{PAIN_CONTENT.reassurance.note}</span>
               </div>
             </div>
           </div>
