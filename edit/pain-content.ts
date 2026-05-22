@@ -1,12 +1,12 @@
 // edit/pain-content.ts
 
 export const PAIN_CONTENT = {
-  // ① 全体の共通設定
-  badge: "Comfort & Science",
-  mainTitle: "痛みを抑える、\n当院からのお約束。",
-  mainSubtitle: "最新のテクノロジーと細やかな配慮で、\n「痛みに弱い」という不安を、安心へと変えていきます。",
+  // ① 全体の共通設定（AGAサイバー仕様）
+  badge: "Science & Evidence",
+  mainTitle: "抜け毛を止め、生やす。\n医学に基づいた、3つのアプローチ。",
+  mainSubtitle: "AGAは進行性の病気です。気根の寿命が尽きる前に、科学的根拠のある医療の力で、確かな発毛へと導きます。",
 
-  // ② 背面・前面の画像
+  // ② 背面・前面の画像（既存のままでOK、後からAGA画像に変えられます）
   sectionBgImage: "/images/bg-pain.png", 
   sectionBgImagePC: "/images/pain-full-pc.png", 
   sectionBgImageM: "/images/pain-full-m.png", 
@@ -15,21 +15,27 @@ export const PAIN_CONTENT = {
   measures: [
     {
       id: "01",
-      title: "瞬間保護。−26℃の静寂。",
-      image: "https://lh3.googleusercontent.com/d/1JPmpG9sQ-8s__a9FDKYsMwYs9jUQ3ttf", // ★ここに追加！
-      subTitle: "DCD（ダイナミッククーリングデバイス）",
-      description: "レーザー照射の「0.数秒前」に、冷却ガスが皮膚表面を瞬時に保護。熱による衝撃を打ち消し、高出力でも驚くほど穏やかな体感を実現します。ジェルによる不快感もありません。"
+      title: "原因を狙い撃つ。守りの内服薬。",
+      image: "https://lh3.googleusercontent.com/d/1JPmpG9sQ-8s__a9FDKYsMwYs9jUQ3ttf", // ★ここにAGA治療やドクターの画像を当てはめます
+      subTitle: "フィナステリド・デュタステリド処方",
+      description: "薄毛の最大の引き金である「悪性男性ホルモン（DHT）」の生成を根元からブロック。乱れきったヘアサイクルを正常な長さに引き戻し、まずはこれ以上の抜け毛の進行を完全に食い止めます。"
     },
-   
+    {
+      id: "02",
+      title: "血管を拡張し、眠る毛根を叩き起こす。",
+      image: "http://googleusercontent.com/profile/picture/5", 
+      subTitle: "高濃度ミノキシジル（内服・外用）",
+      description: "毛細血管を力強く拡張し、頭皮への血流を爆発的にアップ。毛根の最深部にある毛乳頭へ発毛に必要な栄養を強制的に届けることで、休止期に入って眠っていた髪の毛を太く、強く、一気に生やし込みます。"
+    }
   ],
 
   // ④ 安心メッセージ（テキストデータ）
   reassurance: {
-    label: "PROFESSIONAL CARE",
-    title: "痛みに不安のある方へ",
-    body1: "当院では、お客様ごとの痛みの感じ方に合わせて、",
-    body2: "出力強弱と照射技術の組み合わせで調整いたします。",
-    body3: "「痛みが心配で脱毛を諦めていた」\nという方も、ぜひ一度ご相談ください。",
-    note: "※ 麻酔のご用意もございますが、ご利用料金がございます。"
+    label: "CLINICAL DOCTOR SUPPORT",
+    title: "将来の薄毛に不安のある方へ",
+    body1: "AGA治療は、早く始めるほど劇的な効果とコストパフォーマンスを発揮します。",
+    body2: "医師の診断のもと、あなたの進行度に合わせた最適な組み合わせをご提案。",
+    body3: "「もう手遅れかもしれない」「市販薬では変わらなかった」\nという方も、手遅れになる前にぜひ一度当院へご相談ください。",
+    note: "※ 無料カウンセリングを実施中。お薬代は選べるプラン制（月々定額）となります。"
   }
 };
