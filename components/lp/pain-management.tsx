@@ -99,7 +99,7 @@ export default function PainManagement() {
                 </div>
                 
                 {/* 💡 光源カスタマイズ（幅45%） */}
-                <div className="absolute bottom-[-2px] left-1/2 -translate-x-1/2 w-[45%] h-[8px] bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,1),rgba(56,189,248,0.6),transparent_65%)] blur-[3px] opacity-[1] pointer-events-none z-0" />
+                <div className="absolute bottom-[-2px] left-1/2 -translate-x-1/2 w-[65%] h-[8px] bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,1),rgba(56,189,248,0.6),transparent_65%)] blur-[3px] opacity-[1] pointer-events-none z-0" />
               </div>
 
               {/* カードの下部外部のシャドウ */}
