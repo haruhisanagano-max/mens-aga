@@ -7,7 +7,7 @@ import { PAIN_CONTENT } from '@/edit/pain-content'
 
 export default function PainManagement() {
   // ---------------------------------------------------------
-  // ★ デザイン統一用リモコン（AGA・洗練された医療Glowカスタム・扇状グロウ決定版）
+  // ★ デザイン統一用リモコン（AGA・プレミアムチャコール＆下部線状光源カスタム）
   // ---------------------------------------------------------
   /* 🔤 極太(font-black)をやめ、誠実さと高級感を出す太字(font-bold)へ。白文字で統一。 */
   const fontTitle = "font-sans font-bold tracking-tight text-slate-100" 
@@ -20,16 +20,17 @@ export default function PainManagement() {
   /* 💡 境界線：ただの枠線ではなく、上フチ（border-t）だけに光が当たってキラッと反射したような極細ラインを仕込み、高級アクリルガラスの質感を出し、背景から切り離します */
   const cardBorder = "border border-slate-900/60 border-t-white/10 border-l-white/5 transition-all duration-500 hover:border-sky-400/20"
   
-  /* 💡 【重要】影と背景のアップデート：
-     安っぽいネオンの影を完全に消す代わりに、カード本体（bg-[#1E293B]）を背景と分離させるため、当初のように「カードの下部だけ」に医療ブルー（SkyBlue）の光がポロポロと微弱に漏れ出るような、下方向限定のドロップシャドウをブレンドしています */
+  /* 💡 【最重要】影と背景のアップデート：
+     カード本体の色を、真っ黒から上品な「チャコールグレー（#1E293B）」へ明るく引き上げました！
+     さらに、当初のように「カードの下部だけ」に医療ブルー（SkyBlue）の光がポロポロと微弱に漏れ出るような、下方向限定のドロップシャドウをブレンドしています。これで重さが消えます！ */
   const cardShadow = "shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),0_30px_60px_-15px_rgba(56,189,248,0.1)] bg-[#1E293B]"
   // ---------------------------------------------------------
 
   return (
-    /* 全体の背景：くすんだ墨色から、洗練された高級インテリジェンスを感じる「ディープネイビーグレー（#0B111E）」へ微調整 */
+    /* 💡 全体の背景：くすんだ墨色から、洗練された高級インテリジェンスを感じる「ディープネイビーグレー（#0B111E）」へ微調整 */
     <section id="pain" className={`${sectionPadding} relative bg-[#0B111E] text-slate-400 overflow-hidden`}>
       
-      {/* 🖼️ 最背面：背景テクスチャ */}
+      {/* 最背面：背景テクスチャ */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {PAIN_CONTENT.sectionBgImage && (
           <Image src={PAIN_CONTENT.sectionBgImage} alt="" fill className="object-cover opacity-[0.02] mix-blend-overlay" priority />
@@ -40,14 +41,14 @@ export default function PainManagement() {
         
         {/* 🔴 Header */}
         <div className={`text-center ${headerBottomMargin}`}>
-          {/* アクセントゴールドの発光感を、より柔らかく洗練された白系へ */}
+          {/* アクセントゴールドの発光感を、より柔らかく洗練された白系へ重ねる。 */}
           <span className="text-[10px] font-bold tracking-[0.5em] text-amber-300 block mb-4 uppercase drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">
             {PAIN_CONTENT.badge}
           </span>
           <h2 className={`${fontTitle} text-3xl sm:text-5xl font-extrabold mb-6 leading-tight`}>
             {PAIN_CONTENT.mainTitle.split('\n').map((line, i) => <span key={i} className="block">{line}</span>)}
           </h2>
-          <p className="text-slate-400 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium opacity-80 leading-relaxed font-medium opacity-70">
+          <p className="text-slate-400 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium opacity-80 opactiy-70">
             {PAIN_CONTENT.mainSubtitle}
           </p>
         </div>
@@ -57,7 +58,7 @@ export default function PainManagement() {
           {PAIN_CONTENT.measures.map((m, i) => (
             <div key={i} className={`relative grid lg:grid-cols-12 gap-0 items-center`}>
               
-              {/* 背後の特大ID：デジタルな発光をやめ、背景に深く静かに溶け込む透かしデザイン（opacityを少し上げた漆黒） */}
+              {/* 背後の特大ID：デジタルな発光をやめ、背景に深く静かに溶け込む透かしデザイン（漆黒の透かし） */}
               <span className={`font-sans text-[12rem] sm:text-[22rem] font-black text-slate-900 opacity-[0.25] absolute -top-16 ${i % 2 === 0 ? '-right-4' : '-left-4'} italic pointer-events-none select-none z-0`}>
                 {m.id}
               </span>
@@ -86,9 +87,9 @@ export default function PainManagement() {
                 overflow-hidden /* 💡 光をカードの枠内に綺麗に閉じ込める設定 */
               `}>
                 
-                {/* 💡 【新発明】カード最下部から、上に向かって扇状にポワッと「控えめ」に灯る医療ブルーの光のグラデーション
-                   不透明度を 18% (rgba(56,189,248,0.18)) に上げ、より「気持ち強め」の光が滲み出るようにしました。 */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[140%] h-[50%] bg-[radial-gradient(ellipse_at_bottom,rgba(56,189,248,0.18),transparent_75%)] pointer-events-none z-0" />
+                {/* 💡 【扇状発光の復活】カード最下部から、上に向かって扇状にポワッと「控えめ」に灯る医療ブルーの光のグラデーション
+                   不透明度を 12% (rgba(56,189,248,0.12)) に上げ、より「気持ち強め」の光が滲み出るようにしました。 */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[140%] h-[50%] bg-[radial-gradient(ellipse_at_bottom,rgba(56,189,248,0.12),transparent_75%)] pointer-events-none z-0" />
 
                 {/* 文字が光の裏に隠れないように z-10 で手前に引き上げ */}
                 <div className="space-y-5 relative z-10">
@@ -115,8 +116,14 @@ export default function PainManagement() {
                     {m.description}
                   </p>
                 </div>
+                
+                {/* 💡 【新発明：線状光源】カード最下部に、ジュエルのように上品に美しく光る線状の光源（インナーグロウ）を追加
+                   単純な線ではなく、中央から滲み出るようなボカシのある明るいモヤです。 */}
+                <div className="absolute bottom-[-1px] left-1/2 -translate-x-1/2 w-[85%] h-[6px] bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,0.6),rgba(56,189,248,0.25),transparent_70%)] blur-[4px] opacity-[0.9] pointer-events-none z-0" />
               </div>
 
+              {/* カードの下部を影みたいに当初のように下方向限定で光らせる */}
+              <div className="absolute inset-0 z-0 bottom-[-30px] left-1/2 -translate-x-1/2 w-[70%] h-[30px] bg-sky-400/10 blur-[20px] pointer-events-none rounded-full" />
             </div>
           ))}
         </div>
