@@ -2,35 +2,33 @@
 
 import Image from 'next/image'
 import { ShieldCheck, Minus } from 'lucide-react'
-import { motion } from 'framer-motion'
 import { PAIN_CONTENT } from '@/edit/pain-content'
 
 export default function PainManagement() {
   // ---------------------------------------------------------
-  // ★ デザイン統一用リモコン（青ベース・垂直上下ドッキング＆複数斜め直線光源版）
+  // ★ デザイン統一用リモコン（マシーン共通ガラス×上下ドッキング＆複数斜め直線光源版）
   // ---------------------------------------------------------
   const fontTitle = "font-sans font-bold tracking-tight text-slate-100" 
   const sectionPadding = "py-16 sm:py-28"
   const headerBottomMargin = "mb-12 sm:mb-20"
   const cardRoundedTop = "rounded-t-xl"
   const cardRoundedBottom = "rounded-b-xl"
+  const glassBorder = "border-x border-b border-slate-700/60 border-b-slate-700/40"
   // ---------------------------------------------------------
-
-  const gpuStyle = { transform: 'translateZ(0)', willChange: 'opacity, transform' };
 
   return (
     /* 背景色は共通のディープネイビー（#0B111E） */
     <section id="pain" className={`${sectionPadding} relative bg-[#0B111E] text-slate-400 overflow-hidden`}>
       
-      {/* 💡 【修正】背景（z-0）を大きく斜めにぶち抜く、シャープなシアンブルーの複数直線光源。
-          1本目と2本目のシャープな光の線が並行して走り、その周囲をアンビエントな光のモヤが優しく包みます。 */}
+      {/* 💡 【背景光源】マシーンの光源と同じテイストの、シャープな複数の斜め直線。
+          背景（z-0）を鋭く切り裂き、その周囲にうっすらとした青い光のモヤを広げています。 */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-80">
         {/* 斜め直線光源（1本目・シャープな芯） */}
-        <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[linear-gradient(135deg,transparent_49.85%,#38bdf8_50%,transparent_50.15%)] blur-[1px]" />
+        <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[linear-gradient(135deg,transparent_49.9%,#38bdf8_50%,transparent_50.1%)] blur-[1px]" />
         {/* 斜め直線光源（2本目・並行するシャープな芯） */}
-        <div className="absolute top-[-40%] left-[-60%] w-[200%] h-[200%] bg-[linear-gradient(135deg,transparent_49.85%,#0ea5e9_50%,transparent_50.15%)] blur-[1px] opacity-70" />
+        <div className="absolute top-[-45%] left-[-55%] w-[200%] h-[200%] bg-[linear-gradient(135deg,transparent_49.9%,#0ea5e9_50%,transparent_50.1%)] blur-[2px] opacity-70" />
         {/* 線から周囲へと広がる柔らかな光の拡散層 */}
-        <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[linear-gradient(135deg,transparent_42%,#0ea5e9_50%,transparent_58%)] blur-[120px] opacity-35" />
+        <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[linear-gradient(135deg,transparent_42%,#0ea5e9_50%,transparent_58%)] blur-[120px] opacity-30" />
       </div>
 
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -39,7 +37,7 @@ export default function PainManagement() {
         )}
       </div>
 
-      {/* 上下並びの美しさを際立たせるため、横幅をmax-w-4xlに最適化 */}
+      {/* 美しい上下並びをキープするため、横幅をmax-w-4xlに最適化 */}
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         
         {/* 🔴 Header */}
@@ -58,14 +56,14 @@ export default function PainManagement() {
         {/* 🔴 Measures (各施策) */}
         <div className="space-y-16 sm:space-y-28 mb-20">
           {PAIN_CONTENT.measures.map((m, i) => (
-            <div key={i} className="relative flex flex-col items-center w-full gap-0" style={gpuStyle}>
+            <div key={i} className="relative flex flex-col items-center w-full gap-0">
               
               {/* 背景の巨大ID番号 */}
               <span className="font-sans text-[10rem] sm:text-[16rem] font-black text-slate-900 opacity-[0.22] absolute -top-20 right-4 italic pointer-events-none select-none z-0">
                 {m.id}
               </span>
 
-              {/* 1️⃣ 上側：画像フィールド（カードと重ねず、ぴったり上下にドッキング） */}
+              {/* 1️⃣ 上側：画像フィールド（隙間なく下のカードへドッキング） */}
               <div className="w-full relative z-10">
                 <div className={`${cardRoundedTop} border-t border-x border-slate-800 overflow-hidden aspect-[16/9] bg-slate-950 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)]`}>
                   <Image 
@@ -78,21 +76,20 @@ export default function PainManagement() {
                 </div>
               </div>
 
-              {/* 2️⃣ 下側：テキストパネル（💡 マシーンパートと完全に同じ高級透過ガラス仕様に復帰） */}
+              {/* 2️⃣ 下側：テキストパネル（💡 マシーンパートと完全に同じ高級透過ガラス仕様） */}
               <div className={`
                 w-full relative z-10 p-8 sm:p-12 
-                ${cardRoundedBottom} 
-                border-x border-b border-slate-700/60 border-b-slate-700/40
+                ${cardRoundedBottom} ${glassBorder}
                 bg-slate-900/40 backdrop-blur-2xl
                 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)]
                 overflow-hidden
               `}>
                 
-                {/* 💡 マシーンパートと同じ美しさを放つ「2箇所のガラス表面反射」を追加 */}
+                {/* 💡 マシーンパートと全く同じ質感を出す「2箇所のガラス表面反射」 */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.12] via-transparent to-transparent pointer-events-none z-0" />
                 <div className="absolute inset-0 bg-gradient-to-bl from-white/[0.08] via-transparent to-transparent pointer-events-none z-0" />
 
-                {/* ガラス内部を優しく満たすアンビエント発光 */}
+                {/* ガラス内部を満たすシアンの淡い発光 */}
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.03),transparent_75%)] pointer-events-none z-0" />
 
                 <div className="space-y-5 relative z-10">
