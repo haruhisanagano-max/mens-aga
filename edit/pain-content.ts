@@ -23,7 +23,7 @@ export const PAIN_CONTENT = {
     {
       id: "02",
       title: "血管を拡張し、眠る毛根を叩き起こす。",
-      image: "http://googleusercontent.com/profile/picture/5", 
+      image: "https://lh3.googleusercontent.com/d/1JPmpG9sQ-8s__a9FDKYsMwYs9jUQ3ttf", 
       subTitle: "高濃度ミノキシジル（内服・外用）",
       description: "毛細血管を力強く拡張し、頭皮への血流を爆発的にアップ。毛根の最深部にある毛乳頭へ発毛に必要な栄養を強制的に届けることで、休止期に入って眠っていた髪の毛を太く、強く、一気に生やし込みます。"
     }
