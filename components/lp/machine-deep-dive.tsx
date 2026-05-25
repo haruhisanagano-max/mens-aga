@@ -18,13 +18,18 @@ export default function MachineDeepDive() {
   const gpuStyle = { transform: 'translateZ(0)', willChange: 'opacity, transform' };
 
   return (
-    /* 💡 ベースは漆黒に近いネイビーにして、まだら光を目立たせます */
+    /* 💡 ベースは漆黒に近いネイビー。ちりばめた光を目立たせます */
     <section id="machine" className={`${sectionPadding} relative bg-[#050A15] text-slate-400 overflow-hidden`}>
       
-      {/* 💡 【まだら（斑）の光】確実に目視できるよう、不透明度を 40%〜30% に引き上げました！ */}
-      <div className="absolute top-[5%] left-[5%] w-[450px] h-[450px] bg-sky-500/40 blur-[120px] rounded-full pointer-events-none z-0" />
-      <div className="absolute top-[40%] right-[-5%] w-[550px] h-[550px] bg-indigo-500/30 blur-[150px] rounded-full pointer-events-none z-0" />
-      <div className="absolute bottom-[10%] left-[10%] w-[500px] h-[500px] bg-cyan-400/30 blur-[130px] rounded-full pointer-events-none z-0" />
+      {/* 💡 【新：背景の大小ちりばめまだら光】
+          セクション全体に、大小異なる医療ブルーの光の斑点を不規則に配置。
+          これらが磨りガラスを通して透けて見え、幻想的な奥行きを作ります。 */}
+      <div className="absolute top-[5%] left-[5%] w-10 h-10 bg-sky-500/40 blur-[20px] rounded-full pointer-events-none z-0" />
+      <div className="absolute top-[15%] right-[20%] w-6 h-6 bg-cyan-400/30 blur-[15px] rounded-full pointer-events-none z-0" />
+      <div className="absolute top-[35%] left-[40%] w-8 h-8 bg-indigo-500/30 blur-[18px] rounded-full pointer-events-none z-0" />
+      <div className="absolute top-[60%] right-[10%] w-12 h-12 bg-sky-500/40 blur-[25px] rounded-full pointer-events-none z-0" />
+      <div className="absolute bottom-[20%] left-[25%] w-6 h-6 bg-cyan-400/30 blur-[15px] rounded-full pointer-events-none z-0" />
+      <div className="absolute bottom-[5%] right-[30%] w-10 h-10 bg-indigo-500/30 blur-[20px] rounded-full pointer-events-none z-0" />
 
       <div className="absolute inset-0 z-0 pointer-events-none">
         {MACHINE_CONTENT.sectionBgImage && (
@@ -79,7 +84,7 @@ export default function MachineDeepDive() {
               {/* 右側：解説エリア（💡 これが透過グラス！ backdrop-blur-2xl で重厚なガラスに） */}
               <div className="p-8 sm:p-12 flex flex-col justify-center w-full relative overflow-hidden bg-slate-900/40 backdrop-blur-2xl z-10">
                 
-                {/* 💡 上段独自：ガラスの表面反射（12%の白グラデーションにして、確実に目視できるように！） */}
+                {/* ガラスの表面反射（12%の白グラデーション）は維持 */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.12] via-transparent to-transparent pointer-events-none z-0" />
 
                 <div className="space-y-10 w-full relative z-10">
@@ -138,7 +143,7 @@ export default function MachineDeepDive() {
                   <Image src={reason.img} alt="" fill className="object-cover opacity-95 hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 
-                {/* テキスト側（💡 ここが「透過グラス」。背景のまだら光がぼんやり透けます） */}
+                {/* テキスト側（💡 ここが「透過グラス」！） */}
                 <div className={`${cardTextPadding} relative h-full flex flex-col justify-center overflow-hidden bg-slate-900/40 backdrop-blur-2xl z-10`}>
                   
                   {/* 背景の特大ID */}
@@ -146,15 +151,31 @@ export default function MachineDeepDive() {
                     {i + 1}
                   </span>
                   
-                  {/* 💡 【下段独自】ガラスの中の底面発光（確実に光るように数値を強化！） */}
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[140%] h-[50%] bg-[radial-gradient(ellipse_at_bottom,rgba(56,189,248,0.25),transparent_75%)] pointer-events-none z-0" />
-                  <div className="absolute bottom-[-2px] left-1/2 -translate-x-1/2 w-[65%] h-[10px] bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,1),rgba(56,189,248,0.8),transparent_65%)] blur-[2px] opacity-[1] pointer-events-none z-0" />
+                  {/* 💡 【新：下段独自の「まだらドット床発光」】
+                      扇形を全廃し、床全体に大小のドット（斑点）がまだらに並んでいるイメージ。
+                      直線的ではありませんが、足元に斑点状の光をちりばめ、テキストを上品に照らします。 */}
+                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[90%] h-6 pointer-events-none z-0">
+                    <div className="flex justify-around items-end w-full h-full">
+                      <div className="w-4 h-4 bg-sky-500/50 blur-[5px] rounded-full" />
+                      <div className="w-2 h-2 bg-sky-500/40 blur-[3px] rounded-full delay-100" />
+                      <div className="w-6 h-6 bg-cyan-400/30 blur-[7px] rounded-full delay-200" />
+                      <div className="w-3 h-3 bg-sky-500/50 blur-[4px] rounded-full delay-300" />
+                      <div className="w-2 h-2 bg-cyan-400/40 blur-[3px] rounded-full delay-100" />
+                      <div className="w-4 h-4 bg-sky-500/50 blur-[5px] rounded-full" />
+                      <div className="w-6 h-6 bg-cyan-400/30 blur-[7px] rounded-full delay-200" />
+                      <div className="w-2 h-2 bg-sky-500/40 blur-[3px] rounded-full delay-300" />
+                      <div className="w-3 h-3 bg-cyan-400/50 blur-[4px] rounded-full delay-100" />
+                      <div className="w-4 h-4 bg-sky-500/50 blur-[5px] rounded-full" />
+                      <div className="w-2 h-2 bg-cyan-400/40 blur-[3px] rounded-full delay-200" />
+                      <div className="w-3 h-3 bg-sky-500/50 blur-[4px] rounded-full delay-300" />
+                    </div>
+                  </div>
 
                   <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-4">
                       <span className="font-sans text-xl font-bold italic text-amber-300 drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]">0{i + 1}</span>
                       <Minus className="w-6 h-[1px] text-slate-500" />
-                      <span className="text-[9px] font-extrabold text-sky-400/90 bg-sky-500/10 border border-sky-400/20 px-2 py-0.5 rounded tracking-wide uppercase">
+                      <span className="text-[9px] font-extrabold text-sky-400/90 bg-sky-500/10 border border-sky-400/20 px-2 py-0.5 rounded tracking-widest uppercase">
                         Meso Detail
                       </span>
                     </div>
