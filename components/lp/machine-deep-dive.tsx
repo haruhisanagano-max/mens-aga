@@ -7,33 +7,34 @@ import { MACHINE_CONTENT } from '@/edit/machine-content'
 
 export default function MachineDeepDive() {
   // ---------------------------------------------------------
-  // ★ デザイン統一用リモコン（Painパート基準・品格＆リズム決定版）
+  // ★ デザイン統一用リモコン（上段：光源なしアウターグロウ決定版）
   // ---------------------------------------------------------
   const fontTitle = "font-sans font-bold tracking-tight text-slate-100"
   const sectionPadding = "pt-16 sm:pt-28 pb-13" 
   const headerBottomMargin = "mb-12 sm:mb-20"
   const cardTextPadding = "p-8 sm:p-12"
-  
-  // Painパートと完全に同じ、洗練された丸みと枠線
   const cardRounded = "rounded-xl"
-  const cardBorder = "border border-slate-700/30 transition-all duration-500 hover:border-sky-400/20"
 
-  /* 💡 【上段カード】光源は入れず、スクショのように「外側に青い影（アウターグロウ）」を落とす */
-  const mainCardShadow = "shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5),0_0_40px_rgba(56,189,248,0.15)] bg-[#1E293B]"
+  /* 💡 【上段スペックカード】（光源なしのアウターグロウ）
+     影（Shadow）の設定を、単なるドロップシャドウから、医療ブルー（SkyBlue）の広範囲なぼかし（アウターグロウ）へ変更。
+     不透明度を少し上げ、光源の芯（白）は入れず、青いモヤだけがフレームから漏れ出るようにします。 */
+  const mainCardBorder = "border border-slate-700/60 transition-all duration-500 hover:border-sky-400/20"
+  const mainCardShadow = "shadow-[0_20px_50px_-10px_rgba(0,0,0,0.6),0_30px_90px_rgba(56,189,248,0.18)] bg-[#151F32]"
 
-  /* 💡 【下段カード】Painパートと同じ、少し明るい上品なチャコールグレー */
-  const longCardShadow = "shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),0_30px_60px_-15px_rgba(56,189,248,0.1)] bg-[#1E293B]"
+  /* 💡 【下段3連ロングカード】（提供コードのまま） */
+  const longCardBorder = "border border-slate-700/60"
+  const longCardShadow = "shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),0_20px_40px_-10px_rgba(56,189,248,0.08)] bg-[#1E293B]/70"
   // ---------------------------------------------------------
 
   const gpuStyle = { transform: 'translateZ(0)', willChange: 'opacity, transform' };
 
   return (
-    /* 背景はPainパートと完全に統一したディープネイビー */
-    <section id="machine" className={`${sectionPadding} relative bg-[#0B111E] text-slate-400 overflow-hidden`}>
+    /* 全体の背景：提供コードのまま */
+    <section id="machine" className={`${sectionPadding} relative bg-[#0F172A] text-slate-400 overflow-hidden`}>
       
       <div className="absolute inset-0 z-0 pointer-events-none">
         {MACHINE_CONTENT.sectionBgImage && (
-          <Image src={MACHINE_CONTENT.sectionBgImage} alt="" fill className="object-cover opacity-[0.02] mix-blend-overlay" priority />
+          <Image src={MACHINE_CONTENT.sectionBgImage} alt="" fill className="object-cover opacity-[0.01] mix-blend-overlay" priority />
         )}
       </div>
 
@@ -55,13 +56,16 @@ export default function MachineDeepDive() {
 
           {/* 🔴 1. 上段スペック解説カード（アウターグロウのみ） */}
           <motion.div 
-            className={`relative overflow-hidden ${cardRounded} ${cardBorder} ${mainCardShadow} mb-12`}
+            /* 💡 アウターグロウ（mainCardShadow）を適用 */
+            className={`relative overflow-hidden ${cardRounded} ${mainCardBorder} ${mainCardShadow} mb-12`}
             style={gpuStyle}
           >
+            {/* 💡 【修正点】上部カードの内部光（インナーグロウ）のdivを削除しました。光源はありません。 */}
+
             <div className="grid grid-cols-1 lg:grid-cols-2 w-full h-full relative z-10">
               
-              {/* 左側：画像エリア（💡 完全に幕なし！クリアな画像） */}
-              <div className="relative aspect-[12/9] lg:aspect-auto bg-[#1E293B] w-full overflow-hidden border-b lg:border-b-0 lg:border-r border-slate-700/30">
+              {/* 左側：画像エリア（幕なし、クリア） */}
+              <div className="relative aspect-[12/9] lg:aspect-auto bg-slate-950 w-full overflow-hidden border-b lg:border-b-0 lg:border-r border-slate-700/60">
                 {MACHINE_CONTENT.diagram.image && (
                   <Image 
                     src={MACHINE_CONTENT.diagram.image} 
@@ -85,7 +89,7 @@ export default function MachineDeepDive() {
               <div className="p-8 sm:p-12 flex flex-col justify-center w-full relative z-10">
                 <div className="space-y-10 w-full">
                   {MACHINE_CONTENT.lasers.map((laser, idx) => (
-                    <div className="relative w-full overflow-hidden" key={idx}>
+                    <div key={idx} className="relative w-full overflow-hidden">
                       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-3 w-full">
                         <h4 className="font-sans text-lg sm:text-xl font-bold text-slate-100 break-all tracking-tight">
                           {laser.name}
@@ -117,73 +121,62 @@ export default function MachineDeepDive() {
             {MACHINE_CONTENT.features.map((f, i) => (
               <motion.div 
                 key={i} 
-                className={`aspect-[4/3] relative overflow-hidden ${cardRounded} border border-slate-700/30 shadow-2xl bg-[#1E293B]`} 
+                className={`aspect-[4/3] relative overflow-hidden ${cardRounded} border border-slate-700/60 shadow-2xl bg-slate-950`} 
                 whileHover={{ y: -4, borderColor: 'rgba(56,189,248,0.3)' }}
                 transition={{ duration: 0.3 }}
               >
-                {/* 💡 ここも幕なし。クリア。 */}
-                <Image src={f.img} alt="" fill className="object-cover opacity-90 hover:opacity-100 transition-opacity duration-500" />
+                {/* 幕なし、クリア */}
+                <Image src={f.img} alt="" fill className="object-cover opacity-80 hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent" />
               </motion.div>
             ))}
           </div>
 
-          {/* 🔴 3. 下部ロングカード（1つの大きなカード内で構成ごとに光る） */}
-          <motion.div className={`overflow-hidden ${cardRounded} ${cardBorder} ${longCardShadow}`}>
+          {/* 🔴 3. ロングカード（3連詳細・縦並び） */}
+          <motion.div 
+            /* 提供コードのまま */
+            className={`overflow-hidden ${cardRounded} ${longCardBorder} ${longCardShadow}`}
+          >
             {MACHINE_CONTENT.reasons.map((reason, i) => (
-              <div key={i} className={`relative grid md:grid-cols-2 items-center ${i !== 0 ? 'border-t border-slate-700/30' : ''}`}>
+              <div key={i} className={`relative grid md:grid-cols-2 items-center ${i !== 0 ? 'border-t border-slate-700支線 leading-loose font-medium pt-2 border-t border-slate-700/40' : ''}`}>
                 
-                {/* 画像側（💡 幕なし、クリア） */}
-                <div className={`relative aspect-video bg-[#1E293B] overflow-hidden ${i % 2 !== 0 ? 'md:order-last' : ''}`}>
-                  <Image src={reason.img} alt="" fill className="object-cover opacity-90 hover:opacity-100 transition-opacity duration-500" />
+                {/* 画像側（幕なし、クリア） */}
+                <div className={`relative aspect-video bg-slate-950/20 overflow-hidden ${i % 2 !== 0 ? 'md:order-last' : ''}`}>
+                  <Image src={reason.img} alt="" fill className="object-cover opacity-80 hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent" />
                 </div>
                 
                 {/* テキスト側 */}
-                <div className={`${cardTextPadding} relative h-full flex flex-col justify-center overflow-hidden`}>
+                <div className={`${cardTextPadding} relative h-full flex flex-col justify-center`}>
                   
-                  {/* 背景の特大ID */}
+                  {/* 背景の特大ID（背景に沈める） */}
                   <span className="font-sans italic text-[8rem] sm:text-[12rem] absolute -top-4 -right-4 opacity-[0.03] select-none font-black text-slate-100 z-0">
                     {i + 1}
                   </span>
                   
-                  {/* 💡 【各要素への独立光源】白は一切不使用。テキストを邪魔しない端に配置 */}
+                  {/* 提供コードの扇状グロウ（独立発光）設定を維持 */}
                   {i === 0 && (
-                    <>
-                      {/* 左端の芯 */}
-                      <div className="absolute left-[-2px] top-1/2 -translate-y-1/2 w-[6px] h-[40%] bg-[radial-gradient(ellipse_at_left,rgba(56,189,248,0.9),transparent_70%)] blur-[2px] pointer-events-none z-0" />
-                      {/* 左端のモヤ */}
-                      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[70%] h-[120%] bg-[radial-gradient(ellipse_at_left,rgba(56,189,248,0.12),transparent_70%)] pointer-events-none z-0" />
-                    </>
+                    <div className="absolute top-0 left-0 w-[80%] h-[80%] bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.15),transparent_60%)] pointer-events-none z-0" />
                   )}
                   {i === 1 && (
-                    <>
-                      {/* 右端の芯 */}
-                      <div className="absolute right-[-2px] top-1/2 -translate-y-1/2 w-[6px] h-[40%] bg-[radial-gradient(ellipse_at_right,rgba(56,189,248,0.9),transparent_70%)] blur-[2px] pointer-events-none z-0" />
-                      {/* 右端のモヤ */}
-                      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[70%] h-[120%] bg-[radial-gradient(ellipse_at_right,rgba(56,189,248,0.12),transparent_70%)] pointer-events-none z-0" />
-                    </>
+                    <div className="absolute bottom-0 right-0 w-[80%] h-[80%] bg-[radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.15),transparent_60%)] pointer-events-none z-0" />
                   )}
                   {i === 2 && (
-                    <>
-                      {/* 底面の芯（Painパートと同じだが、色はSkyBlue） */}
-                      <div className="absolute bottom-[-2px] left-1/2 -translate-x-1/2 w-[40%] h-[6px] bg-[radial-gradient(ellipse_at_bottom,rgba(56,189,248,0.9),transparent_70%)] blur-[2px] pointer-events-none z-0" />
-                      {/* 底面のモヤ */}
-                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120%] h-[70%] bg-[radial-gradient(ellipse_at_bottom,rgba(56,189,248,0.12),transparent_70%)] pointer-events-none z-0" />
-                    </>
+                    /* ここが「芯のある強烈光源（提供コードと同様）」 */
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,1),rgba(56,189,248,0.6),transparent_65%)] pointer-events-none z-0 blur-[3px]" />
                   )}
 
-                  {/* テキスト要素（z-10 で光より手前に置くため、絶対に見えなくならない） */}
                   <div className="relative z-10">
-                    <div className="flex items-center gap-2 mb-4">
-                      <span className="font-sans text-xl font-bold italic text-amber-300 drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]">0{i + 1}</span>
-                      <span className="text-[9px] font-extrabold text-sky-400/90 bg-sky-500/10 border border-sky-400/20 px-2 py-0.5 rounded tracking-wide uppercase">
-                        Meso Detail
-                      </span>
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="font-sans text-xl font-black italic text-amber-300 drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]">0{i + 1}</span>
+                      <Minus className="w-6 h-[1px] text-slate-700/60" />
+                      <span className="text-[9px] font-bold text-sky-400/90 bg-sky-500/10 border border-sky-400/20 px-2 py-0.5 rounded tracking-widest uppercase shadow-[0_0_10px_rgba(56,189,248,0.15)]">Meso Detail</span>
                     </div>
                     
                     <h3 className="font-sans text-xl sm:text-2xl font-bold text-slate-100 mb-3 sm:mb-5 tracking-tight">
                       {reason.title}
                     </h3>
-                    <p className="text-sm text-slate-300 leading-loose font-medium opacity-90">
+                    <p className="text-slate-300 text-xs sm:text-sm leading-loose font-medium opacity-90">
                       {reason.desc}
                     </p>
                   </div>
@@ -194,7 +187,7 @@ export default function MachineDeepDive() {
 
           {/* 🔴 下部注釈パーツ */}
           <div className="mt-12 sm:mt-16 text-center">
-            <div className="inline-flex items-start gap-3 px-8 py-4 bg-slate-900/40 rounded-xl text-slate-400 text-[10px] sm:text-xs border border-slate-700/50 font-bold tracking-tight shadow-inner">
+            <div className="inline-flex items-start gap-3 px-8 py-4 bg-slate-900/40 rounded-xl text-slate-400 text-[10px] sm:text-xs border border-slate-700 font-bold tracking-tight shadow-inner">
               <ShieldCheck className="w-5 h-5 text-sky-400/70 shrink-0 mt-0.5" />
               <span className="whitespace-pre-line text-left opacity-80">
                 {`※当院のAGA注入治療および処方薬は、医師の診断に基づき、適切なリスク管理のもとで行われます。
