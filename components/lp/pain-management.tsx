@@ -63,7 +63,7 @@ export default function PainManagement() {
                 {m.id}
               </span>
 
-              {/* 1️⃣ 上側：画像フィールド（隙間なく下のカードへドッキング） */}
+              {/* 1️⃣ 上側：画像フィールド（隙間なく下のカードへ密着ドッキング） */}
               <div className="w-full relative z-10">
                 <div className={`${cardRoundedTop} border-t border-x border-slate-800 overflow-hidden aspect-[16/9] bg-slate-950 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)]`}>
                   <Image 
@@ -76,7 +76,7 @@ export default function PainManagement() {
                 </div>
               </div>
 
-              {/* 2️⃣ 下側：テキストパネル（💡 マシーンパートと完全に同じ高級透過ガラス仕様） */}
+              {/* 2️⃣ 下側：テキストパネル（マシーンパートと完全に同じ高級透過ガラス仕様） */}
               <div className={`
                 w-full relative z-10 p-8 sm:p-12 
                 ${cardRoundedBottom} ${glassBorder}
@@ -85,7 +85,7 @@ export default function PainManagement() {
                 overflow-hidden
               `}>
                 
-                {/* 💡 マシーンパートと全く同じ質感を出す「2箇所のガラス表面反射」 */}
+                {/* マシーンパートと全く同じ質感を出す「2箇所のガラス表面反射」 */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.12] via-transparent to-transparent pointer-events-none z-0" />
                 <div className="absolute inset-0 bg-gradient-to-bl from-white/[0.08] via-transparent to-transparent pointer-events-none z-0" />
 
