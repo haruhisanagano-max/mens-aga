@@ -7,7 +7,7 @@ import { MACHINE_CONTENT } from '@/edit/machine-content'
 
 export default function MachineDeepDive() {
   // ---------------------------------------------------------
-  // ★ デザイン統一用リモコン（AGA・斜め光＆レーザーライン緩急カスタム）
+  // ★ デザイン統一用リモコン（AGA・視認性爆上げ・光の緩急カスタム決定版）
   // ---------------------------------------------------------
   const fontTitle = "font-sans font-bold tracking-tight text-slate-100"
   const sectionPadding = "pt-16 sm:pt-28 pb-13" 
@@ -15,18 +15,18 @@ export default function MachineDeepDive() {
   const cardTextPadding = "p-6 sm:p-10" 
   const cardRounded = "rounded-xl"
 
-  /* 💡 1. 大型スペックカード用の設定（斜め上からの光を意識した薄いフチ） */
-  const mainCardBorder = "border border-slate-800/60 border-t-white/10 border-l-white/5"
+  /* 💡 1. 大型スペックカード用の設定（左上からの強い光を迎え撃つエッジ） */
+  const mainCardBorder = "border border-slate-800/80 border-t-white/20 border-l-white/10"
   const mainCardShadow = "shadow-[0_30px_70px_-15px_rgba(0,0,0,0.7)] bg-[#151F32]/90 backdrop-blur-xl"
 
-  /* 💡 3. 縦並びロングカード用の設定（少し明るいグレーゾーンの中で引き締まる漆黒カード） */
-  const longCardBorder = "border border-slate-900/80 hover:border-sky-500/20 transition-all duration-500"
-  const longCardShadow = "shadow-[0_20px_50px_rgba(0,0,0,0.5)] bg-[#0B0F17]/90"
+  /* 💡 3. 縦並びロングカード用の設定（左フチをスカイブルーに光らせて角度の違いを演出） */
+  const longCardBorder = "border border-slate-900 border-l-2 border-l-sky-400/80 transition-all duration-500 hover:border-l-sky-300"
+  const longCardShadow = "shadow-[0_20px_50px_rgba(0,0,0,0.6)] bg-[#0B0F17]/90"
 
   const gpuStyle = { transform: 'translateZ(0)', willChange: 'opacity, transform' };
 
   return (
-    /* 💡 【グレーゾーン化】：前回より少しだけ明るく硬質なチャコールグレー背景へシフトし、LPに段差を作ります */
+    /* 全体の背景：硬質で洗練された高級テック感のあるチャコールグレー背景 */
     <section id="machine" className={`${sectionPadding} relative bg-[#0F172A] text-slate-400 overflow-hidden`}>
       
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -40,7 +40,7 @@ export default function MachineDeepDive() {
           
           {/* 🔴 Header */}
           <div className={`text-center ${headerBottomMargin}`}>
-            <span className="text-[10px] font-bold tracking-[0.5em] text-amber-300 block mb-4 uppercase drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]">
+            <span className="text-[10px] font-bold tracking-[0.5em] text-amber-300 block mb-4 uppercase drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">
               {MACHINE_CONTENT.badge}
             </span>
             <h2 className={`${fontTitle} text-3xl sm:text-5xl font-extrabold mb-6 leading-tight`}>
@@ -56,13 +56,13 @@ export default function MachineDeepDive() {
             className={`relative overflow-hidden ${cardRounded} ${mainCardBorder} ${mainCardShadow} mb-12`}
             style={gpuStyle}
           >
-            {/* 💡 【パターン①：斜め上の光】大型カードの左上から、対角線上にポワッと差し込むスカイブルーの光 */}
-            <div className="absolute top-0 left-0 w-[60%] h-[60%] bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.12),transparent_70%)] pointer-events-none z-0" />
+            {/* 💡 【視認性爆上げ・左上斜め光】不透明度をガツンと上げ、中央に白をブレンド。これで確実に光が見えます！ */}
+            <div className="absolute top-0 left-0 w-[70%] h-[70%] bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.25),rgba(56,189,248,0.45),transparent_65%)] pointer-events-none z-0 opacity-90" />
 
             <div className="grid grid-cols-1 lg:grid-cols-2 w-full overflow-hidden relative z-10">
               
-              {/* 左側：画像エリア（背景を少し暗くして画像と光を引き立てる） */}
-              <div className="relative aspect-[12/9] bg-slate-950/40 w-full overflow-hidden border-b lg:border-b-0 lg:border-r border-slate-900/60">
+              {/* 左側：画像エリア */}
+              <div className="relative aspect-[12/9] bg-slate-950/60 w-full overflow-hidden border-b lg:border-b-0 lg:border-r border-slate-900/60">
                 {MACHINE_CONTENT.diagram.image && (
                   <Image 
                     src={MACHINE_CONTENT.diagram.image} 
@@ -71,12 +71,11 @@ export default function MachineDeepDive() {
                     className="object-cover opacity-90 transition-transform duration-700 hover:scale-102" 
                   />
                 )}
-                {/* 画像の下部グラデーション */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#151F32]/50 to-transparent" />
                 
                 <div className="absolute bottom-6 left-6">
-                  <div className="flex items-center gap-2 bg-slate-900/90 backdrop-blur-md px-4 py-1.5 rounded-full border border-slate-800 shadow-lg">
-                    <Zap className="w-3.5 h-3.5 text-amber-300 fill-amber-300 drop-shadow-[0_0_5px_rgba(245,158,11,0.5)]" />
+                  <div className="flex items-center gap-2 bg-slate-900/95 backdrop-blur-md px-4 py-1.5 rounded-full border border-slate-800 shadow-xl">
+                    <Zap className="w-3.5 h-3.5 text-amber-300 fill-amber-300 drop-shadow-[0_0_5px_rgba(245,158,11,0.6)]" />
                     <span className="text-[9px] font-black tracking-widest text-slate-200 uppercase">
                       {MACHINE_CONTENT.diagram.limitedBadge}
                     </span>
@@ -102,7 +101,7 @@ export default function MachineDeepDive() {
                       </p>
                       <div className="flex flex-wrap gap-2 w-full">
                         {laser.points.map((p, pi) => (
-                          <span key={pi} className="px-3 py-1 bg-slate-900/60 rounded-full text-[9px] font-bold text-sky-400 border border-slate-800/80 whitespace-normal text-center shadow-inner">
+                          <span key={pi} className="px-3 py-1 bg-slate-900/80 rounded-full text-[9px] font-bold text-sky-400 border border-slate-800 whitespace-normal text-center shadow-inner">
                             {p}
                           </span>
                         ))}
@@ -120,12 +119,12 @@ export default function MachineDeepDive() {
             {MACHINE_CONTENT.features.map((f, i) => (
               <motion.div 
                 key={i} 
-                className="aspect-[4/3] relative rounded-xl overflow-hidden shadow-2xl border border-slate-800/60 bg-slate-950" 
-                whileHover={{ y: -4, borderColor: 'rgba(56,189,248,0.3)' }}
-                transition={{ duration: 0.3 }}
+                className="aspect-[4/3] relative rounded-xl overflow-hidden shadow-2xl border border-slate-800/80 bg-slate-950" 
+                whileHover={{ y: -4, borderColor: 'rgba(56,189,248,0.5)' }}
+                transition={{ duration: 0.2 }}
               >
-                <Image src={f.img} alt="" fill className="object-cover opacity-80 hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />
+                <Image src={f.img} alt="" fill className="object-cover opacity-85 hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent" />
               </motion.div>
             ))}
           </div>
@@ -133,34 +132,36 @@ export default function MachineDeepDive() {
           {/* 🔴 3. ロングカード（3連詳細・縦並び） */}
           <motion.div className={`overflow-hidden ${cardRounded} ${longCardBorder} ${longCardShadow}`}>
             {MACHINE_CONTENT.reasons.map((reason, i) => (
-              <div key={i} className="w-full">
+              <div key={i} className="w-full relative">
                 
-                {/* 💡 【パターン②：光のレーザー線】2枚目移行のカードの頭に、左右へ消えていく極細のネオンラインを走らせ、リズムを変える */}
+                {/* 💡 【視認性爆上げ・閃光レーザーライン】
+                   消えていた区切り線を、中心が白く強く発光する、厚みのあるサイバーレーザー線（h-[2px]）へ劇的強化！ */}
                 {i !== 0 && (
-                  <div className="w-full px-12">
-                    <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-sky-500/30 to-transparent opacity-80 shadow-[0_0_8px_rgba(56,189,248,0.5)]" />
+                  <div className="w-full px-8 relative z-30">
+                    <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-sky-300 to-transparent opacity-100 blur-[0.5px] drop-shadow-[0_0_6px_rgba(56,189,248,0.8)]" />
                   </div>
                 )}
 
-                <div className={`grid md:grid-cols-2 items-center`}>
+                {/* 💡 【新しい角度の光：インナーグロウ】各カードの左側（縦フチ）から右に向かってポワッと滲み出る微細な光の壁を隠し味に */}
+                <div className="absolute inset-y-0 left-0 w-[20%] bg-gradient-to-r from-sky-500/[0.04] to-transparent pointer-events-none z-0" />
+
+                <div className="grid md:grid-cols-2 items-center relative z-10">
                   {/* 画像側 */}
-                  <div className={`relative aspect-video bg-slate-950/20 overflow-hidden ${i % 2 !== 0 ? 'md:order-last' : ''}`}>
+                  <div className={`relative aspect-video bg-slate-950/40 overflow-hidden ${i % 2 !== 0 ? 'md:order-last' : ''}`}>
                     <Image src={reason.img} alt="" fill className="object-cover opacity-90" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F17]/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F17]/60 to-transparent" />
                   </div>
                   
                   {/* テキスト側 */}
                   <div className={`${cardTextPadding} relative overflow-hidden`}>
-                    {/* 背後の特大ID文字（背景に沈める） */}
                     <span className="font-sans italic text-[8rem] sm:text-[12rem] absolute -top-4 -right-4 opacity-[0.04] select-none font-black text-slate-700">
                       {i + 1}
                     </span>
                     
                     <div className="relative z-10">
-                      {/* 数字バッジを左寄せ、Minus線を消してすっきりスマートに */}
                       <div className="flex items-center gap-3 mb-4">
-                        <span className="font-sans text-base font-black italic text-amber-300">0{i + 1}</span>
-                        <span className="text-[8px] font-bold text-slate-500 tracking-widest uppercase">Meso Detail</span>
+                        <span className="font-sans text-base font-black italic text-amber-300 drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]">0{i + 1}</span>
+                        <span className="text-[8px] font-bold text-sky-400/80 tracking-widest uppercase">Meso Detail</span>
                       </div>
                       
                       <h3 className="font-sans text-xl sm:text-2xl font-bold text-slate-100 mb-3 sm:mb-5 tracking-tight">
@@ -179,7 +180,7 @@ export default function MachineDeepDive() {
 
           {/* 🔴 下部注釈パーツ */}
           <div className="mt-10 sm:mt-16 text-center">
-            <div className="inline-flex items-start gap-3 px-8 py-4 bg-slate-950/60 rounded-xl text-slate-400 text-[10px] sm:text-xs border border-slate-900 font-bold tracking-tight shadow-inner">
+            <div className="inline-flex items-start gap-3 px-8 py-4 bg-slate-950/80 rounded-xl text-slate-400 text-[10px] sm:text-xs border border-slate-900 font-bold tracking-tight shadow-inner">
               <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5 opacity-80" />
               <span className="whitespace-pre-line text-left opacity-80">
                 {`※当院のAGA注入治療および処方薬は、医師の診断に基づき、適切なリスク管理のもとで行われます。
