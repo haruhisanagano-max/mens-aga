@@ -7,7 +7,7 @@ import { PAIN_CONTENT } from '@/edit/pain-content'
 
 export default function PainManagement() {
   // ---------------------------------------------------------
-  // ★ デザイン統一用リモコン（青ベース・ソリッド背景＆明るいアウターグロウ版）
+  // ★ デザイン統一用リモコン（透过ダークグラス×斜め横切り光源決定版）
   // ---------------------------------------------------------
   const fontTitle = "font-sans font-bold tracking-tight text-slate-100" 
   const sectionPadding = "py-16 sm:py-28"
@@ -15,12 +15,8 @@ export default function PainManagement() {
   const cardTextPadding = "p-8 sm:p-14"
   const cardRounded = "rounded-xl" 
   
-  // 枠線はマシーンパートと同じ、洗練された細さ
-  const cardBorder = "border border-slate-700/30 transition-all duration-500 hover:border-sky-400/20"
-
-  /* 💡 【修正】透過を一切行わない明るめのチャコールグレー背景（#1E293B）へ回帰。
-      かつ、浮いているように見せていた外側の影を、ふんわりと広範囲に広がる青い光（アウターグロウ）へ完全変更。 */
-  const cardShadow = "shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5),0_0_40px_rgba(56,189,248,0.25)] bg-[#1E293B]"
+  // マシーンパートと同じ、洗練された透过枠線
+  const glassBorder = "border border-slate-700/60 border-t-white/10 border-l-white/10"
   // ---------------------------------------------------------
 
   const gpuStyle = { transform: 'translateZ(0)', willChange: 'opacity, transform' };
@@ -53,16 +49,15 @@ export default function PainManagement() {
         {/* 🔴 Measures (各施策) */}
         <div className="space-y-12 sm:space-y-24 mb-20">
           {PAIN_CONTENT.measures.map((m, i) => (
-            <div key={i} className="relative grid lg:grid-cols-12 gap-0 items-center" style={gpuStyle}>
+            <div key={i} className={`relative grid lg:grid-cols-12 gap-0 items-center`} style={gpuStyle}>
               
-              {/* 背景の巨大ID番号 */}
               <span className={`font-sans text-[12rem] sm:text-[22rem] font-black text-slate-900 opacity-[0.25] absolute -top-16 ${i % 2 === 0 ? '-right-4' : '-left-4'} italic pointer-events-none select-none z-0`}>
                 {m.id}
               </span>
 
-              {/* 画像フィールド：フィルターや黒幕のない100%クリア表示 */}
+              {/* 画像フィールド：💡 重ね合わせ順序の変更！画像フィールドがカードより上に表示されます */}
               <div className={`lg:col-span-7 relative z-10 ${i % 2 !== 0 ? 'lg:order-last' : ''}`}>
-                <div className={`${cardRounded} border border-slate-900 overflow-hidden aspect-[16/10] bg-[#1E293B] relative shadow-[0_20px_50px_rgba(0,0,0,0.6)]`}>
+                <div className={`${cardRounded} border border-slate-950 overflow-hidden aspect-[16/10] bg-slate-950 relative shadow-[0_20px_50px_rgba(0,0,0,0.6)]`}>
                   <Image 
                     src={m.image} 
                     alt="" 
@@ -72,20 +67,32 @@ export default function PainManagement() {
                 </div>
               </div>
 
-              {/* テキストパネル：【透過なし】ソリッドな背景。アウターグロウの青い光で明るい浮遊感を演出 */}
+              {/* テキストパネル：💡 【透過グラス復活】マシーンパート基準の透過グラス */}
               <div className={`
                 lg:col-span-6 
                 relative z-20 
                 mt-[-40px] lg:mt-0 
                 ${i % 2 === 0 ? 'lg:-ml-20' : 'lg:-mr-20'} 
-                ${cardTextPadding} ${cardRounded} ${cardBorder} ${cardShadow}
+                ${cardTextPadding} ${cardRounded} ${glassBorder}
+                bg-slate-900/40 backdrop-blur-2xl
+                shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)]
                 overflow-hidden
               `}>
                 
-                {/* 内部のソフトなアンビエント発光 */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.08),transparent_75%)] pointer-events-none z-0" />
+                {/* 💡 【新：斜め横切り光源】スクショの青い線のように、カード内部を斜めに横切る光源を追加。
+                    画像との境界部分ではなく、テキストエリア内部を鋭い直線が横切り、そこから滲み出る光。
+                    絶対に枠線で光が千切れて見えないシームレス構造です。扇形発光は廃止しました。 */}
+                
+                {/* ① 斜めに横切るシャープな光源ライン */}
+                <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-sky-400/80 to-transparent shadow-[0_0_20px_rgba(56,189,248,1)] pointer-events-none z-20" />
+                
+                {/* ② 光源ラインから周囲に滲み出る柔らかい光の層 */}
+                <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[70%] bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.1),transparent_75%)] pointer-events-none z-0" />
+                
+                {/* ③ アンビエント発光 */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.03),transparent_100%)] pointer-events-none z-0" />
 
-                <div className="space-y-5 relative z-10">
+                <div className="space-y-5 relative z-10 pl-4">
                   <div className="flex items-center gap-2">
                     <span className="font-sans text-xl font-bold italic text-amber-300 drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]">{m.id}</span>
                     <Minus className="w-4 h-[1px] text-slate-600" />
@@ -109,8 +116,8 @@ export default function PainManagement() {
                 
               </div>
 
-              {/* 💡 カードの下部外部：より明るい青の接地光（不透明度を0.20に強化） */}
-              <div className="absolute inset-0 z-0 bottom-[-30px] left-1/2 -translate-x-1/2 w-[70%] h-[30px] bg-sky-400/20 blur-[25px] pointer-events-none rounded-full" />
+              {/* カードの下部外部の薄い接地用シャドウ（維持） */}
+              <div className="absolute inset-0 z-0 bottom-[-30px] left-1/2 -translate-x-1/2 w-[70%] h-[30px] bg-sky-400/5 blur-[20px] pointer-events-none rounded-full" />
             </div>
           ))}
         </div>
@@ -123,7 +130,6 @@ export default function PainManagement() {
               <h3 className="font-sans text-2xl sm:text-4xl font-extrabold text-slate-100 leading-tight tracking-tighter">
                 {PAIN_CONTENT.reassurance.title}
               </h3>
-              {/* 💡 【修正点】エラーの原因だった末尾の閉じクォーテーションの構文エラーを完全にクリーンアップしました */}
               <div className="mt-4 inline-flex items-center gap-3 px-6 py-3 bg-slate-950/80 rounded-full text-slate-400 text-[10px] sm:text-xs border border-slate-800/60 font-bold shadow-wide">
                 <ShieldCheck className="w-4 h-4 text-sky-400/60" />
                 <span>{PAIN_CONTENT.reassurance.note}</span>
