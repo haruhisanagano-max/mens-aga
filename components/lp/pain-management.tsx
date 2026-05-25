@@ -7,7 +7,7 @@ import { PAIN_CONTENT } from '@/edit/pain-content'
 
 export default function PainManagement() {
   // ---------------------------------------------------------
-  // ★ デザイン統一用リモコン（青系グラデーション不透過×斜め滲みトップライト版）
+  // ★ デザイン統一用リモコン
   // ---------------------------------------------------------
   const fontTitle = "font-sans font-bold tracking-tight text-slate-100" 
   const sectionPadding = "py-16 sm:py-28"
@@ -24,7 +24,22 @@ export default function PainManagement() {
     /* 背景色は共通のディープネイビー（#0B111E） */
     <section id="pain" className={`${sectionPadding} relative bg-[#0B111E] text-slate-400 overflow-hidden`}>
       
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      {/* 💡 【新設】背景のジグザグ光源エフェクト
+          長い線が重なり合い、このパート独自のサイバーな雰囲気を演出します。 */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
+        <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(135deg,transparent_48%,rgba(56,189,248支線 leading-loose font-medium pt-2 border-t border-slate-700_56,189,248支線 leading-loose font-medium pt-2 border-t border-slate-700_48%,rgba(56,189,248支線 leading-loose font-medium pt-2 border-t border-slate-700_56,189,248支線 leading-loose font-medium pt-2 border-t border-slate-700_48%,rgba(56,189,248支線 leading-loose font-medium pt-2 border-t border-slate-700_56,189,248支線 leading-loose font-medium pt-2 border-t border-slate-700_48%,rgba(56,189,248支線 leading-loose font-medium pt-2 border-t border-slate-700_56,189,248支線 leading-loose font-medium pt-2 border-t border-slate-700支線 leading-loose font-medium pt-2 border-t border-slate-700/60'}`} pointer-events-none z-0 />
+                  <div className={`absolute top-0 w-full h-full pointer-events-none z-0
+                    ${i % 2 === 0 
+                      ? 'right-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.18),transparent_65%)]' 
+                      : 'left-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.18),transparent_65%)]'
+                    }
+                  `} />
+
+                  <div className="inline-block px-3 py-1 bg-slate-950/60 rounded border border-slate-800/60 text-[9px] font-bold text-slate-300 tracking-[0.1em]">
+                    {m.subTitle}
+                  </div>
+                  
+                  <p className="text-sm text-slate-300 leading-loose font-medium pt-2 border-t border-slate-700/30 overflow-hidden`}>
         {PAIN_CONTENT.sectionBgImage && (
           <Image src={PAIN_CONTENT.sectionBgImage} alt="" fill className="object-cover opacity-[0.02] mix-blend-overlay" priority />
         )}
@@ -58,6 +73,81 @@ export default function PainManagement() {
               {/* 画像フィールド：フィルターや黒幕を100%全撤去 */}
               <div className={`lg:col-span-7 relative z-10 ${i % 2 !== 0 ? 'lg:order-last' : ''}`}>
                 <div className={`${cardRounded} border border-slate-900 overflow-hidden aspect-[16/10] bg-slate-950 relative shadow-[0_20px_50px_rgba(0,0,0,0.6)]`}>
+                  <Image 
+                    src={m.image} 
+                    alt="" 
+                    fill 
+                    className="object-cover transition-transform duration-700 hover:scale-105" 
+                  />
+                </div>
+              </div>
+
+              {/* テキストパネル */}
+              <div className={`
+                lg:col-span-6 
+                relative z-20 
+                mt-[-40px] lg:mt-0 
+                ${i % 2 === 0 ? 'lg:-ml-20' : 'lg:-mr-20'} 
+                ${cardRounded} ${glassBorder}
+                shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)]
+                overflow-hidden
+                flex flex-col
+              `}>
+                
+                {/* 💡 タイトルより上のエリア：透過なし */}
+                <div className="p-8 sm:p-14 pb-0 sm:pb-0 bg-slate-900 relative z-10 space-y-5">
+                  <div className="flex items-center gap-2">
+                    <span className="font-sans text-xl font-bold italic text-amber-300 drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]支線 leading-loose font-medium pt-2 border-t border-slate-700/30 pointer-events-none z-0
+                  ${i % 2 === 0 
+                    ? 'right-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.18),transparent_65%)]' 
+                    : 'left-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.18),transparent_65%)]'
+                  }
+                `} />
+
+                  <div className="inline-block px-3 py-1 bg-slate-950/60 rounded border border-slate-800/60 text-[9px] font-bold text-slate-300 tracking-[0.1em]">
+                    {m.subTitle}
+                  </div>
+                  
+                  <p className="text-sm text-slate-300 leading-loose font-medium pt-2 border-t border-slate-700/30 uppercase">
+                      Medical Approach
+                    </span>
+                  </div>
+                  
+                  <h4 className="font-sans text-2xl sm:text-3xl font-bold text-slate-100 tracking-tight">
+                    {m.title}
+                  </h4>
+                </div>
+
+                {/* 💡 タイトルより下のエリア：グラデーション透過（磨りガラス） */}
+                <div className={`
+                  p-8 sm:p-14 pt-6 sm:pt-6 space-y-5 relative
+                  bg-gradient-to-br 
+                  ${i % 2 === 0 
+                    ? 'from-slate-900 via-slate-900/95 to-slate-950/85' 
+                    : 'from-slate-950/85 via-slate-900/95 to-slate-900'
+                  }
+                  backdrop-blur-sm
+                `}>
+                  {/* 💡 斜め滲みトップライト（このエリアのみに適用） */}
+                  <div className={`absolute top-0 w-full h-full pointer-events-none z-0
+                    ${i % 2 === 0 
+                      ? 'right-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.15),transparent_60%)]' 
+                      : 'left-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.15),transparent_60%)]'
+                    }
+                  `} />
+
+                  <div className="relative z-10 space-y-5">
+                    <div className="inline-block px-3 py-1 bg-slate-950/60 rounded border border-slate-800/60 text-[9px] font-bold text-slate-400 tracking-[0.1em]">
+                      {m.subTitle}
+                    </div>
+                    
+                    <p className="text-sm text-slate-300 leading-loose font-medium pt-2 border-t border-slate-700/30 overflow-hidden`}>
+        {PAIN_CONTENT.sectionBgImage && (
+          <Image src={PAIN_CONTENT.sectionBgImage} alt="" fill className="object-cover opacity-[0.02] mix-blend-overlay" priority />
+        )}
+      </div>
+
+      <div className="max-w-6xl mx-auto px-6 relative z-10 overflow-hidden aspect-[16/10] bg-slate-950 relative shadow-[0_20px_50px_rgba(0,0,0,0.6)]`}>
                   <Image 
                     src={m.image} 
                     alt="" 
@@ -112,19 +202,11 @@ export default function PainManagement() {
                     {m.title}
                   </h4>
                   
-                  <div className="inline-block px-3 py-1 bg-slate-950/60 rounded border border-slate-800/60 text-[9px] font-bold text-slate-400 tracking-[0.1em]">
+                  <div className="inline-block px-3 py-1 bg-slate-950/60 rounded border border-slate-800/60 text-[9px] font-bold text-slate-300 tracking-[0.1em]">
                     {m.subTitle}
                   </div>
                   
-                  <p className="text-sm text-slate-300 leading-loose font-medium pt-2 border-t border-slate-700/30">
-                    {m.description}
-                  </p>
-                </div>
-                
-              </div>
-
-              {/* カードの下部外部の薄い接地用シャドウ（維持） */}
-              <div className="absolute inset-0 z-0 bottom-[-30px] left-1/2 -translate-x-1/2 w-[70%] h-[30px] bg-sky-400/5 blur-[20px] pointer-events-none rounded-full" />
+                  <p className="text-sm text-slate-300 leading-loose font-medium pt-2 border-t border-slate-700/30 pointer-events-none z-0 bottom-[-30px] left-1/2 -translate-x-1/2 w-[70%] h-[30px] bg-sky-400/5 blur-[20px] pointer-events-none rounded-full" />
             </div>
           ))}
         </div>
