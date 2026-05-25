@@ -7,7 +7,7 @@ import { PAIN_CONTENT } from '@/edit/pain-content'
 
 export default function PainManagement() {
   // ---------------------------------------------------------
-  // ★ デザイン統一用リモコン（透过ダークグラス×斜め横切り光源決定版）
+  // ★ デザイン統一用リモコン（青ベース・ソリッド背景＆強力アウターグロウ版）
   // ---------------------------------------------------------
   const fontTitle = "font-sans font-bold tracking-tight text-slate-100" 
   const sectionPadding = "py-16 sm:py-28"
@@ -15,8 +15,12 @@ export default function PainManagement() {
   const cardTextPadding = "p-8 sm:p-14"
   const cardRounded = "rounded-xl" 
   
-  // マシーンパートと同じ、洗練された透过枠線
-  const glassBorder = "border border-slate-700/60 border-t-white/10 border-l-white/10"
+  // マシーンパートと同じ、洗練された細さ
+  const cardBorder = "border border-slate-700/30 transition-all duration-500 hover:border-sky-400/20"
+
+  /* 💡 【修正】光を強く。透过を廃止した明るめのチャコールグレー（#1E293B）に固定し、
+      アウターグロウの青い光（rgba(56,189,248,0.3)）を2倍に強化。 */
+  const cardShadow = "shadow-[0_20px_60px_-10px_rgba(0,0,0,0.6),0_0_50px_rgba(56,189,248,0.3)] bg-[#1E293B]"
   // ---------------------------------------------------------
 
   const gpuStyle = { transform: 'translateZ(0)', willChange: 'opacity, transform' };
@@ -25,6 +29,15 @@ export default function PainManagement() {
     /* 背景色は共通のディープネイビー（#0B111E） */
     <section id="pain" className={`${sectionPadding} relative bg-[#0B111E] text-slate-400 overflow-hidden`}>
       
+      {/* 💡 【新設：斜め背景光源】長い斜めの光の帯をSVGで背景に配置。
+          これが磨りガラスを通して透けて見え、セクション全体の「根源の光」となります。 */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
+        <svg className="w-full h-full" viewBox="0 0 1440 1200" preserveAspectRatio="none">
+          <path d="M0,0 L1440,1200" fill="none" stroke="#38bdf8" strokeWidth="2" blur="1" />
+          <path d="M0,0 L1440,1200" fill="none" stroke="#0ea5e9" strokeWidth="30" blur="40" opacity="0.6" />
+        </svg>
+      </div>
+
       <div className="absolute inset-0 z-0 pointer-events-none">
         {PAIN_CONTENT.sectionBgImage && (
           <Image src={PAIN_CONTENT.sectionBgImage} alt="" fill className="object-cover opacity-[0.02] mix-blend-overlay" priority />
@@ -51,13 +64,14 @@ export default function PainManagement() {
           {PAIN_CONTENT.measures.map((m, i) => (
             <div key={i} className={`relative grid lg:grid-cols-12 gap-0 items-center`} style={gpuStyle}>
               
+              {/* 背景の巨大ID番号 */}
               <span className={`font-sans text-[12rem] sm:text-[22rem] font-black text-slate-900 opacity-[0.25] absolute -top-16 ${i % 2 === 0 ? '-right-4' : '-left-4'} italic pointer-events-none select-none z-0`}>
                 {m.id}
               </span>
 
-              {/* 画像フィールド：💡 重ね合わせ順序の変更！画像フィールドがカードより上に表示されます */}
-              <div className={`lg:col-span-7 relative z-10 ${i % 2 !== 0 ? 'lg:order-last' : ''}`}>
-                <div className={`${cardRounded} border border-slate-950 overflow-hidden aspect-[16/10] bg-slate-950 relative shadow-[0_20px_50px_rgba(0,0,0,0.6)]`}>
+              {/* 💡 【修正】画像フィールドを先に記述することで、カードより上に表示 */}
+              <div className={`lg:col-span-7 relative z-20 ${i % 2 !== 0 ? 'lg:order-last' : ''}`}>
+                <div className={`${cardRounded} border border-slate-900 overflow-hidden aspect-[16/10] bg-[#1E293B] relative shadow-[0_20px_50px_rgba(0,0,0,0.6)]`}>
                   <Image 
                     src={m.image} 
                     alt="" 
@@ -67,32 +81,20 @@ export default function PainManagement() {
                 </div>
               </div>
 
-              {/* テキストパネル：💡 【透過グラス復活】マシーンパート基準の透過グラス */}
+              {/* 💡 【修正】テキストパネルを後に記述することで、画像の下に配置 */}
               <div className={`
                 lg:col-span-6 
-                relative z-20 
+                relative z-10 
                 mt-[-40px] lg:mt-0 
                 ${i % 2 === 0 ? 'lg:-ml-20' : 'lg:-mr-20'} 
-                ${cardTextPadding} ${cardRounded} ${glassBorder}
-                bg-slate-900/40 backdrop-blur-2xl
-                shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)]
+                ${cardTextPadding} ${cardRounded} ${cardBorder} ${cardShadow}
                 overflow-hidden
               `}>
                 
-                {/* 💡 【新：斜め横切り光源】スクショの青い線のように、カード内部を斜めに横切る光源を追加。
-                    画像との境界部分ではなく、テキストエリア内部を鋭い直線が横切り、そこから滲み出る光。
-                    絶対に枠線で光が千切れて見えないシームレス構造です。扇形発光は廃止しました。 */}
-                
-                {/* ① 斜めに横切るシャープな光源ライン */}
-                <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-sky-400/80 to-transparent shadow-[0_0_20px_rgba(56,189,248,1)] pointer-events-none z-20" />
-                
-                {/* ② 光源ラインから周囲に滲み出る柔らかい光の層 */}
-                <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[70%] bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.1),transparent_75%)] pointer-events-none z-0" />
-                
-                {/* ③ アンビエント発光 */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.03),transparent_100%)] pointer-events-none z-0" />
+                {/* 内部のソフトなアンビエント発光（维持） */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.08),transparent_75%)] pointer-events-none z-0" />
 
-                <div className="space-y-5 relative z-10 pl-4">
+                <div className="space-y-5 relative z-10">
                   <div className="flex items-center gap-2">
                     <span className="font-sans text-xl font-bold italic text-amber-300 drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]">{m.id}</span>
                     <Minus className="w-4 h-[1px] text-slate-600" />
@@ -130,7 +132,7 @@ export default function PainManagement() {
               <h3 className="font-sans text-2xl sm:text-4xl font-extrabold text-slate-100 leading-tight tracking-tighter">
                 {PAIN_CONTENT.reassurance.title}
               </h3>
-              <div className="mt-4 inline-flex items-center gap-3 px-6 py-3 bg-slate-950/80 rounded-full text-slate-400 text-[10px] sm:text-xs border border-slate-800/60 font-bold shadow-wide">
+              <div className="mt-4 inline-flex items-center gap-3 px-6 py-3 bg-slate-950/80 rounded-full text-slate-400 text-[10px] sm:text-xs border border-slate-800/60 font-bold shadow-wide overflow-hidden`}>
                 <ShieldCheck className="w-4 h-4 text-sky-400/60" />
                 <span>{PAIN_CONTENT.reassurance.note}</span>
               </div>
