@@ -18,9 +18,9 @@ export default function PainManagement() {
   // 枠線はマシーンパートと同じ、洗練された細さ
   const cardBorder = "border border-slate-700/30 transition-all duration-500 hover:border-sky-400/20"
 
-  /* 💡 【修正】影を光に。浮いているように見せていたシャドウを、
-      ふんわりとした青い光（rgba(56,189,248,0.15)のアウターグロウ）に変更し、明るめの背景色（bg-[#1E293B]）に固定。 */
-  const cardShadow = "shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5),0_0_40px_rgba(56,189,248,0.15)] bg-[#1E293B]"
+  /* 💡 【修正】透過を一切行わない明るめのチャコールグレー背景（#1E293B）へ回帰。
+      かつ、浮いているように見せていた外側の影を、ふんわりと広範囲に広がる青い光（アウターグロウ）へ完全変更。 */
+  const cardShadow = "shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5),0_0_40px_rgba(56,189,248,0.25)] bg-[#1E293B]"
   // ---------------------------------------------------------
 
   const gpuStyle = { transform: 'translateZ(0)', willChange: 'opacity, transform' };
@@ -53,14 +53,14 @@ export default function PainManagement() {
         {/* 🔴 Measures (各施策) */}
         <div className="space-y-12 sm:space-y-24 mb-20">
           {PAIN_CONTENT.measures.map((m, i) => (
-            <div key={i} className={`relative grid lg:grid-cols-12 gap-0 items-center`} style={gpuStyle}>
+            <div key={i} className="relative grid lg:grid-cols-12 gap-0 items-center" style={gpuStyle}>
               
               {/* 背景の巨大ID番号 */}
               <span className={`font-sans text-[12rem] sm:text-[22rem] font-black text-slate-900 opacity-[0.25] absolute -top-16 ${i % 2 === 0 ? '-right-4' : '-left-4'} italic pointer-events-none select-none z-0`}>
                 {m.id}
               </span>
 
-              {/* 画像フィールド：フィルターや黒幕を100%全撤去。画像本来の美しさ。ソリッドな影。 */}
+              {/* 画像フィールド：フィルターや黒幕のない100%クリア表示 */}
               <div className={`lg:col-span-7 relative z-10 ${i % 2 !== 0 ? 'lg:order-last' : ''}`}>
                 <div className={`${cardRounded} border border-slate-900 overflow-hidden aspect-[16/10] bg-[#1E293B] relative shadow-[0_20px_50px_rgba(0,0,0,0.6)]`}>
                   <Image 
@@ -72,7 +72,7 @@ export default function PainManagement() {
                 </div>
               </div>
 
-              {/* テキストパネル：💡 【透過なし】ソリッドな背景。アウターグロウで明るく浮遊。 */}
+              {/* テキストパネル：【透過なし】ソリッドな背景。アウターグロウの青い光で明るい浮遊感を演出 */}
               <div className={`
                 lg:col-span-6 
                 relative z-20 
@@ -82,9 +82,7 @@ export default function PainManagement() {
                 overflow-hidden
               `}>
                 
-                {/* 💡 【扇状発光】ユーザーが気に入っていた以前の発光を継承。
-                    ソリッド背景の上に置くことで、テキストを邪魔せず、上品に発光します。
-                    絶対に枠線で光が千切れて見えないシームレス構造です。 */}
+                {/* 内部のソフトなアンビエント発光 */}
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.08),transparent_75%)] pointer-events-none z-0" />
 
                 <div className="space-y-5 relative z-10">
@@ -111,7 +109,7 @@ export default function PainManagement() {
                 
               </div>
 
-              {/* 💡 【修正】カードの下部外部のシャドウを、より明るい「光」に変更。 */}
+              {/* 💡 カードの下部外部：より明るい青の接地光（不透明度を0.20に強化） */}
               <div className="absolute inset-0 z-0 bottom-[-30px] left-1/2 -translate-x-1/2 w-[70%] h-[30px] bg-sky-400/20 blur-[25px] pointer-events-none rounded-full" />
             </div>
           ))}
@@ -125,7 +123,8 @@ export default function PainManagement() {
               <h3 className="font-sans text-2xl sm:text-4xl font-extrabold text-slate-100 leading-tight tracking-tighter">
                 {PAIN_CONTENT.reassurance.title}
               </h3>
-              <div className="mt-4 inline-flex items-center gap-3 px-6 py-3 bg-slate-950/80 rounded-full text-slate-400 text-[10px] sm:text-xs border border-slate-800/60 font-bold shadow-wide overflow-hidden`}>
+              {/* 💡 【修正点】エラーの原因だった末尾の閉じクォーテーションの構文エラーを完全にクリーンアップしました */}
+              <div className="mt-4 inline-flex items-center gap-3 px-6 py-3 bg-slate-950/80 rounded-full text-slate-400 text-[10px] sm:text-xs border border-slate-800/60 font-bold shadow-wide">
                 <ShieldCheck className="w-4 h-4 text-sky-400/60" />
                 <span>{PAIN_CONTENT.reassurance.note}</span>
               </div>
