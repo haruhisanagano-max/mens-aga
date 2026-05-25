@@ -7,7 +7,7 @@ import { PAIN_CONTENT } from '@/edit/pain-content'
 
 export default function PainManagement() {
   // ---------------------------------------------------------
-  // ★ デザイン統一用リモコン（上下セパレート透過×背景斜め直線光源版）
+  // ★ デザイン統一用リモコン（上下セパレート透過×背景斜め直線光源・安全版）
   // ---------------------------------------------------------
   const fontTitle = "font-sans font-bold tracking-tight text-slate-100" 
   const sectionPadding = "py-16 sm:py-28"
@@ -25,21 +25,33 @@ export default function PainManagement() {
     <section id="pain" className={`${sectionPadding} relative bg-[#0B111E] text-slate-400 overflow-hidden`}>
       
       {/* 💡 【修正】線の光をカードの上ではなく「背景（z-0）」に配置。
-          セクション全体を斜めに大きく貫く強力なシアンブルーの直線光源ラインです。 */}
+          セクション全体を斜めに大きく貫く強力なシアンブルーの直線光源ラインです。
+          ビルドエラーを防ぐため、CSSではなくSVG標準のフィルター機能でボカシを完全制御しています。 */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <svg className="w-full h-full" viewBox="0 0 1440 1200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="paint-diagonal-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+            {/* 中心線のシャープなぼかし */}
+            <filter id="svg-blur-core">
+              <feGaussianBlur stdDeviation="2" />
+            </filter>
+            {/* 周囲に広く拡散する強力な光のモヤのぼかし */}
+            <filter id="svg-blur-ambient">
+              <feGaussianBlur stdDeviation="90" />
+            </filter>
+            {/* 斜め線用のグラデーション */}
+            <linearGradient id="diagonal-glow-grad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#38bdf8" stopOpacity="0" />
               <stop offset="30%" stopColor="#38bdf8" stopOpacity="1" />
               <stop offset="70%" stopColor="#38bdf8" stopOpacity="1" />
               <stop offset="100%" stopColor="#38bdf8" stopOpacity="0" />
             </linearGradient>
           </defs>
-          {/* 周囲に広く拡散する、強力な光のモヤ */}
-          <line x1="-100" y1="100" x2="1600" y2="1100" stroke="#0ea5e9" strokeWidth="160" className="blur-[110px] opacity-50" />
-          {/* 中心を鋭く走る斜めの光の線 */}
-          <line x1="-100" y1="100" x2="1600" y2="1100" stroke="url(#paint-diagonal-glow)" strokeWidth="6" className="blur-[2px]" />
+          
+          {/* ① 周囲に広く拡散する、強力な光のモヤ */}
+          <line x1="-100" y1="100" x2="1600" y2="1100" stroke="#0ea5e9" strokeWidth="180" opacity="0.45" filter="url(#svg-blur-ambient)" />
+          
+          {/* ② 中心を鋭く走る斜めの光の線 */}
+          <line x1="-100" y1="100" x2="1600" y2="1100" stroke="url(#diagonal-glow-grad)" strokeWidth="6" filter="url(#svg-blur-core)" />
         </svg>
       </div>
 
@@ -74,7 +86,7 @@ export default function PainManagement() {
                 {m.id}
               </span>
 
-              {/* 💡 【修正】画像フィールド：カードより前面に被せるため「z-20」へ引き上げ */}
+              {/* 💡 【修正】画像フィールド：カードより確実に前面（上）に被せるため「z-20」へ設定 */}
               <div className={`lg:col-span-7 relative z-20 ${i % 2 !== 0 ? 'lg:order-last' : ''}`}>
                 <div className={`${cardRounded} border border-slate-950 overflow-hidden aspect-[16/10] bg-slate-950 relative shadow-[0_20px_50px_rgba(0,0,0,0.6)]`}>
                   <Image 
@@ -99,8 +111,8 @@ export default function PainManagement() {
               `}>
                 
                 {/* 🔴 ① タイトルより上のエリア：【透過なし】ソリッド背景
-                    画像とガッツリ被る最上部を完全な不透明（bg-[#0f172a]）にすることで、文字の可読性を100%完全に守り抜きます。 */}
-                <div className="p-8 sm:p-14 pb-6 bg-[#0f172a] relative z-10 space-y-4">
+                    画像とガッツリ被る最上部を、完全な不透明（bg-[#111827]）にすることで、文字の読みやすさを100%完璧に保護します。 */}
+                <div className="p-8 sm:p-14 pb-6 bg-[#111827] relative z-10 space-y-4">
                   <div className="flex items-center gap-2">
                     <span className="font-sans text-xl font-bold italic text-amber-300 drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]">{m.id}</span>
                     <Minus className="w-4 h-[1px] text-slate-600" />
@@ -115,8 +127,8 @@ export default function PainManagement() {
                 </div>
 
                 {/* 🔴 ② タイトルより下のエリア：マシーンと同じ【透過ガラス仕様】
-                    説明文が乗る下半分を、贅沢な磨りガラス（backdrop-blur-2xl bg-slate-900/40）に加工。
-                    背景に仕込んだ「斜めの強力な光の線」が、カードの裏側から滑らかに透けて見える面白いデザインです。 */}
+                    説明文が乗る下半分のみを、美しい磨りガラス透過（bg-slate-900/40 backdrop-blur-2xl）に分離。
+                    背景に仕込んだ「斜めの強力な光の線」が、カードの裏側から滑らかに美しく透けて見えます。 */}
                 <div className="p-8 sm:p-14 pt-0 flex-1 bg-slate-900/40 backdrop-blur-2xl border-t border-slate-800/40 relative z-10">
                   <div className="pt-6 space-y-5">
                     <div className="inline-block px-3 py-1 bg-slate-950/60 rounded border border-slate-800/60 text-[9px] font-bold text-slate-300 tracking-[0.1em]">
