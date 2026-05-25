@@ -7,7 +7,7 @@ import { PAIN_CONTENT } from '@/edit/pain-content'
 
 export default function PainManagement() {
   // ---------------------------------------------------------
-  // ★ デザイン統一用リモコン
+  // ★ デザイン統一用リモコン（青ベース・ジグザグ背景＆上下セパレート透過版）
   // ---------------------------------------------------------
   const fontTitle = "font-sans font-bold tracking-tight text-slate-100" 
   const sectionPadding = "py-16 sm:py-28"
@@ -24,22 +24,29 @@ export default function PainManagement() {
     /* 背景色は共通のディープネイビー（#0B111E） */
     <section id="pain" className={`${sectionPadding} relative bg-[#0B111E] text-slate-400 overflow-hidden`}>
       
-      {/* 💡 【新設】背景のジグザグ光源エフェクト
-          長い線が重なり合い、このパート独自のサイバーな雰囲気を演出します。 */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
-        <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(135deg,transparent_48%,rgba(56,189,248支線 leading-loose font-medium pt-2 border-t border-slate-700_56,189,248支線 leading-loose font-medium pt-2 border-t border-slate-700_48%,rgba(56,189,248支線 leading-loose font-medium pt-2 border-t border-slate-700_56,189,248支線 leading-loose font-medium pt-2 border-t border-slate-700_48%,rgba(56,189,248支線 leading-loose font-medium pt-2 border-t border-slate-700_56,189,248支線 leading-loose font-medium pt-2 border-t border-slate-700_48%,rgba(56,189,248支線 leading-loose font-medium pt-2 border-t border-slate-700_56,189,248支線 leading-loose font-medium pt-2 border-t border-slate-700支線 leading-loose font-medium pt-2 border-t border-slate-700/60'}`} pointer-events-none z-0 />
-                  <div className={`absolute top-0 w-full h-full pointer-events-none z-0
-                    ${i % 2 === 0 
-                      ? 'right-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.18),transparent_65%)]' 
-                      : 'left-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.18),transparent_65%)]'
-                    }
-                  `} />
+      {/* 💡 【新設】背景の長いジグザグ光のライン
+          セクション全体を大きく斜めに走る1本の長い光の帯をSVGで完全に制御。
+          途切れることなく、背後でサイバー医療系の美しいジグザグ発光を作ります。 */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
+        <svg className="w-full h-full" viewBox="0 0 1440 1200" preserveAspectRatio="none">
+          <path 
+            d="M-100,150 L500,550 L900,250 L1600,750" 
+            fill="none" 
+            stroke="#38bdf8" 
+            strokeWidth="3" 
+            className="blur-[1px]"
+          />
+          <path 
+            d="M-100,150 L500,550 L900,250 L1600,750" 
+            fill="none" 
+            stroke="#0ea5e9" 
+            strokeWidth="30" 
+            className="blur-[35px] opacity-50"
+          />
+        </svg>
+      </div>
 
-                  <div className="inline-block px-3 py-1 bg-slate-950/60 rounded border border-slate-800/60 text-[9px] font-bold text-slate-300 tracking-[0.1em]">
-                    {m.subTitle}
-                  </div>
-                  
-                  <p className="text-sm text-slate-300 leading-loose font-medium pt-2 border-t border-slate-700/30 overflow-hidden`}>
+      <div className="absolute inset-0 z-0 pointer-events-none">
         {PAIN_CONTENT.sectionBgImage && (
           <Image src={PAIN_CONTENT.sectionBgImage} alt="" fill className="object-cover opacity-[0.02] mix-blend-overlay" priority />
         )}
@@ -70,9 +77,9 @@ export default function PainManagement() {
                 {m.id}
               </span>
 
-              {/* 画像フィールド：フィルターや黒幕を100%全撤去 */}
+              {/* 画像フィールド：フィルターや黒幕のない100%クリーン表示 */}
               <div className={`lg:col-span-7 relative z-10 ${i % 2 !== 0 ? 'lg:order-last' : ''}`}>
-                <div className={`${cardRounded} border border-slate-900 overflow-hidden aspect-[16/10] bg-slate-950 relative shadow-[0_20px_50px_rgba(0,0,0,0.6)]`}>
+                <div className={`${cardRounded} border border-slate-950 overflow-hidden aspect-[16/10] bg-slate-950 relative shadow-[0_20px_50px_rgba(0,0,0,0.6)]`}>
                   <Image 
                     src={m.image} 
                     alt="" 
@@ -94,105 +101,12 @@ export default function PainManagement() {
                 flex flex-col
               `}>
                 
-                {/* 💡 タイトルより上のエリア：透過なし */}
-                <div className="p-8 sm:p-14 pb-0 sm:pb-0 bg-slate-900 relative z-10 space-y-5">
-                  <div className="flex items-center gap-2">
-                    <span className="font-sans text-xl font-bold italic text-amber-300 drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]支線 leading-loose font-medium pt-2 border-t border-slate-700/30 pointer-events-none z-0
-                  ${i % 2 === 0 
-                    ? 'right-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.18),transparent_65%)]' 
-                    : 'left-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.18),transparent_65%)]'
-                  }
-                `} />
-
-                  <div className="inline-block px-3 py-1 bg-slate-950/60 rounded border border-slate-800/60 text-[9px] font-bold text-slate-300 tracking-[0.1em]">
-                    {m.subTitle}
-                  </div>
-                  
-                  <p className="text-sm text-slate-300 leading-loose font-medium pt-2 border-t border-slate-700/30 uppercase">
-                      Medical Approach
-                    </span>
-                  </div>
-                  
-                  <h4 className="font-sans text-2xl sm:text-3xl font-bold text-slate-100 tracking-tight">
-                    {m.title}
-                  </h4>
-                </div>
-
-                {/* 💡 タイトルより下のエリア：グラデーション透過（磨りガラス） */}
-                <div className={`
-                  p-8 sm:p-14 pt-6 sm:pt-6 space-y-5 relative
-                  bg-gradient-to-br 
-                  ${i % 2 === 0 
-                    ? 'from-slate-900 via-slate-900/95 to-slate-950/85' 
-                    : 'from-slate-950/85 via-slate-900/95 to-slate-900'
-                  }
-                  backdrop-blur-sm
-                `}>
-                  {/* 💡 斜め滲みトップライト（このエリアのみに適用） */}
-                  <div className={`absolute top-0 w-full h-full pointer-events-none z-0
-                    ${i % 2 === 0 
-                      ? 'right-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.15),transparent_60%)]' 
-                      : 'left-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.15),transparent_60%)]'
-                    }
-                  `} />
-
-                  <div className="relative z-10 space-y-5">
-                    <div className="inline-block px-3 py-1 bg-slate-950/60 rounded border border-slate-800/60 text-[9px] font-bold text-slate-400 tracking-[0.1em]">
-                      {m.subTitle}
-                    </div>
-                    
-                    <p className="text-sm text-slate-300 leading-loose font-medium pt-2 border-t border-slate-700/30 overflow-hidden`}>
-        {PAIN_CONTENT.sectionBgImage && (
-          <Image src={PAIN_CONTENT.sectionBgImage} alt="" fill className="object-cover opacity-[0.02] mix-blend-overlay" priority />
-        )}
-      </div>
-
-      <div className="max-w-6xl mx-auto px-6 relative z-10 overflow-hidden aspect-[16/10] bg-slate-950 relative shadow-[0_20px_50px_rgba(0,0,0,0.6)]`}>
-                  <Image 
-                    src={m.image} 
-                    alt="" 
-                    fill 
-                    className="object-cover transition-transform duration-700 hover:scale-105" 
-                  />
-                </div>
-              </div>
-
-              {/* テキストパネル（青系グラデーション不透過。画像との重なり部分の文字を完全に保護） */}
-              <div className={`
-                lg:col-span-6 
-                relative z-20 
-                mt-[-40px] lg:mt-0 
-                ${i % 2 === 0 ? 'lg:-ml-20' : 'lg:-mr-20'} 
-                p-8 sm:p-14 ${cardRounded} ${glassBorder}
-                
-                /* 画像とガッツリ重なる側を「100%不透明なディープグレー（from-slate-900）」にし、
-                   後ろの施術写真が透けて文字の邪魔をするのを完全にシャットアウト！
-                   空中（外側）に向かって、美しく深みを変える（透過率85%）贅沢なグラデーション仕様です。 */
-                bg-gradient-to-br 
-                ${i % 2 === 0 
-                  ? 'from-slate-900 via-slate-900/95 to-slate-950/85' 
-                  : 'from-slate-950/85 via-slate-900/95 to-slate-900'
-                }
-                
-                shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)]
-                overflow-hidden
-              `}>
-                
-                {/* 💡 【マシーンと変化をつけた斜め滲みトップライト】
-                    左右のカード配置に合わせて、右上（または左上）の角からシアンブルーの光が
-                    ガラスの内部に優しく、しかし確実に視認できる絶妙な強さ（0.18）で滲み出します。
-                    絶対に枠線で光が千切れて見えないシームレス構造です。 */}
-                <div className={`absolute top-0 w-full h-full pointer-events-none z-0
-                  ${i % 2 === 0 
-                    ? 'right-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.18),transparent_65%)]' 
-                    : 'left-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.18),transparent_65%)]'
-                  }
-                `} />
-
-                <div className="space-y-5 relative z-10">
-                  <div className="flex items-center gap-2">
+                {/* 🔴 ① タイトルより上のエリア：【透過なし】ソリッド背景
+                    画像と重なる最上部を不透明な塊（bg-[#151F32]）にすることで、文字のハッキリとした可読性を完全確保します。 */}
+                <div className="p-8 sm:p-14 pb-5 bg-[#151F32] relative z-10">
+                  <div className="flex items-center gap-2 mb-4">
                     <span className="font-sans text-xl font-bold italic text-amber-300 drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]">{m.id}</span>
-                    <Minus className="w-4 h-[1px] text-slate-600" />
+                    <Minus className="w-4 h-[1px] text-slate-500" />
                     <span className="text-[9px] font-extrabold text-sky-400/90 bg-sky-500/10 border border-sky-400/20 px-2 py-0.5 rounded tracking-wide uppercase">
                       Medical Approach
                     </span>
@@ -201,12 +115,27 @@ export default function PainManagement() {
                   <h4 className="font-sans text-2xl sm:text-3xl font-bold text-slate-100 tracking-tight">
                     {m.title}
                   </h4>
-                  
-                  <div className="inline-block px-3 py-1 bg-slate-950/60 rounded border border-slate-800/60 text-[9px] font-bold text-slate-300 tracking-[0.1em]">
-                    {m.subTitle}
+                </div>
+
+                {/* 🔴 ② タイトルより下のエリア：【透過ガラス】
+                    サブタイトルと説明文が乗る下半分のみを、美しい磨りガラス透過（backdrop-blur-md bg-slate-950/40）に。
+                    背景に仕込んだ「長いジグザグの光」がカードの裏側から上品に透けて見え、マシーンパートとは全く違うギミック感を楽しめます。 */}
+                <div className="p-8 sm:p-14 pt-0 flex-1 bg-slate-950/40 backdrop-blur-md border-t border-slate-800/40 relative z-10">
+                  <div className="pt-6 space-y-5">
+                    <div className="inline-block px-3 py-1 bg-slate-900/80 rounded border border-slate-800/60 text-[9px] font-bold text-slate-300 tracking-[0.1em]">
+                      {m.subTitle}
+                    </div>
+                    
+                    <p className="text-sm text-slate-300 leading-loose font-medium">
+                      {m.description}
+                    </p>
                   </div>
-                  
-                  <p className="text-sm text-slate-300 leading-loose font-medium pt-2 border-t border-slate-700/30 pointer-events-none z-0 bottom-[-30px] left-1/2 -translate-x-1/2 w-[70%] h-[30px] bg-sky-400/5 blur-[20px] pointer-events-none rounded-full" />
+                </div>
+                
+              </div>
+
+              {/* カードの下部外部の薄い接地用シャドウ */}
+              <div className="absolute inset-0 z-0 bottom-[-30px] left-1/2 -translate-x-1/2 w-[70%] h-[30px] bg-sky-400/5 blur-[20px] pointer-events-none rounded-full" />
             </div>
           ))}
         </div>
