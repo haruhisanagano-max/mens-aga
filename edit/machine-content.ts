@@ -1,57 +1,58 @@
 // edit/machine-content.ts
 
 export const MACHINE_CONTENT = {
-  badge: "厚生労働省承認・医療用脱毛機",
-  title: "GentleMax Pro",
-  subtitle: "熱破壊式の最高峰で、確実な実感を。",
+  badge: "CLINICAL HAIR GROWTH TREATMENT",
+  title: "Advanced Meso & Prescription",
+  subtitle: "医師が頭皮へ直接届ける、最速を追求した医療発毛。",
   
-  // なぜ人気なのか（画像を追加）
+  // 縦並びロングカードの深掘り（01, 02, 03）
   reasons: [
     {
-      img: "https://lh3.googleusercontent.com/d/1Rpv5KyMY1mbkpnRDuS3pLjzHUsBcO7Qh", // ★ 理由1の画像
-      title: "熱破壊式の圧倒的パワー",
-      desc: "毛根を瞬時に破壊する「ショット式」へのこだわり。1回目からポロポロと抜ける実感を。蓄熱式では難しい「太い毛・根深い毛」への圧倒的な強さを訴求。"
+      img: "https://lh3.googleusercontent.com/d/1Rpv5KyMY1mbkpnRDuS3pLjzHUsBcO7Qh", // ★ 01の画像（成分イメージなど）
+      title: "毛根再生スイッチを押す「高濃度 成長因子×MINOX」",
+      desc: "ただの薬の服用だけでは届きにくい毛根の最深部へ、発毛細胞を呼び覚ます「成長因子（グロスファクター）」と「高濃度ミノキシジル（MINOX）」の極上ブレンド液をダイレクトに注入。眠っていた毛包を最速で叩き起こし、太く長い髪の生成を強力にブーストします。"
     },
     {
-      img: "https://lh3.googleusercontent.com/d/1OFEk5DGYdLTh4bP40vddxz4PfDmMbz35", // ★ 理由2の画像
-      title: "2波長による「パーソナライズ」",
-      desc: "アレキサンドライト（浅く太い毛）とヤグ（深くしつこい毛）の2つを搭載。一人ひとりの肌色、部位ごとの毛質に合わせて瞬時に使い分ける「職人技」のような精密さを強調。"
+      img: "https://lh3.googleusercontent.com/d/1OFEk5DGYdLTh4bP40vddxz4PfDmMbz35", // ★ 02の画像（ドクターの手打ち風景など）
+      title: "医師による「精密手打ち」で気になる部位を狙い撃ち",
+      desc: "特に毛髪の衰退が目立つ「生え際のM字ライン」や「つむじのトップ」には、医師がシリンジを用いてピンポイントで手打ち。一人ひとりの頭皮の厚みや毛根の深さをプロの指先で感知しながら、最も効果の出る深さへ的確に薬剤を届けます。"
     },
     {
-      img: "https://lh3.googleusercontent.com/d/1a5y32hLyDxl8lwlGcTN2wriPXdA29Eb9", // ★ 理由3の画像
-     title: "脱毛と同時に、澄みわたる素肌へ",
-  desc: "使用するアレキサンドライトレーザーは、実は「シミやくすみ」の美肌治療にも使われる波長。毛根へのアプローチと同時に毛穴を引き締め、自己処理で傷ついた肌を明るいトーンへ導きます。「毛がなくなる」以上の、触れるたびに誇れるキメの整った肌へ。"
-}
+      img: "https://lh3.googleusercontent.com/d/1a5y32hLyDxl8lwlGcTN2wriPXdA29Eb9", // ★ 03の画像（注入マシンのイメージなど）
+      title: "最先端マシンで、痛みを抑えて「全体へ均一注入」",
+      desc: "頭皮全体や広範囲の薄毛には、最先端のガンタイプ注入マシンを使用。超極細の針が均一な圧力と驚異的なスピードで機械的に注入するため、手打ちに比べて痛みが劇的に軽減されます。スピーディーな施術で頭皮への負担を最小限に抑え、ムラなく成分を浸透させます。"
+    }
   ],
 
-  // レーザーの深掘り
+  // 2大アプローチ（上の2分割カード用）
   lasers: [
     {
-      name: "アレキサンドライト レーザー",
-      wavelength: "755nm",
-      target: "標準〜剛毛・美肌",
-      feature: "メラニンへの吸収が非常に高く、日本人の肌と相性抜群。毛穴を引き締める美肌効果も期待できます。",
-      points: ["濃い太い毛に強い", "美肌・毛穴改善", "国内導入数No.1"]
+      name: "ベースを整える「内服・外用薬」",
+      wavelength: "HOME CARE",
+      target: "維持・予防・全体発毛",
+      feature: "毎日の内服薬（フィナステリド）で抜け毛原因を根本ブロックし、ミノキシジル外用で頭皮全体の血流を底上げ。24時間体制で髪が育つ土台を守り抜きます。",
+      points: ["抜け毛の原因を阻害", "頭皮の血流アップ", "毎日手軽に継続"]
     },
     {
-      name: "ヤグ レーザー",
-      wavelength: "1064nm",
-      target: "根深い毛・産毛・褐色肌",
-      feature: "最も深く届く波長。VIOやヒゲなど根深い毛を根絶。日焼け肌や色黒の方でも安全に照射可能です。",
-      points: ["VIO・ヒゲに最適", "日焼け肌もOK", "産毛まで対応"]
+      name: "最速を生み出す「頭皮注入治療」",
+      wavelength: "CLINICAL MESO",
+      target: "早期発毛・局所集中ケア",
+      feature: "クリニックだからこそ許された、頭皮への直接アプローチ。眠っている毛包へ成長因子を直接浸透させることで、お薬単体での治療を遥かに超えるスピード発毛を目指します。",
+      points: ["成長因子をダイレクト注入", "医師によるスピード施術", "選べる手打ち＆マシン"]
     }
   ],
 
   diagram: {
-    image: "https://lh3.googleusercontent.com/d/1nPBu1NNmwdFdLr3wL-VQZGLs8qdEF6T6",
-    limitedBadge: "最高位機種導入"
+    image: "https://lh3.googleusercontent.com/d/1nPBu1NNmwdFdLr3wL-VQZGLs8qdEF6T6", // ★ メインの注入治療イメージ画像
+    limitedBadge: "最先端メソセラピー導入"
   },
 
+  // 真ん中の3連ミニ画像BOX
   features: [
     { img: "https://lh3.googleusercontent.com/d/11X4lB9p3Vw7wkL7-z0GqrmVqXcF4uOCO" },
     { img: "https://lh3.googleusercontent.com/d/1MChk-WEA9gfziN0FVdVPxkWxGMXCRits" },
     { img: "https://lh3.googleusercontent.com/d/1yO0HvT0RI9V7rHeBoNTZDlGj5AeLLvgE" }
   ],
 
-  sectionBgImage: "/images/bg-machine.png" // ★ 背景画像
+  sectionBgImage: "/images/bg-machine.png" // ★ 背景画像（既存のままでOK）
 };
