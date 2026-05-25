@@ -1,23 +1,27 @@
 'use client'
 
 import Image from 'next/image'
-import { ShieldCheck } from 'lucide-react'
+import { ShieldCheck, Minus } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { PAIN_CONTENT } from '@/edit/pain-content'
 
 export default function PainManagement() {
   // ---------------------------------------------------------
-  // ★ デザイン統一用リモコン（AGA・中央短縮＆強烈光源決定版）
+  // ★ デザイン統一用リモコン（マシーンと連動したガラス＆斜め滲み光版）
   // ---------------------------------------------------------
   const fontTitle = "font-sans font-bold tracking-tight text-slate-100" 
   const sectionPadding = "py-16 sm:py-28"
   const headerBottomMargin = "mb-12 sm:mb-20"
   const cardRounded = "rounded-xl" 
-  const cardBorder = "border border-slate-700/30 transition-all duration-500 hover:border-sky-400/20"
-  const cardShadow = "shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),0_30px_60px_-15px_rgba(56,189,248,0.1)] bg-[#1E293B]"
+  
+  // 💡 ガラスのフチを綺麗に立たせるための極細の透過ハイライト線
+  const glassBorder = "border border-slate-700/60 border-t-white/10 border-l-white/10"
   // ---------------------------------------------------------
 
+  const gpuStyle = { transform: 'translateZ(0)', willChange: 'opacity, transform' };
+
   return (
+    /* 背景色は共通のディープネイビーで全体の統一感を保証 */
     <section id="pain" className={`${sectionPadding} relative bg-[#0B111E] text-slate-400 overflow-hidden`}>
       
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -44,13 +48,13 @@ export default function PainManagement() {
         {/* 🔴 Measures (各施策) */}
         <div className="space-y-12 sm:space-y-24 mb-20">
           {PAIN_CONTENT.measures.map((m, i) => (
-            <div key={i} className={`relative grid lg:grid-cols-12 gap-0 items-center`}>
+            <div key={i} className={`relative grid lg:grid-cols-12 gap-0 items-center`} style={gpuStyle}>
               
               <span className={`font-sans text-[12rem] sm:text-[22rem] font-black text-slate-900 opacity-[0.25] absolute -top-16 ${i % 2 === 0 ? '-right-4' : '-left-4'} italic pointer-events-none select-none z-0`}>
                 {m.id}
               </span>
 
-              {/* 画像フィールド */}
+              {/* 画像フィールド：💡 フィルターや黒幕を100%全撤去！画像本来の美しさ */}
               <div className={`lg:col-span-7 relative z-10 ${i % 2 !== 0 ? 'lg:order-last' : ''}`}>
                 <div className={`${cardRounded} border border-slate-900 overflow-hidden aspect-[16/10] bg-slate-950 relative shadow-[0_20px_50px_rgba(0,0,0,0.6)]`}>
                   <Image 
@@ -59,27 +63,31 @@ export default function PainManagement() {
                     fill 
                     className="object-cover transition-transform duration-700 hover:scale-105" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent" />
                 </div>
               </div>
 
-              {/* テキストパネル */}
+              {/* テキストパネル：💡 ここがマシーンパートと同期した「重厚な透過グラス」 */}
               <div className={`
                 lg:col-span-6 
                 relative z-20 
                 mt-[-40px] lg:mt-0 
                 ${i % 2 === 0 ? 'lg:-ml-20' : 'lg:-mr-20'} 
-                p-8 sm:p-14 ${cardRounded} ${cardBorder} ${cardShadow}
+                p-8 sm:p-14 ${cardRounded} ${glassBorder}
+                bg-slate-900/40 backdrop-blur-2xl
+                shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)]
                 overflow-hidden
               `}>
                 
-                {/* 💡 扇状発光 */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[140%] h-[50%] bg-[radial-gradient(ellipse_at_bottom,rgba(56,189,248,0.12),transparent_75%)] pointer-events-none z-0" />
+                {/* 💡 【マシーンと変化をつけた斜めエッジ滲み光】
+                    左右のカード配置（偶数・奇数）に合わせて、角からシアンブルーの光が
+                    ガラスの内部に優しく、しかし確実に視認できる絶妙な強さ（0.18）で滲み出します。
+                    絶対に枠線で光が千切れて見えないシームレス構造です。 */}
+                <div className={`absolute top-0 ${i % 2 === 0 ? 'right-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.18),transparent_65%)]' : 'left-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.18),transparent_65%)]'} w-full h-full pointer-events-none z-0`} />
 
                 <div className="space-y-5 relative z-10">
-                  {/* 💡 ここが修正された左寄せ・隙間なしバッジです */}
                   <div className="flex items-center gap-2">
                     <span className="font-sans text-xl font-bold italic text-amber-300 drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]">{m.id}</span>
+                    <Minus className="w-4 h-[1px] text-slate-500" />
                     <span className="text-[9px] font-extrabold text-sky-400/90 bg-sky-500/10 border border-sky-400/20 px-2 py-0.5 rounded tracking-wide uppercase">
                       Medical Approach
                     </span>
@@ -89,7 +97,7 @@ export default function PainManagement() {
                     {m.title}
                   </h4>
                   
-                  <div className="inline-block px-3 py-1 bg-slate-900/60 rounded border border-slate-800/60 text-[9px] font-bold text-slate-400 tracking-[0.1em]">
+                  <div className="inline-block px-3 py-1 bg-slate-950/60 rounded border border-slate-800/60 text-[9px] font-bold text-slate-400 tracking-[0.1em]">
                     {m.subTitle}
                   </div>
                   
@@ -98,12 +106,10 @@ export default function PainManagement() {
                   </p>
                 </div>
                 
-                {/* 💡 光源カスタマイズ（幅45%） */}
-                <div className="absolute bottom-[-2px] left-1/2 -translate-x-1/2 w-[65%] h-[8px] bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,1),rgba(56,189,248,0.6),transparent_65%)] blur-[3px] opacity-[1] pointer-events-none z-0" />
               </div>
 
-              {/* カードの下部外部のシャドウ */}
-              <div className="absolute inset-0 z-0 bottom-[-30px] left-1/2 -translate-x-1/2 w-[70%] h-[30px] bg-sky-400/10 blur-[20px] pointer-events-none rounded-full" />
+              {/* カードの下部外部の薄い接地用シャドウ（維持） */}
+              <div className="absolute inset-0 z-0 bottom-[-30px] left-1/2 -translate-x-1/2 w-[70%] h-[30px] bg-sky-400/5 blur-[20px] pointer-events-none rounded-full" />
             </div>
           ))}
         </div>
