@@ -2,188 +2,103 @@
 
 import Image from 'next/image'
 import { ShieldCheck, Minus } from 'lucide-react'
-import { motion } from 'framer-motion'
 import { PAIN_CONTENT } from '@/edit/pain-content'
 
 export default function PainManagement() {
-  // ---------------------------------------------------------
-  // ★ デザイン刷新用リモコン（カード脱却・白ベース＆一体感Seamless版）
-  // ---------------------------------------------------------
-  const fontTitle = "font-sans font-bold tracking-tight text-slate-100" 
-  const sectionPadding = "py-16 sm:py-28"
-  const headerBottomMargin = "mb-12 sm:mb-20"
-  const cardRoundedTop = "rounded-t-xl"
-  const cardRoundedBottom = "rounded-b-xl"
-  
-  // 💡 マシーンパートと全く同じ、枠線の極細透過ハイライト反射
-  const glassBorder = "border-x border-b border-slate-700/60 border-t-white/10 border-l-white/10"
-  // ---------------------------------------------------------
-
-  const gpuStyle = { transform: 'translateZ(0)', willChange: 'opacity, transform' };
-
   return (
-    /* 💡 背景色はマシーンと合わせたディープネイビー（#050A15）をベースに採用 */
-    <section id="pain" className={`${sectionPadding} relative bg-[#050A15] text-slate-400 overflow-hidden`}>
+    /* 💡 背景はCTAのように清潔感のある白（bg-white）へ完全刷新 */
+    <section id="pain" className="py-16 sm:py-28 relative bg-white text-slate-800 overflow-hidden">
       
-      {/* 💡 【背景：まだらな光】マシーンパートの手法を踏襲しつつ、ペイン独自の配置と色味でボヤッとした光を散りばめました。
-          セクション全体を大きく斜めにぶち抜く、強力なシアンブルーの直線光源ラインです。
-          ビルドエラーを防ぐため、標準的なTailwindグラデーションのみでモヤと芯を表現しました。 */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
-        {/* 中心を走る鋭い斜めの光の線 */}
-        <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[linear-gradient(135deg,transparent_49.8%,#38bdf8_50%,transparent_50.2%)] blur-[1px]" />
-        {/* 周囲に広がる強力な光のモヤ */}
-        <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[linear-gradient(135deg,transparent_35%,#0ea5e9_50%,transparent_65%)] blur-[120px] opacity-60" />
-      </div>
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        
+        {/* 🔴 Header */}
+        <div className="text-center mb-16 sm:mb-24">
+          <span className="text-[10px] font-bold tracking-[0.5em] text-sky-600 block mb-4 uppercase">
+            {PAIN_CONTENT.badge}
+          </span>
+          <h2 className="font-sans font-bold tracking-tight text-slate-900 text-3xl sm:text-5xl mb-6 leading-tight">
+            {PAIN_CONTENT.mainTitle.split('\n').map((line, i) => (
+              <span key={i} className="block">{line}</span>
+            ))}
+          </h2>
+          <p className="text-slate-600 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
+            {PAIN_CONTENT.mainSubtitle}
+          </p>
+        </div>
 
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {PAIN_CONTENT.sectionBgImage && (
-          <Image src={PAIN_CONTENT.sectionBgImage} alt="" fill className="object-cover opacity-[0.02] mix-blend-overlay" priority />
-        )}
-      </div>
+        {/* 🔴 Measures (各施策) */}
+        <div className="space-y-24 sm:space-y-32 mb-20">
+          {PAIN_CONTENT.measures.map((m, i) => {
+            const isEven = i % 2 === 0;
+            return (
+              /* 💡 カードの枠（borderやbg）を一切なくし、空間を贅沢に使うレイアウト */
+              <div key={i} className="relative grid md:grid-cols-2 items-center gap-8 md:gap-16">
+                
+                {/* 背景の巨大ID番号（白背景に薄いグレーで透かします） */}
+                <span className={`font-sans text-[12rem] sm:text-[18rem] font-black text-slate-50 absolute -top-12 ${isEven ? 'left-0' : 'right-0'} italic pointer-events-none select-none z-0 tracking-tighter leading-none`}>
+                  {m.id}
+                </span>
 
-      <div className="max-w-4xl mx-auto px-6 relative z-10 aspect-[16/10] bg-[#050A15] relative shadow-[0_20px_50px_rgba(0,0,0,0.6)]`}>
+                {/* 1️⃣ 画像エリア：💡 白背景への完璧なシームレス溶け込み */}
+                <div className={`relative w-full aspect-[4/3] sm:aspect-square md:aspect-[4/3] z-10 ${isEven ? 'md:order-last' : ''}`}>
                   <Image 
                     src={m.image} 
-                    alt="" 
+                    alt={m.title} 
                     fill 
-                    className="object-cover transition-transform duration-700 hover:scale-105" 
+                    className="object-cover" 
+                    priority={i === 0}
                   />
+                  
+                  {/* 💡 画像の四方（上下左右）から白のグラデーションをかけ、背景と完全に同化させます */}
+                  <div className="absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-white to-transparent pointer-events-none" />
+                  <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+                  <div className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-white to-transparent pointer-events-none" />
+                  <div className="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-white to-transparent pointer-events-none" />
+
+                  {/* テキストと隣接する側はさらに強く白フェードをかけ、文字との一体感を強調 */}
+                  <div className={`absolute inset-y-0 ${isEven ? 'left-0 bg-gradient-to-r' : 'right-0 bg-gradient-to-l'} w-1/2 from-white via-white/80 to-transparent pointer-events-none hidden md:block`} />
                 </div>
-              </div>
 
-              {/* テキストパネル（白系。画像との重なり部分の文字を完全に保護） */}
-              <div className={`
-                lg:col-span-6 
-                relative z-20 
-                mt-[-40px] lg:mt-0 
-                ${i % 2 === 0 ? 'lg:-ml-20' : 'lg:-mr-20'} 
-                ${cardTextPadding} ${cardRounded} ${glassBorder}
-                
-                /* 💡 【画像グラデーション追加】画像自体を右上から白へと滑らかに溶け込ませ、
-                   白のなじみ具合くらいにしたい。
-                   空中（外側）に向かって、美しく深みを変える贅沢なグラデーション仕様です。
-                   画像自体は不透明なので暗くなりません。 */
-                bg-gradient-to-br 
-                ${i % 2 === 0 
-                  ? 'from-white via-white/95 to-white/85' 
-                  : 'from-white/85 via-white/95 to-white'
-                }
-                
-                shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)]
-                overflow-hidden
-              `}>
-                
-                {/* 💡 【マシーンと変化をつけた斜め滲みトップライト】
-                    左右のカード配置に合わせて、右上（または左上）の角からシアンブルーの光が
-                    ガラスの内部に優しく、しかし確実に視認できる絶妙な強さ（0.18支線 leading-loose font-medium pt-2 border-t border-slate-700_40 leading-loose pt-2 border-t border-slate-700/30'}`} pointer-events-none z-0 />
-
-                <div className="space-y-5 relative z-10 pl-4 border-l border-slate-800">
-                  <div className="flex items-center gap-2">
-                    <span className="font-sans text-xl font-bold italic text-amber-300 drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]">{m.id}</span>
-                    <Minus className="w-4 h-[1px] text-slate-600" />
-                    <span className="text-[9px] font-extrabold text-sky-400/90 bg-sky-500/10 border border-sky-400/20 px-2 py-0.5 rounded tracking-wide uppercase">
+                {/* 2️⃣ テキストエリア：枠線なしの純粋なタイポグラフィ構成 */}
+                <div className="relative z-20 flex flex-col justify-center">
+                  
+                  <div className="flex items-center gap-2 mb-6">
+                    <span className="font-sans text-2xl font-black italic text-sky-500">{m.id}</span>
+                    <Minus className="w-6 h-[2px] text-slate-300" />
+                    <span className="text-[10px] font-bold text-sky-600 bg-sky-50 px-3 py-1 rounded-full tracking-wider uppercase border border-sky-100">
                       Medical Approach
                     </span>
                   </div>
                   
-                  <h4 className="font-sans text-2xl sm:text-3xl font-bold text-slate-100 tracking-tight">
+                  <h4 className="font-sans text-2xl sm:text-4xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
                     {m.title}
                   </h4>
                   
-                  <div className="inline-block px-3 py-1 bg-slate-950/60 rounded border border-slate-800/60 text-[9px] font-bold text-slate-400 tracking-[0.1em]">
+                  <div className="inline-block px-4 py-1.5 bg-slate-100 rounded-md text-[10px] font-bold text-slate-600 tracking-[0.1em] mb-6 self-start">
                     {m.subTitle}
                   </div>
                   
-                  <p className="text-sm text-slate-300 leading-loose font-medium pt-2 border-t border-slate-700/30 overflow-hidden`}>
-        {PAIN_CONTENT.sectionBgImage && (
-          <Image src={PAIN_CONTENT.sectionBgImage} alt="" fill className="object-cover opacity-[0.02] mix-blend-overlay" priority />
-        )}
-      </div>
-
-      <div className="max-w-4xl mx-auto pt-12 sm:pt-16 border-t border-slate-900/60 flex-col items-center text-center overflow-hidden aspect-[16/10] bg-[#050A15] relative shadow-[0_20px_50px_rgba(0,0,0,0.6)]`}>
-                  <Image 
-                    src={m.image} 
-                    alt="" 
-                    fill 
-                    className="object-cover transition-transform duration-700 hover:scale-105" 
-                  />
+                  <p className="text-sm sm:text-base text-slate-600 leading-loose font-medium">
+                    {m.description}
+                  </p>
+                  
                 </div>
+
               </div>
-
-              {/* テキストパネル（白系。画像との重なり部分の文字を完全に保護） */}
-              <div className={`
-                lg:col-span-6 
-                relative z-20 
-                mt-[-40px] lg:mt-0 
-                ${i % 2 === 0 ? 'lg:-ml-20' : 'lg:-mr-20'} 
-                ${cardTextPadding} ${cardRounded} ${glassBorder}
-                
-                /* 💡 【画像グラデーション追加】画像事態をグラデーションにする。
-                   白のなじみ具合くらいにしたい。
-                   空中（外側）に向かって、美しく深みを変える贅沢なグラデーション仕様です。
-                   画像自体は不透明なので暗くなりません。 */
-                bg-gradient-to-br 
-                ${i % 2 === 0 
-                  ? 'from-white via-white/95 to-white/85' 
-                  : 'from-white/85 via-white/95 to-white'
-                }
-                
-                shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)]
-                overflow-hidden
-              `}>
-                
-                {/* 💡 【マシーンと変化をつけた斜め滲みトップライト】
-                    左右のカード配置に合わせて、右上（または左上）の角からシアンブルーの光が
-                    ガラスの内部に優しく、しかし確実に視認できる絶妙な強さ（0.18支線 leading-loose font-medium pt-2 border-t border-slate-700_40 leading-loose pt-2 border-t border-slate-700/30'}`} pointer-events-none z-0 />
-
-                <div className="space-y-5 relative z-10 pl-4 border-l border-slate-800">
-                  <div className="flex items-center gap-2">
-                    <span className="font-sans text-xl font-bold italic text-amber-300 drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]">{m.id}</span>
-                    <Minus className="w-4 h-[1px] text-slate-600" />
-                    <span className="text-[9px] font-extrabold text-sky-400/90 bg-sky-500/10 border border-sky-400/20 px-2 py-0.5 rounded tracking-wide uppercase">
-                      Medical Approach
-                    </span>
-                  </div>
-                  
-                  <h4 className="font-sans text-2xl sm:text-3xl font-bold text-slate-100 tracking-tight">
-                    {m.title}
-                  </h4>
-                  
-                  <div className="inline-block px-3 py-1 bg-slate-950/60 rounded border border-slate-800/60 text-[9px] font-bold text-slate-400 tracking-[0.1em]">
-                    {m.subTitle}
-                  </div>
-                  
-                  <p className="text-sm text-slate-300 leading-loose font-medium pt-2 border-t border-slate-700/30 overflow-hidden`}>
-        {PAIN_CONTENT.sectionBgImage && (
-          <Image src={PAIN_CONTENT.sectionBgImage} alt="" fill className="object-cover opacity-[0.02] mix-blend-overlay" priority />
-        )}
-      </div>
-
-      <div className="max-w-4xl mx-auto pt-12 sm:pt-16 border-t border-slate-900/60 flex-col items-center text-center overflow-hidden aspect-[16/10] bg-[#050A15] relative shadow-[0_20px_50px_rgba(0,0,0,0.6)]`}>
-                  <Image 
-                    src={m.image} 
-                    alt="" 
-                    fill 
-                    className="object-cover transition-transform duration-700 hover:scale-105" 
-                  />
-                </div>
-              </div>
-
-              {/* カードの下部外部の薄い接地用シャドウ（維持） */}
-              <div className="absolute inset-0 z-0 bottom-[-30px] left-1/2 -translate-x-1/2 w-[70%] h-[30px] bg-sky-400/5 blur-[20px] pointer-events-none rounded-full" />
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* 🔴 Reassurance：下部の安心エリア */}
-        <div className="max-w-4xl mx-auto pt-12 sm:pt-16 border-t border-slate-900/60 flex-col items-center text-center overflow-hidden`}>
-            <div className="w-[1px] h-12 bg-gradient-to-b from-sky-400/20 via-sky-500/5 to-transparent mb-8" />
-            <div className="space-y-8">
-              <h3 className="font-sans text-2xl sm:text-4xl font-extrabold text-slate-100 leading-tight tracking-tighter">
+        <div className="max-w-4xl mx-auto pt-16 border-t border-slate-100">
+          <div className="flex flex-col items-center text-center">
+            <div className="w-[2px] h-12 bg-gradient-to-b from-sky-300 to-transparent mb-8" />
+            <div className="space-y-6">
+              <h3 className="font-sans text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                 {PAIN_CONTENT.reassurance.title}
               </h3>
-              <div className="mt-4 inline-flex items-center gap-3 px-6 py-3 bg-slate-950/80 rounded-full text-slate-400 text-[10px] sm:text-xs border border-slate-800/60 font-bold shadow-wide">
-                <ShieldCheck className="w-4 h-4 text-sky-400/60" />
+              <div className="inline-flex items-center gap-3 px-6 py-4 bg-slate-50 rounded-full text-slate-600 text-xs font-bold border border-slate-200">
+                <ShieldCheck className="w-5 h-5 text-sky-500" />
                 <span>{PAIN_CONTENT.reassurance.note}</span>
               </div>
             </div>
