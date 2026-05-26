@@ -8,7 +8,7 @@ export default function PainManagement() {
   const fontTitle = "font-sans font-bold tracking-tight" 
   const sectionPadding = "py-16 sm:py-28"
   const headerBottomMargin = "mb-16 sm:mb-24"
-  const cardTextPadding = "p-8 sm:p-14"
+  const cardTextPadding = "p-8 sm:p-14" // 余白を広げて優雅に
   const cardRounded = "rounded-xl" 
   
   // 💡 【透過グラス枠】マシーンパートと完全同期
@@ -17,6 +17,7 @@ export default function PainManagement() {
   const gpuStyle = { transform: 'translateZ(0)', willChange: 'opacity, transform' };
 
   return (
+    /* 💡 背景色はマシーン基準の最高級ネイビー（#050A15） */
     <section id="pain" className={`${sectionPadding} relative bg-[#050A15] text-slate-400 overflow-hidden`}>
       
       {/* 💡 【まだら（斑）の光】マシーンパートをベースにしたアンビエント光 */}
@@ -57,7 +58,7 @@ export default function PainManagement() {
               style={gpuStyle}
             >
               
-              {/* 1️⃣ 画像エリア */}
+              {/* 1️⃣ 画像エリア：フィルターや黒幕のない100%クリーン表示 */}
               <div className="relative aspect-[16/9] bg-[#050A15] w-full overflow-hidden border-b border-slate-800 z-20">
                 <Image 
                   src={m.image} 
@@ -68,19 +69,19 @@ export default function PainManagement() {
                 />
               </div>
 
-              {/* 2️⃣ 下側：テキストパネル */}
+              {/* 2️⃣ 下側：テキストパネル（磨りガラス×下部光源） */}
               <div className={`${cardTextPadding} relative w-full flex flex-col justify-center overflow-hidden bg-slate-900/40 backdrop-blur-3xl z-10`}>
                 
                 {/* 表面反射（Machine基準） */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.1] via-transparent to-transparent pointer-events-none z-0" />
                 <div className="absolute inset-0 bg-gradient-to-bl from-white/[0.06] via-transparent to-transparent pointer-events-none z-0" />
 
-                {/* 💡 【光源は下部】 */}
+                {/* 💡 【光源は下部】Machineと同じテイストのシャープな光の芯を下部に配置 */}
                 <div className="absolute bottom-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-sky-400/80 to-transparent shadow-[0_0_30px_rgba(56,189,248,0.8)] pointer-events-none z-20" />
                 <div className="absolute bottom-0 inset-x-0 h-[70%] bg-gradient-to-t from-sky-500/10 via-sky-500/5 to-transparent pointer-events-none z-0" />
 
                 <div className="relative z-10">
-                  {/* 数字とタグを左寄せ */}
+                  {/* 💡 【修正：数字とタグ】隙間と線をなくし、左寄せに統一 */}
                   <div className="flex items-center gap-3 mb-6">
                     <span className="font-sans text-2xl font-black italic text-amber-300/90 drop-shadow-[0_0_10px_rgba(251,191,36,0.3)]">
                       {m.id}
@@ -90,6 +91,7 @@ export default function PainManagement() {
                     </span>
                   </div>
                   
+                  {/* 💡 【カードタイトル発光】文字自体に青い発光を強め、タイトルを際立たせる */}
                   <h3 className="font-sans text-2xl sm:text-3xl font-bold text-white mb-6 tracking-tight drop-shadow-[0_0_15px_rgba(56,189,248,0.4)]">
                     {m.title}
                   </h3>
@@ -98,12 +100,13 @@ export default function PainManagement() {
                     {m.subTitle}
                   </div>
                   
+                  {/* 💡 【修正：余白のクリーン化】不自然な横線を消し、空間のみで構成 */}
                   <p className="text-sm sm:text-base text-slate-300 leading-loose font-medium opacity-80 mt-4">
                     {m.description}
                   </p>
                 </div>
 
-                {/* 背景の特大ID */}
+                {/* 背景の特大ID（超薄く） */}
                 <span className="font-sans italic text-[8rem] sm:text-[14rem] absolute -bottom-10 -right-4 opacity-[0.03] select-none font-black text-white z-0">
                   {m.id}
                 </span>
