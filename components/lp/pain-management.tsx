@@ -8,7 +8,7 @@ export default function PainManagement() {
   const fontTitle = "font-sans font-bold tracking-tight" 
   const sectionPadding = "py-16 sm:py-28"
   const headerBottomMargin = "mb-16 sm:mb-24"
-  const cardTextPadding = "p-8 sm:p-14" // 余白を少し広げて優雅に
+  const cardTextPadding = "p-8 sm:p-14" // 余白を広げて優雅に
   const cardRounded = "rounded-xl" 
   
   // 💡 【透過グラス枠】マシーンパートと完全同期
@@ -20,10 +20,13 @@ export default function PainManagement() {
     /* 💡 背景色はマシーン基準の最高級ネイビー（#050A15） */
     <section id="pain" className={`${sectionPadding} relative bg-[#050A15] text-slate-400 overflow-hidden`}>
       
-      {/* 💡 背景の斑な光（Machine準拠） */}
-      <div className="absolute top-[5%] left-[5%] w-[450px] h-[450px] bg-sky-500/25 blur-[120px] rounded-full pointer-events-none z-0" />
-      <div className="absolute top-[40%] right-[-5%] w-[550px] h-[550px] bg-indigo-500/20 blur-[150px] rounded-full pointer-events-none z-0" />
-      <div className="absolute bottom-[10%] left-[10%] w-[500px] h-[500px] bg-cyan-400/20 blur-[130px] rounded-full pointer-events-none z-0" />
+      {/* 💡 【まだら（斑）の光】マシーンパートをベースにしつつ、セクション全体をぶち抜く強力な直線光源ラインを追加。 */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
+        {/* 中心を走る鋭い斜めの光の線 */}
+        <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[linear-gradient(135deg,transparent_49.8%,#38bdf8_50%,transparent_50.2%)] blur-[1px]" />
+        {/* 周囲に広がる強力な光のモヤ */}
+        <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[linear-gradient(135deg,transparent_35%,#0ea5e9_50%,transparent_65%)] blur-[120px] opacity-60" />
+      </div>
 
       <div className="absolute inset-0 z-0 pointer-events-none">
         {PAIN_CONTENT.sectionBgImage && (
@@ -33,17 +36,15 @@ export default function PainManagement() {
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         
-        {/* 🔴 Header：タイトルを光源でセンス良く目立たせる */}
+        {/* 🔴 Header：タイトルを光源青でセンス良く目立たせる。 */}
         <div className={`text-center ${headerBottomMargin}`}>
           <span className="text-[10px] font-bold tracking-[0.5em] text-amber-300 block mb-6 uppercase drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]">
             {PAIN_CONTENT.badge}
           </span>
           
           <div className="relative inline-block">
-            {/* タイトルの背後に配置する「センスの良い隠し光源」 */}
-            <div className="absolute inset-0 bg-sky-400/20 blur-[40px] rounded-full -z-10" />
-            
-            <h2 className={`${fontTitle} text-3xl sm:text-5xl font-extrabold mb-8 leading-tight bg-gradient-to-b from-white via-white to-slate-400 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]`}>
+            {/* 💡 【タイトル発光】白から青へと変わるグラデーションと、青い光のdrop-shadowで文字自体を発光させる. */}
+            <h2 className={`${fontTitle} text-3xl sm:text-5xl font-extrabold mb-8 leading-tight bg-gradient-to-b from-white via-sky-100 to-white bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(56,189,248,0.5)]`}>
               {PAIN_CONTENT.mainTitle.split('\n').map((line, i) => <span key={i} className="block">{line}</span>)}
             </h2>
           </div>
@@ -62,9 +63,10 @@ export default function PainManagement() {
               style={gpuStyle}
             >
               
-              {/* 1️⃣ 画像エリア（100%クリア。ノイズとなるオーバーレイなし） */}
+              {/* 1️⃣ 画像エリア：フィルターや黒幕のない100%クリーン表示（IDの下）. */}
               <div className="relative aspect-[16/9] bg-[#050A15] w-full overflow-hidden border-b border-slate-800 z-20">
                 <Image 
+              key={i} 
                   src={m.image} 
                   alt="" 
                   fill 
@@ -73,20 +75,23 @@ export default function PainManagement() {
                 />
               </div>
 
-              {/* 2️⃣ 下側：テキストパネル（余白と整理されたタイポグラフィ） */}
+              {/* 2️⃣ 下側：テキストパネル（磨りガラス×一体感シームレス境界） */}
               <div className={`${cardTextPadding} relative w-full flex flex-col justify-center overflow-hidden bg-slate-900/40 backdrop-blur-3xl z-10`}>
                 
-                {/* 表面反射（Machine準拠） */}
+                {/* 表面反射（Machine基準。マシーンパート基準の透過グラスを適用しつつ、重なる側は不透明にする。） */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.1] via-transparent to-transparent pointer-events-none z-0" />
                 <div className="absolute inset-0 bg-gradient-to-bl from-white/[0.06] via-transparent to-transparent pointer-events-none z-0" />
 
-                {/* 💡 【光源は下部】カード底辺から滲み出るシャープな光の帯 */}
+                {/* 💡 【光源は下部】Machineと同じテイストのシャープな斜め直線をCSSグラデーションで複数配置。 */}
                 <div className="absolute bottom-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-sky-400/80 to-transparent shadow-[0_0_30px_rgba(56,189,248,0.8)] pointer-events-none z-20" />
-                <div className="absolute bottom-0 inset-x-0 h-[70%] bg-gradient-to-t from-sky-500/10 via-transparent to-transparent pointer-events-none z-0" />
+                <div className="absolute bottom-0 inset-x-0 h-[70%] bg-gradient-to-t from-sky-500/10 via-sky-500/5 to-transparent pointer-events-none z-0" />
+                
+                {/* ② 下部：境界線からテキストエリアへ向かって滲み出る柔らかい光の層 */}
+                <div className={`absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-t from-sky-500/15 via-sky-500/5 to-transparent pointer-events-none z-0`} />
 
                 <div className="relative z-10">
                   {/* 💡 【修正：数字とタグ】隙間と線をなくし、左寄せに統一 */}
-                  <div className="flex items-center gap-4 mb-6">
+                  <div className="flex items-center gap-3 mb-6">
                     <span className="font-sans text-2xl font-black italic text-amber-300/90 drop-shadow-[0_0_10px_rgba(251,191,36,0.3)]">
                       {m.id}
                     </span>
@@ -95,17 +100,17 @@ export default function PainManagement() {
                     </span>
                   </div>
                   
-                  {/* 💡 カードタイトルも光源を感じる質感に */}
-                  <h3 className="font-sans text-2xl sm:text-3xl font-bold text-white mb-6 tracking-tight drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
+                  {/* 💡 【カードタイトル発光】文字自体に青い発光を強め、タイトルを際立たせる. */}
+                  <h3 className="font-sans text-2xl sm:text-3xl font-bold text-white mb-6 tracking-tight drop-shadow-[0_0_15px_rgba(56,189,248,0.4)]">
                     {m.title}
                   </h3>
                   
-                  <div className="inline-block px-3 py-1.5 bg-slate-950/80 rounded border border-slate-700/60 text-[10px] font-bold text-slate-400 tracking-[0.1em] mb-8 shadow-inner">
+                  <div className="inline-block px-3 py-1.5 bg-slate-950/80 rounded border border-slate-700/60 text-[10px] font-bold text-slate-300 tracking-[0.1em] mb-8 shadow-inner">
                     {m.subTitle}
                   </div>
                   
-                  {/* 💡 【修正：余白のクリーン化】不自然な横線を消し、余白のみで構成 */}
-                  <p className="text-sm sm:text-base text-slate-300 leading-loose font-medium opacity-80">
+                  {/* 💡 【修正：余白のクリーン化】不自然な横線を消し、空間のみで構成 */}
+                  <p className="text-sm sm:text-base text-slate-300 leading-loose font-medium opacity-80 mt-4">
                     {m.description}
                   </p>
                 </div>
@@ -131,7 +136,7 @@ export default function PainManagement() {
               <h3 className="font-sans text-2xl sm:text-4xl font-extrabold text-white leading-tight tracking-tighter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
                 {PAIN_CONTENT.reassurance.title}
               </h3>
-              <div className="mt-4 inline-flex items-center gap-4 px-8 py-4 bg-slate-900/60 rounded-full text-slate-400 text-[11px] sm:text-xs border border-slate-700/60 font-bold shadow-2xl backdrop-blur-md">
+              <div className="mt-4 inline-flex items-center gap-4 px-8 py-4 bg-slate-900/60 rounded-full text-slate-300 text-[11px] sm:text-xs border border-slate-700/60 font-bold shadow-2xl backdrop-blur-md">
                 <ShieldCheck className="w-5 h-5 text-sky-400/80" />
                 <span className="tracking-wide">{PAIN_CONTENT.reassurance.note}</span>
               </div>
