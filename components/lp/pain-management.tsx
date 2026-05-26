@@ -2,28 +2,38 @@
 
 import Image from 'next/image'
 import { ShieldCheck, Minus } from 'lucide-react'
+import { motion } from 'framer-motion'
 import { PAIN_CONTENT } from '@/edit/pain-content'
 
 export default function PainManagement() {
+  // ---------------------------------------------------------
+  // ★ デザイン刷新用リモコン（カード脱却・白ベース＆一体感Seamless版）
+  // ---------------------------------------------------------
   const fontTitle = "font-sans font-bold tracking-tight text-slate-100" 
   const sectionPadding = "py-16 sm:py-28"
   const headerBottomMargin = "mb-12 sm:mb-20"
-  const cardTextPadding = "p-8 sm:p-14"
-  const cardRounded = "rounded-xl" 
+  const cardRoundedTop = "rounded-t-xl"
+  const cardRoundedBottom = "rounded-b-xl"
   
   // 💡 マシーンパートと全く同じ、枠線の極細透過ハイライト反射
-  const glassBorder = "border border-slate-700/60 border-t-white/10 border-l-white/10"
+  const glassBorder = "border-x border-b border-slate-700/60 border-t-white/10 border-l-white/10"
+  // ---------------------------------------------------------
 
   const gpuStyle = { transform: 'translateZ(0)', willChange: 'opacity, transform' };
 
   return (
-    /* 💡 背景色はマシーンと合わせたディープネイビー（#050A15） */
+    /* 💡 背景色はマシーンと合わせたディープネイビー（#050A15）をベースに採用 */
     <section id="pain" className={`${sectionPadding} relative bg-[#050A15] text-slate-400 overflow-hidden`}>
       
-      {/* 💡 【背景：まだらな光】マシーンパートの手法を踏襲しつつ、ペイン独自の配置と色味に調整 */}
-      <div className="absolute top-[10%] right-[10%] w-[450px] h-[450px] bg-sky-600/20 blur-[140px] rounded-full pointer-events-none z-0" />
-      <div className="absolute top-[45%] left-[-5%] w-[550px] h-[550px] bg-cyan-500/15 blur-[150px] rounded-full pointer-events-none z-0" />
-      <div className="absolute bottom-[10%] right-[20%] w-[400px] h-[400px] bg-blue-500/20 blur-[130px] rounded-full pointer-events-none z-0" />
+      {/* 💡 【背景：まだらな光】マシーンパートの手法を踏襲しつつ、ペイン独自の配置と色味でボヤッとした光を散りばめました。
+          セクション全体を大きく斜めにぶち抜く、強力なシアンブルーの直線光源ラインです。
+          ビルドエラーを防ぐため、標準的なTailwindグラデーションのみでモヤと芯を表現しました。 */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
+        {/* 中心を走る鋭い斜めの光の線 */}
+        <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[linear-gradient(135deg,transparent_49.8%,#38bdf8_50%,transparent_50.2%)] blur-[1px]" />
+        {/* 周囲に広がる強力な光のモヤ */}
+        <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[linear-gradient(135deg,transparent_35%,#0ea5e9_50%,transparent_65%)] blur-[120px] opacity-60" />
+      </div>
 
       <div className="absolute inset-0 z-0 pointer-events-none">
         {PAIN_CONTENT.sectionBgImage && (
@@ -31,100 +41,142 @@ export default function PainManagement() {
         )}
       </div>
 
-      <div className="max-w-4xl mx-auto px-6 relative z-10">
-        
-        {/* 🔴 Header */}
-        <div className={`text-center ${headerBottomMargin}`}>
-          <span className="text-[10px] font-bold tracking-[0.5em] text-amber-300 block mb-4 uppercase drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">
-            {PAIN_CONTENT.badge}
-          </span>
-          <h2 className={`${fontTitle} text-3xl sm:text-5xl font-extrabold mb-6 leading-tight`}>
-            {PAIN_CONTENT.mainTitle.split('\n').map((line, i) => <span key={i} className="block">{line}</span>)}
-          </h2>
-          <p className="text-slate-400 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium opacity-70">
-            {PAIN_CONTENT.mainSubtitle}
-          </p>
-        </div>
-
-        {/* 🔴 Measures (各施策) */}
-        <div className="space-y-16 sm:space-y-24 mb-20">
-          {PAIN_CONTENT.measures.map((m, i) => (
-            /* 💡 【最大の修正点】画像とテキストを別々の箱にせず、「1つの大きなガラスカード」の中に格納。マシーンパートと全く同じ構造です。 */
-            <div 
-              key={i} 
-              className={`relative overflow-hidden ${cardRounded} ${glassBorder} shadow-[0_30px_60px_rgba(0,0,0,0.7)] bg-transparent w-full flex flex-col`} 
-              style={gpuStyle}
-            >
-              
-              {/* 1️⃣ 上半分：画像エリア（画像自体は100%明るいまま） */}
-              <div className="relative aspect-[16/9] w-full bg-[#050A15] z-20 border-b border-slate-700/50">
-                <Image 
-                  src={m.image} 
-                  alt="" 
-                  fill 
-                  className="object-cover opacity-95 hover:opacity-100 transition-opacity duration-700" 
-                  priority={i === 0}
-                />
-                {/* 💡 【画像のシームレスグラデーション】
-                    画像が暗くならないよう、下部40%だけに下から上へのグラデーションをかけ、下のガラスカードへ超自然に溶け込ませます。 */}
-                <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-[#050A15] via-[#050A15]/40 to-transparent pointer-events-none z-10" />
+      <div className="max-w-4xl mx-auto px-6 relative z-10 aspect-[16/10] bg-[#050A15] relative shadow-[0_20px_50px_rgba(0,0,0,0.6)]`}>
+                  <Image 
+                    src={m.image} 
+                    alt="" 
+                    fill 
+                    className="object-cover transition-transform duration-700 hover:scale-105" 
+                  />
+                </div>
               </div>
 
-              {/* 2️⃣ 下半分：透過ガラステキストエリア */}
+              {/* テキストパネル（白系。画像との重なり部分の文字を完全に保護） */}
               <div className={`
-                relative w-full ${cardTextPadding} flex flex-col justify-center
-                bg-slate-900/40 backdrop-blur-2xl z-10
+                lg:col-span-6 
+                relative z-20 
+                mt-[-40px] lg:mt-0 
+                ${i % 2 === 0 ? 'lg:-ml-20' : 'lg:-mr-20'} 
+                ${cardTextPadding} ${cardRounded} ${glassBorder}
+                
+                /* 💡 【画像グラデーション追加】画像自体を右上から白へと滑らかに溶け込ませ、
+                   白のなじみ具合くらいにしたい。
+                   空中（外側）に向かって、美しく深みを変える贅沢なグラデーション仕様です。
+                   画像自体は不透明なので暗くなりません。 */
+                bg-gradient-to-br 
+                ${i % 2 === 0 
+                  ? 'from-white via-white/95 to-white/85' 
+                  : 'from-white/85 via-white/95 to-white'
+                }
+                
+                shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)]
+                overflow-hidden
               `}>
                 
-                {/* 背景の特大ID（マシーンと同じくカード内部に配置） */}
-                <span className="font-sans italic text-[8rem] sm:text-[12rem] absolute -top-8 -right-4 opacity-[0.04] select-none font-black text-slate-100 z-0">
-                  {m.id}
-                </span>
+                {/* 💡 【マシーンと変化をつけた斜め滲みトップライト】
+                    左右のカード配置に合わせて、右上（または左上）の角からシアンブルーの光が
+                    ガラスの内部に優しく、しかし確実に視認できる絶妙な強さ（0.18支線 leading-loose font-medium pt-2 border-t border-slate-700_40 leading-loose pt-2 border-t border-slate-700/30'}`} pointer-events-none z-0 />
 
-                {/* 💡 マシーンパートと同じ「ガラス表面反射」 */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.12] via-transparent to-transparent pointer-events-none z-0" />
-                <div className="absolute inset-0 bg-gradient-to-bl from-white/[0.08] via-transparent to-transparent pointer-events-none z-0" />
-
-                {/* 💡 【各カード下部のマシーン風光源】
-                    ご要望通り、カードの「一番下（底辺）」に、マシーンと同じ光の芯＋滲みグラデーションを配置しました。 */}
-                {/* ① 底辺を走る鋭い光の芯 */}
-                <div className="absolute bottom-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-sky-400/80 to-transparent shadow-[0_0_20px_rgba(56,189,248,1)] pointer-events-none z-20" />
-                {/* ② 底辺から上に向かって柔らかく広がるシアンの光 */}
-                <div className="absolute bottom-0 inset-x-0 h-[80%] bg-gradient-to-t from-sky-500/15 via-sky-500/5 to-transparent pointer-events-none z-0" />
-                {/* ③ 全体を包む極薄いアンビエント光 */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(56,189,248,0.04),transparent_100%)] pointer-events-none z-0" />
-
-                {/* テキストコンテンツ */}
-                <div className="relative z-10">
-                  <div className="flex items-center gap-2 mb-4">
+                <div className="space-y-5 relative z-10 pl-4 border-l border-slate-800">
+                  <div className="flex items-center gap-2">
                     <span className="font-sans text-xl font-bold italic text-amber-300 drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]">{m.id}</span>
-                    <Minus className="w-5 h-[1px] text-slate-500" />
+                    <Minus className="w-4 h-[1px] text-slate-600" />
                     <span className="text-[9px] font-extrabold text-sky-400/90 bg-sky-500/10 border border-sky-400/20 px-2 py-0.5 rounded tracking-wide uppercase">
                       Medical Approach
                     </span>
                   </div>
                   
-                  <h4 className="font-sans text-2xl sm:text-3xl font-bold text-slate-100 mb-4 tracking-tight">
+                  <h4 className="font-sans text-2xl sm:text-3xl font-bold text-slate-100 tracking-tight">
                     {m.title}
                   </h4>
                   
-                  <div className="inline-block px-3 py-1 bg-slate-950/60 rounded border border-slate-800/60 text-[9px] font-bold text-slate-400 tracking-[0.1em] mb-5">
+                  <div className="inline-block px-3 py-1 bg-slate-950/60 rounded border border-slate-800/60 text-[9px] font-bold text-slate-400 tracking-[0.1em]">
                     {m.subTitle}
                   </div>
                   
-                  <p className="text-sm text-slate-300 leading-loose font-medium pt-4 border-t border-slate-700/40">
-                    {m.description}
-                  </p>
-                </div>
+                  <p className="text-sm text-slate-300 leading-loose font-medium pt-2 border-t border-slate-700/30 overflow-hidden`}>
+        {PAIN_CONTENT.sectionBgImage && (
+          <Image src={PAIN_CONTENT.sectionBgImage} alt="" fill className="object-cover opacity-[0.02] mix-blend-overlay" priority />
+        )}
+      </div>
 
+      <div className="max-w-4xl mx-auto pt-12 sm:pt-16 border-t border-slate-900/60 flex-col items-center text-center overflow-hidden aspect-[16/10] bg-[#050A15] relative shadow-[0_20px_50px_rgba(0,0,0,0.6)]`}>
+                  <Image 
+                    src={m.image} 
+                    alt="" 
+                    fill 
+                    className="object-cover transition-transform duration-700 hover:scale-105" 
+                  />
+                </div>
               </div>
+
+              {/* テキストパネル（白系。画像との重なり部分の文字を完全に保護） */}
+              <div className={`
+                lg:col-span-6 
+                relative z-20 
+                mt-[-40px] lg:mt-0 
+                ${i % 2 === 0 ? 'lg:-ml-20' : 'lg:-mr-20'} 
+                ${cardTextPadding} ${cardRounded} ${glassBorder}
+                
+                /* 💡 【画像グラデーション追加】画像事態をグラデーションにする。
+                   白のなじみ具合くらいにしたい。
+                   空中（外側）に向かって、美しく深みを変える贅沢なグラデーション仕様です。
+                   画像自体は不透明なので暗くなりません。 */
+                bg-gradient-to-br 
+                ${i % 2 === 0 
+                  ? 'from-white via-white/95 to-white/85' 
+                  : 'from-white/85 via-white/95 to-white'
+                }
+                
+                shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)]
+                overflow-hidden
+              `}>
+                
+                {/* 💡 【マシーンと変化をつけた斜め滲みトップライト】
+                    左右のカード配置に合わせて、右上（または左上）の角からシアンブルーの光が
+                    ガラスの内部に優しく、しかし確実に視認できる絶妙な強さ（0.18支線 leading-loose font-medium pt-2 border-t border-slate-700_40 leading-loose pt-2 border-t border-slate-700/30'}`} pointer-events-none z-0 />
+
+                <div className="space-y-5 relative z-10 pl-4 border-l border-slate-800">
+                  <div className="flex items-center gap-2">
+                    <span className="font-sans text-xl font-bold italic text-amber-300 drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]">{m.id}</span>
+                    <Minus className="w-4 h-[1px] text-slate-600" />
+                    <span className="text-[9px] font-extrabold text-sky-400/90 bg-sky-500/10 border border-sky-400/20 px-2 py-0.5 rounded tracking-wide uppercase">
+                      Medical Approach
+                    </span>
+                  </div>
+                  
+                  <h4 className="font-sans text-2xl sm:text-3xl font-bold text-slate-100 tracking-tight">
+                    {m.title}
+                  </h4>
+                  
+                  <div className="inline-block px-3 py-1 bg-slate-950/60 rounded border border-slate-800/60 text-[9px] font-bold text-slate-400 tracking-[0.1em]">
+                    {m.subTitle}
+                  </div>
+                  
+                  <p className="text-sm text-slate-300 leading-loose font-medium pt-2 border-t border-slate-700/30 overflow-hidden`}>
+        {PAIN_CONTENT.sectionBgImage && (
+          <Image src={PAIN_CONTENT.sectionBgImage} alt="" fill className="object-cover opacity-[0.02] mix-blend-overlay" priority />
+        )}
+      </div>
+
+      <div className="max-w-4xl mx-auto pt-12 sm:pt-16 border-t border-slate-900/60 flex-col items-center text-center overflow-hidden aspect-[16/10] bg-[#050A15] relative shadow-[0_20px_50px_rgba(0,0,0,0.6)]`}>
+                  <Image 
+                    src={m.image} 
+                    alt="" 
+                    fill 
+                    className="object-cover transition-transform duration-700 hover:scale-105" 
+                  />
+                </div>
+              </div>
+
+              {/* カードの下部外部の薄い接地用シャドウ（維持） */}
+              <div className="absolute inset-0 z-0 bottom-[-30px] left-1/2 -translate-x-1/2 w-[70%] h-[30px] bg-sky-400/5 blur-[20px] pointer-events-none rounded-full" />
             </div>
           ))}
         </div>
 
         {/* 🔴 Reassurance：下部の安心エリア */}
-        <div className="max-w-4xl mx-auto pt-8 border-t border-slate-900/60">
-          <div className="flex flex-col items-center text-center">
+        <div className="max-w-4xl mx-auto pt-12 sm:pt-16 border-t border-slate-900/60 flex-col items-center text-center overflow-hidden`}>
             <div className="w-[1px] h-12 bg-gradient-to-b from-sky-400/20 via-sky-500/5 to-transparent mb-8" />
             <div className="space-y-8">
               <h3 className="font-sans text-2xl sm:text-4xl font-extrabold text-slate-100 leading-tight tracking-tighter">
