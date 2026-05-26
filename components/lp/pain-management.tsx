@@ -2,21 +2,24 @@
 
 import Image from 'next/image'
 import { ShieldCheck, Minus } from 'lucide-react'
+import { motion } from 'framer-motion'
 import { PAIN_CONTENT } from '@/edit/pain-content'
 
 export default function PainManagement() {
   // ---------------------------------------------------------
-  // ★ デザイン統一用リモコン（マシーン共通ガラス×上下ドッキング＆複数斜め直線光源版）
+  // ★ デザイン統一用リモコン（青ベース・Seamless透過ガラス×ジグザグ光源決定版）
   // ---------------------------------------------------------
   const fontTitle = "font-sans font-bold tracking-tight text-slate-100" 
   const sectionPadding = "py-16 sm:py-28"
   const headerBottomMargin = "mb-12 sm:mb-20"
-  const cardRoundedTop = "rounded-t-xl"
-  const cardRoundedBottom = "rounded-b-xl"
+  const cardTextPadding = "p-8 sm:p-14"
+  const cardRounded = "rounded-xl" 
   
-  // 💡 マシーンパートと全く同じ、枠線の極細透過ハイライト反射
-  const glassBorder = "border-x border-b border-slate-700/60 border-t-white/10 border-l-white/10"
+  // マシーンパートと同じ、洗練された極細の透過ハイライト線。ガラスのフチを綺麗に立たせます。
+  const glassBorder = "border border-slate-700/60 border-t-white/10 border-l-white/10"
   // ---------------------------------------------------------
+
+  const gpuStyle = { transform: 'translateZ(0)', willChange: 'opacity, transform' };
 
   return (
     /* 背景色は共通のディープネイビー（#0B111E） */
@@ -28,8 +31,7 @@ export default function PainManagement() {
         )}
       </div>
 
-      {/* 美しい上下並びのバランスを最大化するため、横幅をmax-w-4xlに最適化 */}
-      <div className="max-w-4xl mx-auto px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         
         {/* 🔴 Header */}
         <div className={`text-center ${headerBottomMargin}`}>
@@ -45,69 +47,68 @@ export default function PainManagement() {
         </div>
 
         {/* 🔴 Measures (各施策) */}
-        <div className="space-y-16 sm:space-y-28 mb-20">
+        <div className="space-y-12 sm:space-y-24 mb-20">
           {PAIN_CONTENT.measures.map((m, i) => {
             const isEven = i % 2 === 0;
             return (
-              <div key={i} className="relative flex flex-col items-center w-full gap-0">
+              <div key={i} className="relative grid lg:grid-cols-12 gap-0 items-center" style={gpuStyle}>
                 
-                {/* 💡 【背景光源】1パートにつき計4本（平行2本×2方向）のシャープで強烈な直線光源。
-                    透過ガラスが抜群に映えるよう光量を大幅に強化し、偶数・奇数パートでメインの傾きを交互に入れ替えます。 */}
-                <div className="absolute inset-0 z-0 pointer-events-none opacity-90 scale-110">
-                  {isEven ? (
-                    <>
-                      {/* メイン：右上から左下へ貫く平行な2本の強力な閃光 */}
-                      <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent_44%,#38bdf8_44.6%,#38bdf8_45%,transparent_45.4%,transparent_54.6%,#0ea5e9_55%,#0ea5e9_55.4%,transparent_56%)] blur-[1px]" />
-                      {/* クロス：左上から右下へ走る平行な2本のシャープな閃光 */}
-                      <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_39%,#38bdf8_39.6%,#38bdf8_40%,transparent_40.4%,transparent_59.6%,#0ea5e9_60%,#0ea5e9_60.4%,transparent_61%)] blur-[2px] opacity-60" />
-                    </>
-                  ) : (
-                    <>
-                      {/* メイン：左上から右下へ貫く平行な2本の強力な閃光 */}
-                      <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_44%,#38bdf8_44.6%,#38bdf8_45%,transparent_45.4%,transparent_54.6%,#0ea5e9_55%,#0ea5e9_55.4%,transparent_56%)] blur-[1px]" />
-                      {/* クロス：右上から左下へ走る平行な2本のシャープな閃光 */}
-                      <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent_39%,#38bdf8_39.6%,#38bdf8_40%,transparent_40.4%,transparent_59.6%,#0ea5e9_60%,#0ea5e9_60.4%,transparent_61%)] blur-[2px] opacity-60" />
-                    </>
-                  )}
-                  {/* ガラス裏面をドラマチックに照らし出すための強力なブルーラジアル発光サーフェス */}
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.22),transparent_65%)] blur-[50px]" />
-                </div>
-
                 {/* 背景の巨大ID番号 */}
-                <span className="font-sans text-[10rem] sm:text-[16rem] font-black text-slate-950 opacity-[0.35] absolute -top-20 right-4 italic pointer-events-none select-none z-0">
+                <span className={`font-sans text-[12rem] sm:text-[22rem] font-black text-slate-900 opacity-[0.25] absolute -top-16 ${isEven ? '-right-4' : '-left-4'} italic pointer-events-none select-none z-0`}>
                   {m.id}
                 </span>
 
-                {/* 1️⃣ 上側：画像フィールド（下のガラスへ隙間なく密着ドッキング） */}
-                <div className="w-full relative z-10">
-                  <div className={`${cardRoundedTop} border-t border-x border-slate-800 overflow-hidden aspect-[16/9] bg-slate-950 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)]`}>
+                {/* 画像フィールド： z-20 を維持。負のマージン mt-[-40px] を維持。 */}
+                <div className={`lg:col-span-7 relative z-20 ${!isEven ? 'lg:order-last' : ''}`}>
+                  <div className={`${cardRounded} border border-slate-950 overflow-hidden aspect-[16/10] bg-slate-950 relative shadow-[0_20px_50px_rgba(0,0,0,0.6)]`}>
                     <Image 
                       src={m.image} 
                       alt="" 
                       fill 
                       className="object-cover transition-transform duration-700 hover:scale-105" 
-                      priority={i === 0}
                     />
                   </div>
                 </div>
 
-                {/* 2️⃣ 下側：テキストパネル（💡 マシーンパートと100%同一の完全ガラス仕様） */}
+                {/* テキストパネル：💡 【透過グラス復活】マシーンパート基準の透過グラス（bg-slate-900/40 backdrop-blur-2xl）
+                    画像の下に並び、負のマージン mt-[-40px] を維持。 */}
                 <div className={`
-                  w-full relative z-10 p-8 sm:p-12 
-                  ${cardRoundedBottom} ${glassBorder}
-                  bg-slate-900/40 backdrop-blur-2xl
+                  lg:col-span-6 
+                  relative z-10 
+                  mt-[-40px] lg:mt-0 
+                  ${isEven ? 'lg:-ml-20' : 'lg:-mr-20'} 
+                  ${cardTextPadding} ${cardRounded} ${glassBorder}
+                  
+                  /* 💡 【解決：境界Seamlessグラデーション】画像と重なる側を「100%不透明なディープグレー（from-slate-900）」にし、
+                     後ろの施術写真が透けて文字の邪魔をするのを完全にシャットアウト！
+                     空中（外側）に向かって、美しく深みを変える（透過率85%）贅沢なグラデーション仕様です。
+                     画像自体は不透明なので暗くなりません。 */
+                  bg-gradient-to-br 
+                  ${isEven 
+                    ? 'from-slate-900 via-slate-900/95 to-slate-950/85' 
+                    : 'from-slate-950/85 via-slate-900/95 to-slate-900'
+                  }
+                  
                   shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)]
                   overflow-hidden
                 `}>
                   
-                  {/* マシーンパートと同じ極上の艶を生み出す「2箇所のガラス表面反射」 */}
+                  {/* 💡 【新設：交互ジグザグ光源】格子状（クロス）を廃止し、パートごとに光の向きを交互に変える（ジグザグ）。
+                      右上から左下 (斜め) の線と、左上から右下 (斜め) の線を交互に配置。
+                      マシーンと同じシャープで鮮烈な斜め直線をCSSグラデーションで複数配置。
+                      偶数/奇数パートでグラデーションの角度を変えることで、光の向きを交互にスイッチ。
+                      扇形発光は廃止しました。ガラスカードがかっこよく見えるように。 */}
+                  <div className={`absolute top-0 ${isEven ? 'right-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.22支線 leading-loose font-medium pt-2 border-t border-slate-700_40 leading-loose pt-2 border-t border-slate-700/30' : 'left-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.22支線 leading-loose font-medium pt-2 border-t border-slate-700_40 leading-loose pt-2 border-t border-slate-700/30'}`} pointer-events-none z-0 />
+                  
+                  {/* 💡 【表面反射追加】マシーンパートのリッチなガラスデザインを継承。表面反射用のグラデーションレイヤーを追加。 */}
+                  {/* 上段独自：表面反射を2箇所（マシーンパートと同じ細さ、反射あり） */}
                   <div className="absolute inset-0 bg-gradient-to-br from-white/[0.12] via-transparent to-transparent pointer-events-none z-0" />
                   <div className="absolute inset-0 bg-gradient-to-bl from-white/[0.08] via-transparent to-transparent pointer-events-none z-0" />
 
-                  {/* ガラス内部を幻想的に満たす淡いシアンインナーグロウ */}
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.03),transparent_75%)] pointer-events-none z-0" />
+                  {/* 内部のソフトなアンビエント発光（维持） */}
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.08),transparent_75%)] pointer-events-none z-0" />
 
-                  <div className="space-y-5 relative z-10">
+                  <div className="space-y-5 relative z-10 pl-4 border-l border-slate-800">
                     <div className="flex items-center gap-2">
                       <span className="font-sans text-xl font-bold italic text-amber-300 drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]">{m.id}</span>
                       <Minus className="w-4 h-[1px] text-slate-600" />
@@ -131,6 +132,8 @@ export default function PainManagement() {
                   
                 </div>
 
+                {/* カードの下部外部の薄い接地用シャドウ（維持） */}
+                <div className="absolute inset-0 z-0 bottom-[-30px] left-1/2 -translate-x-1/2 w-[70%] h-[30px] bg-sky-400/5 blur-[20px] pointer-events-none rounded-full" />
               </div>
             );
           })}
@@ -144,7 +147,7 @@ export default function PainManagement() {
               <h3 className="font-sans text-2xl sm:text-4xl font-extrabold text-slate-100 leading-tight tracking-tighter">
                 {PAIN_CONTENT.reassurance.title}
               </h3>
-              <div className="mt-4 inline-flex items-center gap-3 px-6 py-3 bg-slate-950/80 rounded-full text-slate-400 text-[10px] sm:text-xs border border-slate-800/60 font-bold shadow-wide">
+              <div className="mt-4 inline-flex items-center gap-3 px-6 py-3 bg-slate-950/80 rounded-full text-slate-400 text-[10px] sm:text-xs border border-slate-800/60 font-bold shadow-wide overflow-hidden`}>
                 <ShieldCheck className="w-4 h-4 text-sky-400/60" />
                 <span>{PAIN_CONTENT.reassurance.note}</span>
               </div>
