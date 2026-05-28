@@ -1,6 +1,6 @@
 'use client'
 
-import { Zap, ShieldCheck, Minus } from 'lucide-react'
+import { Zap, ShieldCheck } from 'lucide-react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { MACHINE_CONTENT } from '@/edit/machine-content'
@@ -39,7 +39,8 @@ export default function MachineDeepDive() {
             <span className="text-[10px] font-bold tracking-[0.5em] text-amber-300 block mb-4 uppercase drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">
               {MACHINE_CONTENT.badge}
             </span>
-            <h2 className={`${fontTitle} text-3xl sm:text-5xl font-extrabold mb-6 leading-tight`}>
+            {/* 💡 【メインタイトル発光】痛みのセクションのH2と完全に同じ、最上級の発光グラデーション */}
+            <h2 className={`${fontTitle} text-3xl sm:text-5xl font-extrabold mb-6 leading-tight bg-gradient-to-b from-white via-sky-100 to-white bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(56,189,248,0.5)]`}>
               {MACHINE_CONTENT.title}
             </h2>
             <p className="text-slate-400 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium opacity-70">
@@ -74,7 +75,7 @@ export default function MachineDeepDive() {
                 </div>
               </div>
 
-              {/* 右側：解説エリア（💡 上段独自：表面反射を2箇所） */}
+              {/* 右側：解説エリア */}
               <div className="p-8 sm:p-12 flex flex-col justify-center w-full relative overflow-hidden bg-slate-900/40 backdrop-blur-2xl z-10">
                 
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.12] via-transparent to-transparent pointer-events-none z-0" />
@@ -84,7 +85,8 @@ export default function MachineDeepDive() {
                   {MACHINE_CONTENT.lasers.map((laser, idx) => (
                     <div key={idx} className="relative w-full">
                       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-3 w-full">
-                        <h4 className="font-sans text-lg sm:text-xl font-bold text-slate-100 break-all tracking-tight">
+                        {/* 💡 【修正：上段パートタイトル発光】text-slate-100をtext-whiteに変更し、痛みのセクションと同じくdrop-shadowを確実に付与して発光させました！ */}
+                        <h4 className="font-sans text-lg sm:text-xl font-bold text-white break-all tracking-tight drop-shadow-[0_0_15px_rgba(56,189,248,0.4)]">
                           {laser.name}
                         </h4>
                         <span className="text-amber-300 font-bold text-[10px] tracking-widest uppercase italic shrink-0">
@@ -128,26 +130,22 @@ export default function MachineDeepDive() {
             className={`overflow-hidden ${cardRounded} ${glassBorder} shadow-[0_30px_60px_rgba(0,0,0,0.7)] bg-transparent`}
           >
             {MACHINE_CONTENT.reasons.map((reason, i) => (
-              <div key={i} className={`relative grid md:grid-cols-2 items-center ${i !== 0 ? 'border-t border-slate-700/50' : ''}`}>
+              <div key={i} className={`relative grid md:grid-cols-2 items-stretch ${i !== 0 ? 'border-t border-slate-700/50' : ''}`}>
                 
-                {/* 画像側（100%クリア。ソリッド背景で透かさない） */}
+                {/* 画像側（100%クリア） */}
                 <div className={`relative aspect-video bg-[#050A15] overflow-hidden ${i % 2 !== 0 ? 'md:order-last border-l border-slate-700/50' : 'border-r border-slate-700/50'} z-20`}>
                   <Image src={reason.img} alt="" fill className="object-cover opacity-95 hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 
-                {/* テキスト側（透過グラス） */}
-                <div className={`${cardTextPadding} relative h-full flex flex-col justify-center overflow-hidden bg-slate-900/40 backdrop-blur-2xl z-10`}>
+                {/* テキスト側（透過グラス：完全な左寄せ・上詰めに統一） */}
+                <div className={`${cardTextPadding} relative h-full flex flex-col justify-start pt-10 sm:pt-14 overflow-hidden bg-slate-900/40 backdrop-blur-2xl z-10`}>
                   
                   {/* 背景の特大ID */}
                   <span className="font-sans italic text-[8rem] sm:text-[12rem] absolute -top-4 -right-4 opacity-[0.04] select-none font-black text-slate-100 z-0">
                     {i + 1}
                   </span>
                   
-                  {/* 💡 【新・シームレス光源】途切れて見える不自然な光を全廃止！
-                      画像とテキストが接する「内側の境界線」に直線的な光の芯を配置し、
-                      そこからテキストエリア全体へ向かって、柔らかくシアンブルーの光が溶け込んでいきます。 */}
-                  
-                  {/* ① 直線的な光の芯（レーザーのようなシャープな縦線） */}
+                  {/* ① 直線的な光の芯 */}
                   <div className={`absolute top-1/2 -translate-y-1/2 ${i % 2 !== 0 ? 'right-[-1px]' : 'left-[-1px]'} w-[2px] h-[60%] bg-gradient-to-b from-transparent via-sky-400/80 to-transparent shadow-[0_0_20px_rgba(56,189,248,1)] pointer-events-none z-20`} />
                   
                   {/* ② 境界線からテキストエリアへ向かって滲み出る柔らかい光の層 */}
@@ -156,19 +154,21 @@ export default function MachineDeepDive() {
                   {/* ③ テキストエリア全体を極薄く包むアンビエント光 */}
                   <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.03),transparent_100%)] pointer-events-none z-0" />
 
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-3 mb-4">
+                  <div className="relative w-full z-10 text-left">
+                    {/* 💡 【数字とタグ】Minus線を排除し、ピタッと揃った左寄せに統一 */}
+                    <div className="flex items-center gap-3 mb-4 w-full justify-start">
                       <span className="font-sans text-xl font-bold italic text-amber-300 drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]">0{i + 1}</span>
-                      <Minus className="w-6 h-[1px] text-slate-500" />
                       <span className="text-[9px] font-extrabold text-sky-400/90 bg-sky-500/10 border border-sky-400/20 px-2 py-0.5 rounded tracking-wide uppercase">
                         Meso Detail
                       </span>
                     </div>
                     
-                    <h3 className="font-sans text-xl sm:text-2xl font-bold text-slate-100 mb-3 sm:mb-5 tracking-tight">
+                    {/* 💡 【下部カードタイトル発光】こちらもtext-white＋drop-shadowで完璧に統一して発光 */}
+                    <h3 className="font-sans text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-5 tracking-tight drop-shadow-[0_0_15px_rgba(56,189,248,0.4)]">
                       {reason.title}
                     </h3>
-                    <p className="text-sm text-slate-300 leading-loose font-medium opacity-90 pt-2 border-t border-slate-700/40">
+
+                    <p className="text-sm text-slate-300 leading-loose font-medium opacity-90 pt-2 border-t border-slate-700/40 w-full text-left">
                       {reason.desc}
                     </p>
                   </div>
