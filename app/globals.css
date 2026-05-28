@@ -63,6 +63,16 @@
     transform: translateY(-50%) !important;
     left: calc(50% - 580px) !important;
     z-index: 100;
+    
+    /* 💎 【追加】メニュー内の金の線を水色（sky-400）に強制チェンジ */
+    --gold: #38bdf8 !important;
+    --color-gold: #38bdf8 !important;
+    border-left-color: #38bdf8 !important; 
+  }
+
+  /* さらに、メニュー内の「MENU」の文字の横の線も水色に強制上書き */
+  .pc-nav-fixed *, .pc-sidebar-nav * {
+    border-color: #38bdf8 !important;
   }
 
   /* 🔴 【聖域保護2】トップ画像（FirstView）
