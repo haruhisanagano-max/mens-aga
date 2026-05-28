@@ -1,7 +1,7 @@
 'use client'
 
 import * as LucideIcons from 'lucide-react'
-import { ShieldCheck, Minus } from 'lucide-react'
+import { ShieldCheck } from 'lucide-react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { ZERO_YEN_CONTENT } from '@/edit/zero-yen-items'
@@ -12,78 +12,97 @@ const IconComponent = ({ name, className }: { name: string; className?: string }
 }
 
 export default function ZeroYenItems() {
-  // ---------------------------------------------------------
-  // ★ デザイン統一用リモコン（比較表・マシン解説と完全同期）
-  // ---------------------------------------------------------
-  const fontTitle = "font-serif"
-  const fontBody = "font-sans"
-
-  const sectionPadding = "py-16 sm:py-24" 
-  const headerBottomMargin = "mb-10 sm:mb-16"
   
-  const cardRounded = "rounded-[2.5rem]" 
-  const cardShadow = "shadow-[0_30px_80px_rgba(0,0,0,0.06)]"
-  const cardBorder = "border border-gray-100"
-  // ---------------------------------------------------------
+  // 💡 【デザイン統一用リモコン：PainManagementと完全同期】
+  const fontTitle = "font-sans font-bold tracking-tight text-slate-100"
+  
+  // 💡 【間延び解消】タイトな余白設定を維持
+  const sectionPadding = "py-8 sm:py-12" 
+  const headerBottomMargin = "mb-6 sm:mb-8" 
+  const cardRounded = "rounded-xl" 
+  const gpuStyle = { transform: 'translateZ(0)', willChange: 'opacity, transform' }
+
+  // 💡 【透過グラス枠】マシーン・Pain・Comparisonと完全同期
+  const glassBorder = "border border-slate-700/60 border-t-white/10 border-l-white/10"
 
   return (
-    <section id="zero-yen" className={`${sectionPadding} relative bg-white overflow-hidden`}>
+    <section id="zero-yen" className={`${sectionPadding} relative bg-[#050A15] text-slate-400 overflow-hidden`}>
       
-      {/* 背景画像 */}
+      {/* 💡 【背景演出：右上から左下への斜めレーザー（ / ）】 */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-80 overflow-hidden">
+        {/* 右上から左下へ走る鋭い斜めの光の線（135deg） */}
+        <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[linear-gradient(135deg,transparent_49.8%,#38bdf8_50%,transparent_50.2%)] blur-[1px]" />
+        {/* 周囲に広がる強力な光のモヤ（135deg） */}
+        <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[linear-gradient(135deg,transparent_35%,#0ea5e9_50%,transparent_65%)] blur-[120px] opacity-50" />
+      </div>
+
       <div className="absolute inset-0 z-0 pointer-events-none">
         {ZERO_YEN_CONTENT.sectionBgImage && (
-          <Image 
-            src={ZERO_YEN_CONTENT.sectionBgImage} 
-            alt="" 
-            fill 
-            className="object-cover opacity-[0.03]" 
-            priority 
-          />
+          <Image src={ZERO_YEN_CONTENT.sectionBgImage} alt="" fill className="object-cover opacity-[0.03] mix-blend-overlay" priority />
         )}
       </div>
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} 
+          whileInView={{ opacity: 1, y: 0 }} 
+          viewport={{ once: true }}
+        >
           
-          {/* 🔴 Header */}
+          {/* Header */}
           <div className={`text-center ${headerBottomMargin}`}>
-            <motion.span className="text-[10px] font-black tracking-[0.5em] text-[var(--gold-dark)] uppercase block mb-4">
-              Hospitality & Quality
+            <motion.span className="text-[10px] font-bold tracking-[0.5em] text-amber-300 block mb-3 uppercase drop-shadow-[0_0_10px_rgba(251,191,36,0.6)]">
+              {ZERO_YEN_CONTENT.badge}
             </motion.span>
-            <h2 className={`${fontTitle} text-3xl sm:text-5xl font-bold text-[var(--charcoal)] tracking-tighter mb-6`}>
-              {ZERO_YEN_CONTENT.title}
-            </h2>
-            <p className="text-[var(--charcoal)] text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed opacity-80 font-medium whitespace-pre-line">
+            
+            <div className="relative inline-block">
+              <h2 className={`${fontTitle} text-3xl sm:text-5xl font-extrabold mb-4 leading-tight bg-gradient-to-b from-white via-sky-100 to-white bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(56,189,248,0.5)]`}>
+                {ZERO_YEN_CONTENT.title}
+              </h2>
+            </div>
+
+            <p className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-medium opacity-70 whitespace-pre-line">
               {ZERO_YEN_CONTENT.description}
             </p>
           </div>
 
           {/* 🔴 Item Grid Board */}
           <motion.div 
-            className={`relative ${cardRounded} ${cardBorder} bg-white ${cardShadow} py-10 sm:py-16 px-8 sm:px-14 mb-12 sm:mb-20`}
+            className={`relative overflow-hidden ${cardRounded} ${glassBorder} shadow-[0_40px_80px_rgba(0,0,0,0.8)] py-6 sm:py-8 px-4 sm:px-8 mb-6 sm:mb-8 bg-transparent flex flex-col`}
+            style={gpuStyle}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-1 bg-[var(--gold)]/20 rounded-full" />
+            <div className="absolute inset-0 bg-slate-900/50 backdrop-blur-[100px] z-0" />
+            
+            <div className="absolute inset-0 bg-gradient-to-br from-white/[0.1] via-transparent to-transparent pointer-events-none z-0" />
+            <div className="absolute inset-0 bg-gradient-to-bl from-white/[0.06] via-transparent to-transparent pointer-events-none z-0" />
 
-            <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-5 gap-y-10 sm:gap-y-14 gap-x-4 sm:gap-x-10 relative z-10">
+            {/* 下部光源維持 */}
+            <div className="absolute bottom-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-sky-400/80 to-transparent shadow-[0_0_30px_rgba(56,189,248,0.8)] pointer-events-none z-20" />
+            <div className="absolute bottom-0 inset-x-0 h-[70%] bg-gradient-to-t from-sky-500/10 via-sky-500/5 to-transparent pointer-events-none z-0" />
+            <div className={`absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-t from-sky-500/15 via-sky-500/5 to-transparent pointer-events-none z-0`} />
+
+            <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-5 gap-y-5 sm:gap-y-6 gap-x-4 sm:gap-x-6 relative z-10">
               {ZERO_YEN_CONTENT.items.map((item, index) => (
                 <div key={index} className="flex flex-col items-center group">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 mb-4 relative flex items-center justify-center">
-                    <div className="absolute inset-0 rounded-full bg-gray-50 border border-gray-100 group-hover:border-[var(--gold)]/30 transition-all duration-500" />
+                  
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 mb-2 sm:mb-3 relative flex items-center justify-center">
+                    <div className="absolute inset-0 rounded-full bg-slate-800 border border-slate-700/60 group-hover:border-sky-400/30 transition-all duration-500 shadow-inner" />
                     <IconComponent 
                       name={item.icon} 
-                      className="w-7 h-7 sm:w-10 sm:h-10 relative z-10 text-[var(--charcoal)] transition-transform duration-500 group-hover:scale-110" 
+                      className="w-5 h-5 sm:w-8 sm:h-8 relative z-10 text-slate-100 transition-transform duration-500 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" 
                     />
                   </div>
-                  <div className="space-y-1">
-                    <span className={`${fontBody} text-[11px] sm:text-[13px] font-black text-[var(--charcoal)] uppercase tracking-tight block`}>
+
+                  <div className="space-y-0.5 text-center">
+                    <span className="font-sans text-[11px] sm:text-[12px] font-black text-slate-100 uppercase tracking-tight block">
                       {item.label}
                     </span>
                     <div className="flex items-center justify-center gap-0.5">
-                      <span className={`${fontTitle} text-2xl sm:text-4xl font-black text-[var(--charcoal)] leading-none`}>0</span>
-                      <span className="text-[11px] sm:text-sm font-black text-[var(--charcoal)] pt-1 sm:pt-2">円</span>
+                      <span className="font-sans text-xl sm:text-2xl font-black italic text-amber-300 leading-none drop-shadow-[0_0_15px_rgba(251,191,36,0.5)]">0</span>
+                      <span className="text-[10px] sm:text-xs font-black text-amber-400 pt-0.5">円</span>
                     </div>
                   </div>
                 </div>
@@ -91,51 +110,52 @@ export default function ZeroYenItems() {
             </div>
           </motion.div>
 
-       {/* 🔴 Footer: 幅を安定させ、比較表のデザインと100%同期 */}
-<motion.div 
-  className="mt-16 sm:mt-24 flex justify-center" // 親を flex center にして中央配置を確実に
-  initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1 }}
->
-  {/* 修正ポイント: 
-    1. inline-flex を flex w-full に変更（幅を安定させる）
-    2. max-w-4xl mx-auto を維持（比較表と横幅を揃える）
-    3. shadow を削除、border-gray-100 のみ（比較表の細枠を再現）
-  */}
-  <div className="flex flex-col md:flex-row items-center gap-5 px-8 py-6 bg-gray-50 rounded-[2rem] border border-gray-100 w-full max-w-4xl mx-auto">
-    
-    {/* 左側：アイコン ＆ タイトル */}
-    <div className="flex items-center gap-3 shrink-0">
-      <ShieldCheck className="w-6 h-6 text-[var(--gold)] shrink-0" />
-      <span className={`${fontTitle} text-lg sm:text-xl font-bold text-[var(--charcoal)] whitespace-nowrap uppercase tracking-tight`}>
-        Conclusion
-      </span>
-    </div>
+          {/* 🔴 Footer */}
+          <motion.div 
+            className="mt-6 sm:mt-8 flex justify-center" 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+          >
+            <div 
+              className={`relative overflow-hidden flex flex-col md:flex-row items-center gap-4 px-6 py-4 sm:py-5 rounded-xl ${glassBorder} shadow-[0_40px_80px_rgba(0,0,0,0.8)] bg-transparent w-full max-w-4xl mx-auto`}
+              style={gpuStyle}
+            >
+              <div className="absolute inset-0 bg-slate-900/70 backdrop-blur-[100px] z-0" />
+              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.1] via-transparent to-transparent pointer-events-none z-0" />
+              
+              <div className="absolute bottom-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-sky-400/60 to-transparent shadow-[0_0_20px_rgba(56,189,248,0.6)] pointer-events-none z-20" />
+              <div className="absolute bottom-0 inset-x-0 h-full bg-gradient-to-t from-sky-500/10 via-transparent to-transparent pointer-events-none z-0" />
+              
+              {/* 💡 【修正点】`flex items-center justify-center w-full md:w-auto` に修正。これでモバイルでも完全に中央にバシッと揃います。 */}
+              <div className="flex items-center justify-center gap-3 shrink-0 relative z-10 w-full md:w-auto">
+                <ShieldCheck className="w-5 h-5 text-sky-400 shrink-0 drop-shadow-[0_0_10px_rgba(56,189,248,0.5)]" />
+                <span className="font-sans text-base sm:text-lg font-extrabold text-slate-100 whitespace-nowrap uppercase tracking-wide">
+                  Conclusion
+                </span>
+              </div>
 
-    {/* 中央：縦線（h-6） */}
-    <div className="hidden md:block w-[1px] h-6 bg-gray-200 mx-4 shrink-0" />
+              <div className="hidden md:block w-[1px] h-5 bg-slate-700/60 mx-2 shrink-0 relative z-10" />
 
-    {/* 右側：テキストコンテンツ（サイズ・太さを他パートと完全同期） */}
-    <div className="flex-1 space-y-3">
-      <p className={`${fontBody} text-[var(--charcoal)] text-sm sm:text-base font-bold leading-relaxed text-center md:text-left whitespace-pre-line`}>
-        {ZERO_YEN_CONTENT.footer.text1}
-      </p>
-      
-      <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-1 gap-y-1">
-        <p className={`${fontBody} text-[var(--charcoal)] text-sm sm:text-base font-bold`}>
-          {ZERO_YEN_CONTENT.footer.text2_pre}
-        </p>
-        <span className="text-[var(--gold-dark)] font-black text-sm sm:text-base border-b-2 border-[var(--gold)]/30 pb-0.5">
-          {ZERO_YEN_CONTENT.footer.text2_highlight}
-        </span>
-        <p className={`${fontBody} text-[var(--charcoal)] text-sm sm:text-base font-bold`}>
-          {ZERO_YEN_CONTENT.footer.text2_post}
-        </p>
-      </div>
-    </div>
+              <div className="flex-1 space-y-1 relative z-10 text-center md:text-left">
+                <p className="font-sans text-slate-300 text-xs sm:text-sm font-bold leading-relaxed whitespace-pre-line opacity-90">
+                  {ZERO_YEN_CONTENT.footer.text1}
+                </p>
+                
+                <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-1 gap-y-0.5">
+                  <p className="font-sans text-slate-300 text-xs sm:text-sm font-bold">
+                    {ZERO_YEN_CONTENT.footer.text2_pre}
+                  </p>
+                  <span className="text-sky-400 font-black text-xs sm:text-sm border-b-2 border-sky-400/30 pb-0.5 drop-shadow-[0_0_8px_rgba(56,189,248,0.4)]">
+                    {ZERO_YEN_CONTENT.footer.text2_highlight}
+                  </span>
+                  <p className="font-sans text-slate-300 text-xs sm:text-sm font-bold">
+                    {ZERO_YEN_CONTENT.footer.text2_post}
+                  </p>
+                </div>
+              </div>
 
-  </div>
-</motion.div>
+            </div>
+          </motion.div>
 
         </motion.div>
       </div>
