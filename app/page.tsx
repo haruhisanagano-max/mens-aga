@@ -4,7 +4,6 @@ import { useState, useEffect, useCallback } from 'react'
 import Header from '@/components/lp/header'
 import FirstView from '@/components/lp/first-view'
 import CampaignOffer from '@/components/lp/campaign-offer'
-import BannerSection from '@/components/lp/banner-section'
 import CampaignModal from '@/components/lp/campaign-modal'
 import BeforeAfter from '@/components/lp/before-after'
 import WorrySection from '@/components/lp/worry-section'
@@ -15,7 +14,6 @@ import Comparison from '@/components/lp/comparison'
 import ZeroYenItems from '@/components/lp/zero-yen-items'
 import PricingPlan from '@/components/lp/pricing-plan'
 import ClinicStaff from '@/components/lp/clinic-staff'
-import HonestQA from '@/components/lp/honest-qa'
 import FlowFaq from '@/components/lp/flow-faq'
 import ReservationForm from '@/components/lp/reservation-form'
 import Footer from '@/components/lp/footer' 
@@ -73,7 +71,6 @@ export default function LandingPage() {
   }, [handleSmoothScroll])
 
   // --- モーダル操作系関数 ---
-
   const openLineModal = useCallback(() => setIsLineModalOpen(true), [])
   const closeLineModal = useCallback(() => setIsLineModalOpen(false), [])
   
@@ -91,11 +88,11 @@ export default function LandingPage() {
     setTimeout(() => setActiveCampaignId(null), 300)
   }, [])
 
-  // 🟢 追加：キャンペーンからLINE選択へ切り替えるリレー関数
+  // キャンペーンからLINE選択へ切り替えるリレー関数
   const handleOpenLineFromCampaign = useCallback(() => {
-    setIsCampaignOpen(false) // キャンペーン詳細を閉じる
+    setIsCampaignOpen(false)
     setTimeout(() => {
-      setIsLineModalOpen(true) // 院選択を開く
+      setIsLineModalOpen(true)
     }, 150)
   }, [])
 
@@ -112,10 +109,11 @@ export default function LandingPage() {
       <Header scrollY={scrollY} onLineClick={openLineModal} />
       
       <FirstView />
-      <CampaignOffer />
+      
+      {/* 💡 修正1: 統合した最下部バナーが動くように関数を紐付け */}
+      <CampaignOffer onOpenCampaign={openCampaignModal} />
 
-      {/* バナーゾーン */}
-      <BannerSection onOpenCampaign={openCampaignModal} />
+      {/* 💡 旧BannerSection（bg-whiteで分断されていた独立パート）はここから完全に撤去しました */}
 
       <WorrySection />
 
@@ -128,12 +126,14 @@ export default function LandingPage() {
       <PainManagement />
       <Comparison />
       <ZeroYenItems />
-      <PricingPlan />
+      
+      {/* 💡 修正2: 料金表の下に統合したバナーも動くように関数を紐付け */}
+      <PricingPlan onOpenCampaign={openCampaignModal} />
+        
+      <CtaSection onOpenGuide={openGuideModal} />
+      
       <ClinicStaff />
 
-      <CtaSection onOpenGuide={openGuideModal} />
-
-     {/* <HonestQA /> */}
       <FlowFaq />
       <ReservationForm />
 
@@ -141,14 +141,12 @@ export default function LandingPage() {
       <FloatingCta onLineClick={openLineModal} />
       
       {/* --- 各種モーダル --- */}
-      
       <OnlineGuideModal 
         isOpen={isGuideModalOpen} 
         onClose={closeGuideModal}
         onOpenLineModal={handleOpenLineFromGuide} 
       />
 
-      {/* キャンペーンポップアップ：リレー関数 handleOpenLineFromCampaign を渡す */}
       <CampaignModal 
         isOpen={isCampaignOpen} 
         onClose={closeCampaignModal} 
