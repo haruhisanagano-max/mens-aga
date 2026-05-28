@@ -7,60 +7,69 @@ import { FIRST_VIEW_CONTENT } from '@/edit/first-view-content'
 export default function FirstView() {
   const mainHeadline = FIRST_VIEW_CONTENT?.mainHeadline || {}
   const trustBadges = FIRST_VIEW_CONTENT?.trustBadges || []
-  const mistColor = FIRST_VIEW_CONTENT?.mistColor || "#FDFBF7"
+
+  // edit側のテキストデータが本当に入力されているか判定
+  const hasText = mainHeadline.line1 || mainHeadline.highlight || FIRST_VIEW_CONTENT?.subHeadline || trustBadges.length > 0
 
   return (
+    // 💡 【完全復活】左右の隙間を確実にゼロにしていた、オリジナルの最優先フラグ（p-0! m-0!）を戻します
     <section 
-      className="relative w-full bg-[#FDFBF7] p-0! m-0!" /* 左右paddingを一瞬解除（画像全幅のため） */
+      className="relative w-full bg-[#FDFBF7] p-0! m-0! block"
     >
-      {/* 🖼️ 背景画像エリア：aspect-square を指定することで 820px幅の時は高さ820pxを物理的に確保する */}
-      <div className="relative w-full aspect-square overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-top"
-          style={{ backgroundImage: `url(${FIRST_VIEW_CONTENT?.spImage})` }}
-        />
-        
-        {/* 🌫️ 霧の演出 */}
-        <div 
-          className="absolute inset-0 pointer-events-none"
-          style={{ 
-            background: `linear-gradient(to top, 
-              ${mistColor}E6 0%, 
-              ${mistColor}00 20%)` 
-          }}
+      
+      {/* 🖼️ 背景画像エリア：ここも親の干渉を一切許さないように p-0! m-0! を徹底 */}
+      <div className="w-full block p-0! m-0!">
+        {/* 💡 w-full! と h-auto! に「!」を付与。
+            これで、親要素の flex や余白の設定を力技でねじ伏せて左右100%に広げます。
+            余計な absolute の残骸もないため、下半分が隠れるバグも絶対に起きません。 */}
+        <img 
+          src={FIRST_VIEW_CONTENT?.spImage} 
+          alt="Main Visual"
+          className="w-full! h-auto! block p-0! m-0!"
         />
       </div>
 
-      {/* 📝 テキストエリア：画像の下に配置。ネガティブマージンで少しだけ画像に被せて「霧」との一体感を出す */}
-      <div className="relative w-full px-6 pb-20 mt-[-120px] sm:mt-[-160px] z-10">
-        <div className="flex flex-col items-center">
-          
-          <motion.div 
-            className="text-center"
-            initial={{ opacity: 0, y: 15 }} 
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <h1 className="font-sans text-5xl sm:text-7xl font-black text-[#111] leading-[1.05] drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]">
-              <span className="block tracking-tighter">{mainHeadline.line1}</span>
-              <span className="block text-[var(--gold-dark)]">{mainHeadline.highlight}</span>
-            </h1>
-            <p className="mt-4 text-[12px] sm:text-sm text-[#333] font-bold tracking-widest">
-              {FIRST_VIEW_CONTENT?.subHeadline}
-            </p>
-          </motion.div>
+      {/* 📝 テキストエリア：💡 現在のように文字がすべて空なら、この下のエリア自体が1ミリの余白も残さず完全消滅します */}
+      {hasText && (
+        <div className="w-full px-6 pt-8 pb-16 block box-border bg-[#FDFBF7]">
+          <div className="max-w-4xl mx-auto flex flex-col items-center w-full">
+            
+            {(mainHeadline.line1 || mainHeadline.highlight || FIRST_VIEW_CONTENT?.subHeadline) && (
+              <motion.div 
+                className="text-center w-full"
+                initial={{ opacity: 0, y: 15 }} 
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <h1 className="font-sans text-4xl sm:text-6xl lg:text-7xl font-black text-[#111] leading-[1.15] tracking-tight">
+                  {mainHeadline.line1 && <span className="block">{mainHeadline.line1}</span>}
+                  {mainHeadline.highlight && <span className="block text-[var(--gold-dark)] mt-1">{mainHeadline.highlight}</span>}
+                </h1>
+                {FIRST_VIEW_CONTENT?.subHeadline && (
+                  <p className="mt-5 text-xs sm:text-sm text-[#333] font-bold tracking-widest opacity-90">
+                    {FIRST_VIEW_CONTENT?.subHeadline}
+                  </p>
+                )}
+              </motion.div>
+            )}
 
-          <div className="mt-10 w-full flex flex-col items-center gap-8">
-            <div className="flex items-center justify-center gap-x-6 gap-y-2 flex-wrap opacity-60">
-              {trustBadges.map((badge: string, i: number) => (
-                <div key={i} className="flex items-center gap-2 text-[9px] text-[#111] font-black tracking-widest uppercase">
-                  <Minus className="w-3 h-[1px] bg-[var(--gold)]" />
-                  <span>{badge}</span>
+            {/* バッジエリア */}
+            {trustBadges.length > 0 && (
+              <div className="mt-8 sm:mt-12 w-full flex flex-col items-center">
+                <div className="flex items-center justify-center gap-x-6 gap-y-3 flex-wrap opacity-70">
+                  {trustBadges.map((badge: string, i: number) => (
+                    <div key={i} className="flex items-center gap-2 text-[10px] text-[#111] font-black tracking-widest uppercase whitespace-nowrap">
+                      <Minus className="w-3 h-[1px] bg-[var(--gold)]" />
+                      <span>{badge}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            )}
+
           </div>
         </div>
-      </div>
+      )}
     </section>
   )
 }
