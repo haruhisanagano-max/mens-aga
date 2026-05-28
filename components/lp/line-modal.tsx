@@ -34,9 +34,9 @@ export default function LineModal({ isOpen, onClose }: LineModalProps) {
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* 🟢 背景：より深いブラーで没入感を演出 */}
+          {/* 🟢 背景：ダーク世界観に合わせた深いオーバーレイ */}
           <motion.div
-            className="fixed inset-0 bg-black/40 backdrop-blur-md z-[200]"
+            className="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[300]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -44,55 +44,59 @@ export default function LineModal({ isOpen, onClose }: LineModalProps) {
           />
           
           <motion.div
-            className="fixed left-1/2 top-1/2 z-[210] w-[92%] max-w-md outline-none"
+            className="fixed left-1/2 top-1/2 z-[310] w-[92%] max-w-md outline-none"
             initial={{ opacity: 0, scale: 0.9, x: '-50%', y: '-45%' }}
             animate={{ opacity: 1, scale: 1, x: '-50%', y: '-50%' }}
             exit={{ opacity: 0, scale: 0.95, x: '-50%', y: '-45%' }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
           >
-            {/* 🟢 本体：ガラスのような質感と繊細な枠線 */}
-            <div className="relative bg-white/90 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] rounded-[32px] overflow-hidden border border-white/20">
+            {/* 🟢 本体：メタリックネイビーの世界観に合わせたダークグラス質感 */}
+            <div className="relative bg-slate-900/90 backdrop-blur-xl shadow-[0_30px_60px_rgba(0,0,0,0.8),_0_0_40px_rgba(56,189,248,0.1)] rounded-3xl overflow-hidden border border-slate-700/60">
               
+              {/* 上部のメタリックハイライト */}
+              <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent z-10" />
+
               {/* 装飾用の光の輪（背景） */}
-              <div className="absolute -top-24 -right-24 w-48 h-48 bg-[var(--emerald)]/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -top-24 -right-24 w-48 h-48 bg-sky-500/20 rounded-full blur-3xl pointer-events-none" />
 
               {/* Header */}
-              <div className="relative px-8 pt-10 pb-6 text-center">
+              <div className="relative px-6 pt-10 pb-6 text-center">
                 <button
                   onClick={onClose}
-                  className="absolute right-6 top-6 w-10 h-10 flex items-center justify-center rounded-full bg-gray-100/50 hover:bg-gray-200/50 transition-colors text-[var(--charcoal)]"
+                  className="absolute right-4 top-4 w-9 h-9 flex items-center justify-center rounded-full bg-slate-800/50 hover:bg-slate-700 transition-colors text-slate-400 hover:text-white z-20"
                 >
                   <X className="w-5 h-5" />
                 </button>
 
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-gradient-to-br from-[#06C755] to-[#05b34d] shadow-lg shadow-green-200 mb-4 rotate-3">
-                  <MessageCircle className="w-8 h-8 text-white" />
+                {/* LINEアイコンはブランドカラーを維持しつつ、ダーク背景に映えるよう発光 */}
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-gradient-to-br from-[#06C755] to-[#05b34d] shadow-[0_10px_20px_rgba(6,199,85,0.3)] mb-4 rotate-3 border border-white/20">
+                  <MessageCircle className="w-8 h-8 text-white fill-current" />
                 </div>
                 
-                <h3 className="font-serif text-2xl font-bold text-[var(--charcoal)] tracking-tight">
+                <h3 className="font-sans text-2xl font-black text-white tracking-tight drop-shadow-[0_2px_4px_rgba(255,255,255,0.8)]">
                   SELECT CLINIC
                 </h3>
-                <p className="text-[10px] tracking-[0.2em] text-[var(--gold)] font-bold mt-1 uppercase">
+                <p className="text-[10px] tracking-[0.2em] text-sky-400 font-bold mt-1.5 uppercase">
                   公式LINE 院を選択してください
                 </p>
               </div>
 
               {/* Clinic List */}
-              <div className="px-6 pb-10 space-y-4">
+              <div className="px-5 sm:px-6 pb-8 space-y-3">
                 {clinics.map((clinic, index) => (
                   <motion.a
                     key={index}
                     href={clinic.lineUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative flex items-center gap-4 w-full p-5 bg-white rounded-2xl border border-gray-100 transition-all hover:border-[var(--emerald)]/30 hover:shadow-xl hover:shadow-green-900/5"
+                    className="group relative flex items-center gap-4 w-full p-4 sm:p-5 bg-slate-800/40 rounded-2xl border border-slate-700/50 transition-all hover:border-sky-400/50 hover:bg-slate-800/80 hover:shadow-[0_0_15px_rgba(56,189,248,0.15)]"
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.98 }}
                   >
                     {/* アイコン部分 */}
                     <div className="relative w-12 h-12 flex-shrink-0">
-                      <div className="absolute inset-0 bg-[var(--emerald)] opacity-0 group-hover:opacity-10 rounded-xl transition-opacity" />
-                      <div className="w-full h-full border border-gray-100 rounded-xl flex items-center justify-center text-gray-400 group-hover:text-[var(--emerald)] transition-colors">
+                      <div className="absolute inset-0 bg-sky-500 opacity-0 group-hover:opacity-20 rounded-xl transition-opacity" />
+                      <div className="w-full h-full border border-slate-600/60 group-hover:border-sky-500/50 rounded-xl flex items-center justify-center text-slate-400 group-hover:text-sky-400 transition-colors bg-slate-900/50">
                         <MapPin className="w-5 h-5" />
                       </div>
                     </div>
@@ -100,25 +104,25 @@ export default function LineModal({ isOpen, onClose }: LineModalProps) {
                     {/* テキスト部分 */}
                     <div className="flex-1 text-left">
                       <div className="flex items-baseline gap-2">
-                        <span className="font-bold text-[var(--charcoal)] text-base">{clinic.name}</span>
-                        <span className="text-[9px] font-bold text-gray-300 tracking-tighter uppercase">{clinic.area}</span>
+                        <span className="font-bold text-slate-100 text-base">{clinic.name}</span>
+                        <span className="text-[9px] font-bold text-sky-500/80 tracking-tighter uppercase">{clinic.area}</span>
                       </div>
-                      <div className="text-[11px] text-[var(--charcoal-light)] mt-0.5 opacity-60">
+                      <div className="text-[11px] text-slate-400 mt-0.5 opacity-80 font-medium">
                         {clinic.address}
                       </div>
                     </div>
 
-                    {/* 矢印アイコン */}
-                    <div className="w-8 h-8 rounded-full border border-gray-50 flex items-center justify-center transition-all group-hover:bg-[var(--emerald)] group-hover:border-[var(--emerald)]">
-                      <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-white transition-colors" />
+                    {/* 矢印アイコン（ホバーでLINEグリーンへ変化し誘導を強化） */}
+                    <div className="w-8 h-8 rounded-full border border-slate-600 flex items-center justify-center transition-all group-hover:bg-[#06C755] group-hover:border-[#06C755] shadow-inner group-hover:shadow-[0_0_10px_rgba(6,199,85,0.4)]">
+                      <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" />
                     </div>
                   </motion.a>
                 ))}
               </div>
 
               {/* Bottom Note */}
-              <div className="bg-gray-50/50 py-4 border-t border-gray-100">
-                <p className="text-[10px] text-center text-gray-400 font-medium tracking-wider">
+              <div className="bg-slate-950/80 py-4 border-t border-slate-800/60">
+                <p className="text-[10px] text-center text-slate-500 font-bold tracking-widest">
                   24時間いつでも気軽にご相談いただけます
                 </p>
               </div>
