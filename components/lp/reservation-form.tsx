@@ -134,12 +134,16 @@ export default function ReservationForm() {
           >
             Online Reservation
           </motion.span>
-          <div className="relative inline-block">
-            <h2 className={`${fontTitle} text-3xl sm:text-5xl font-extrabold mb-4 leading-tight bg-gradient-to-b from-white via-sky-100 to-white bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(56,189,248,0.5)]`}>
+          
+          {/* 💡 【修正点】スマホの光切れバグ解消用バックライトを追加 */}
+          <div className="relative inline-block py-4">
+            <div className="absolute inset-x-4 inset-y-2 bg-sky-500/20 blur-2xl rounded-full pointer-events-none" />
+            <h2 className={`${fontTitle} text-3xl sm:text-5xl font-extrabold leading-tight bg-gradient-to-b from-white via-sky-100 to-white bg-clip-text text-transparent relative z-10 whitespace-pre-wrap break-keep antialiased drop-shadow-[0_0_20px_rgba(56,189,248,0.5)]`}>
               {RESERVATION_CONTENT.title}
             </h2>
           </div>
-          <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed font-medium opacity-80">
+
+          <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed font-medium opacity-80 mt-2">
             {RESERVATION_CONTENT.subtitle}
           </p>
         </div>
@@ -156,7 +160,7 @@ export default function ReservationForm() {
           <div className="absolute bottom-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-sky-400/80 to-transparent shadow-[0_0_30px_rgba(56,189,248,0.8)] pointer-events-none z-20" />
           <div className="absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-t from-sky-500/10 via-transparent to-transparent pointer-events-none z-0" />
 
-          {/*的光源をスマートに：極細のレーザーライン＋中心の強い発光 */}
+          {/* 光源をスマートに：極細のレーザーライン＋中心の強い発光 */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-sky-400/60 to-transparent z-10" />
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/4 h-[2px] bg-sky-300 shadow-[0_0_15px_rgba(56,189,248,0.9)] blur-[1px] z-10" />
 
