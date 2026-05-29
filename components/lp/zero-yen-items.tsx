@@ -19,62 +19,87 @@ export default function ZeroYenItems() {
   const headerBottomMargin = "mb-16 sm:mb-24" 
   const cardRounded = "rounded-xl" 
   const gpuStyle = { transform: 'translateZ(0)', willChange: 'opacity, transform' }
-
-  // 💡 【透過グラス枠】ペインパートと完全同期（上・左エッジの白いハイライト）
   const glassBorder = "border border-slate-700/60 border-t-white/10 border-l-white/10"
 
   return (
     <section id="zero-yen" className={`${sectionPadding} relative bg-[#050A15] text-slate-400 overflow-hidden`}>
       
-      {/* 💡 【背景演出：静止流れ星ライン（厳選4本） ＆ タイトルを避けた2大アンビエント光】 */}
+      {/* 💡 【背景演出：360度アンビエント発光の静止流れ星（6本）】
+           レーザー光線を完全撤廃！
+           「360度広がる正円のグロウ（光源の広がり）」と「1pxの極細の線」を分離して重ねることで、
+           暗い紺色の背景を照らす、本物の奥行きと明暗を生み出します。
+           
+           💡【修正点】光源（芯）の色を青に戻し、タイトル付近を避けて配置。長さも長く復元。 */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         
-        {/* 💡 【確実な視認性】タイトル（中央上）を完全に避けて配置した、肉眼でハッキリ美しく見える2箇所の淡い光（丸グロウ） */}
-        {/* ① 左中〜左下にかけて大きく広がる、センスの良い淡いブルーの光 */}
-        <div className="absolute bottom-[8%] left-[-15%] w-[650px] h-[650px] bg-sky-500/15 blur-[100px] rounded-full opacity-80" />
-        {/* ② 右中〜右下にかけて大きく広がる、センスの良い淡いシアンの光 */}
-        <div className="absolute bottom-[4%] right-[-15%] w-[700px] h-[700px] bg-cyan-400/12 blur-[120px] rounded-full opacity-80" />
+        {/* =========================================
+            1本目：左上 (Sky系) - 配置を下げ、長く、青光源
+        ========================================= */}
+        <div className="absolute top-[25%] left-[5%]"> {/* タイトルを避けて少し下げました */}
+          {/* 360度広がる光源（非光のお広がり。正円。Sky-500） */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-sky-500/25 blur-[120px] rounded-full" />
+          {/* 1pxの極細の芯（芯の色を白から青へ。長く。box-shadowを青一色へ） */}
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[1px] bg-gradient-to-r from-transparent via-sky-100 to-transparent rotate-[-15deg]" 
+            style={{ boxShadow: '0 0 10px #38bdf8, 0 0 20px #38bdf8' }} 
+          />
+        </div>
+        
+        {/* =========================================
+            2本目：右上 (Cyan系) - 配置を下げ、長く、青光源
+        ========================================= */}
+        <div className="absolute top-[35%] right-[5%]"> {/* タイトルを避けて少し下げました */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-cyan-400/25 blur-[100px] rounded-full" />
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] h-[1px] bg-gradient-to-r from-transparent via-cyan-100 to-transparent rotate-[-15deg]" 
+            style={{ boxShadow: '0 0 10px #22d3ee, 0 0 20px #0ea5e9' }} 
+          />
+        </div>
+        
+        {/* =========================================
+            3本目：左中央 (Sky系) - 長く、青光源
+        ========================================= */}
+        <div className="absolute top-[50%] left-[10%]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-sky-400/20 blur-[140px] rounded-full" />
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[550px] h-[1px] bg-gradient-to-r from-transparent via-sky-100 to-transparent rotate-[-15deg]" 
+            style={{ boxShadow: '0 0 15px #38bdf8, 0 0 25px #38bdf8' }} 
+          />
+        </div>
 
-        
-        {/* 1. 左上から中央へ：【芯層 z-10】先頭が純白爆光。鋭く引き裂くロング閃光 */}
-        <div 
-          className="absolute top-[14%] left-[2%] w-[65%] h-[1px] bg-gradient-to-r from-white via-sky-400 to-transparent rotate-[-15deg] opacity-100 blur-[0.3px] z-10" 
-          style={{ filter: 'drop-shadow(0 0 10px #38bdf8) drop-shadow(0 0 20px #38bdf8)' }}
-        />
-        {/* 1. 【淡いグロウ層 z-0】💡消滅バグを修正。芯の周りに肉眼でハッキリ美しく滲み出るグラデーションオーラ（blur-2xlに調整） */}
-        <div 
-          className="absolute top-[14%] left-[2%] w-[65%] h-6 bg-gradient-to-r from-sky-500/30 via-sky-400/10 to-transparent rotate-[-15deg] opacity-80 blur-2xl z-0" 
-        />
-        
-        {/* 2. 中央から右下へ：【芯層 z-10】真ん中が純白爆光。最も長い射程。周囲に広く光が染み出す */}
-        <div 
-          className="absolute top-[40%] left-[20%] w-[70%] h-[1px] bg-gradient-to-r from-transparent via-cyan-300 to-transparent rotate-[-15deg] opacity-100 blur-[0.5px] z-10" 
-          style={{ filter: 'drop-shadow(0 0 25px #0ea5e9) drop-shadow(0 0 12px #22d3ee)' }}
-        />
-        {/* 2. 【淡いグロウ層 z-0】💡消滅バグを修正。ラインの背後からワイドに湧き上がるシアンの淡い光（blur-3xlに調整） */}
-        <div 
-          className="absolute top-[40%] left-[20%] w-[70%] h-8 bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent rotate-[-15deg] opacity-75 blur-3xl z-0" 
-        />
-        
-        {/* 3. 右上から中央奥へ：【芯層 z-10】後ろが純白爆光。右端に向けて一気に強く輝き、消える */}
-        <div 
-          className="absolute top-[22%] right-[4%] w-[60%] h-[1px] bg-gradient-to-r from-transparent via-sky-400/30 to-white rotate-[-15deg] opacity-100 blur-[0.3px] z-10"
-          style={{ filter: 'drop-shadow(0 0 12px #2563eb) drop-shadow(0 0 24px #7dd3fc)' }}
-        />
-        {/* 3. 【淡いグロウ層 z-0】💡消滅バグを修正。漆黒との明暗をドラマチックに演出する、肉眼で捉えられるネイビーグロウ */}
-        <div 
-          className="absolute top-[22%] right-[4%] w-[60%] h-6 bg-gradient-to-r from-transparent via-sky-500/25 to-transparent rotate-[-15deg] opacity-70 blur-2xl z-0" 
-        />
+        {/* =========================================
+            4本目：右中央 (Cyan系) - 長く、青光源
+        ========================================= */}
+        <div className="absolute top-[60%] right-[15%]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/20 blur-[130px] rounded-full" />
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[1px] bg-gradient-to-r from-transparent via-cyan-100 to-transparent rotate-[-15deg]" 
+            style={{ boxShadow: '0 0 10px #22d3ee, 0 0 20px #0ea5e9' }} 
+          />
+        </div>
 
-        {/* 4. 下部をダイナミックに横切る：【芯層 z-10】先頭が純白爆光。足元を圧倒的な光量で広く照らし出す超ロングビーム */}
-        <div 
-          className="absolute bottom-[20%] left-[8%] w-[68%] h-[1px] bg-gradient-to-r from-white via-cyan-400 to-transparent rotate-[-15deg] opacity-100 blur-[0.3px] z-10"
-          style={{ filter: 'drop-shadow(0 0 14px #22d3ee) drop-shadow(0 0 28px #0ea5e9)' }}
-        />
-        {/* 4. 【淡いグロウ層 z-0】💡消滅バグを修正。最下部のカードに美しく重なり、幻想的な明暗を作るワイドな光の帯 */}
-        <div 
-          className="absolute bottom-[20%] left-[8%] w-[68%] h-8 bg-gradient-to-r from-cyan-500/30 via-cyan-400/10 to-transparent rotate-[-15deg] opacity-80 blur-3xl z-0" 
-        />
+        {/* =========================================
+            5本目：左下 (Blue系) - 長く、青光源
+        ========================================= */}
+        <div className="absolute top-[75%] left-[15%]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-blue-500/20 blur-[110px] rounded-full" />
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] h-[1px] bg-gradient-to-r from-transparent via-blue-100 to-transparent rotate-[-15deg]" 
+            style={{ boxShadow: '0 0 15px #60a5fa, 0 0 20px #3b82f6' }} 
+          />
+        </div>
+
+        {/* =========================================
+            6本目：右下 (Sky系) - 長く、青光源
+        ========================================= */}
+        <div className="absolute top-[85%] right-[5%]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-sky-400/25 blur-[120px] rounded-full" />
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[600px] h-[1px] bg-gradient-to-r from-transparent via-sky-100 to-transparent rotate-[-15deg]" 
+            style={{ boxShadow: '0 0 15px #38bdf8, 0 0 25px #7dd3fc' }} 
+          />
+        </div>
+
       </div>
 
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -96,10 +121,10 @@ export default function ZeroYenItems() {
               {ZERO_YEN_CONTENT.badge}
             </motion.span>
             
-            {/* 💡 【スマホでのクリップバグ完全解消】
-                 親divに drop-shadow と py-4 を持たせることで、文字の下で光の広がりが直線的に切れる現象を完璧に解決。 */}
-            <div className="relative inline-block drop-shadow-[0_0_35px_rgba(56,189,248,0.65)] py-4">
-              <h2 className={`${fontTitle} text-2xl sm:text-5xl font-extrabold leading-tight bg-gradient-to-b from-white via-sky-100 to-white bg-clip-text text-transparent relative z-10 whitespace-pre-wrap break-keep`}>
+            {/* 💡 【スマホでのクリップバグ完全解消】 */}
+            <div className="relative inline-block py-4">
+              <div className="absolute inset-x-4 inset-y-2 bg-sky-500/20 blur-2xl rounded-full pointer-events-none" />
+              <h2 className={`${fontTitle} text-2xl sm:text-5xl font-extrabold leading-tight bg-gradient-to-b from-white via-sky-100 to-white bg-clip-text text-transparent relative z-10 whitespace-pre-wrap break-keep antialiased`}>
                 {ZERO_YEN_CONTENT.title}
               </h2>
             </div>
@@ -119,8 +144,6 @@ export default function ZeroYenItems() {
           >
             {/* カード背景：PainManagement同期のエレガントな磨りガラス */}
             <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-3xl z-0" />
-            
-            {/* 内側の繊細なガラス反射 */}
             <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-xl z-20 pointer-events-none" />
 
             {/* 光源（下部） */}
@@ -133,7 +156,7 @@ export default function ZeroYenItems() {
               {ZERO_YEN_CONTENT.items.map((item, index) => (
                 <div key={index} className="flex flex-col items-center group">
                   <div className="w-12 h-12 sm:w-16 sm:h-16 mb-4 sm:mb-5 relative flex items-center justify-center">
-                    <div className="absolute inset-0 rounded-full bg-slate-950/80 border border-slate-700/60 group-hover:border-sky-400/50 transition-all duration-500 shadow-inner" />
+                    <div className="absolute inset-0 rounded-full bg-slate-800 border border-slate-700/60 group-hover:border-sky-400/50 transition-all duration-500 shadow-inner" />
                     <IconComponent 
                       name={item.icon} 
                       className="w-5 h-5 sm:w-8 sm:h-8 relative z-10 text-slate-100 transition-transform duration-500 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" 
@@ -154,21 +177,16 @@ export default function ZeroYenItems() {
             </div>
           </motion.div>
 
-          {/* 🔴 Footer：最下部カードデザイン（ベースコードの要求通り維持） */}
+          {/* 🔴 Footer：最下部カード化 */}
           <motion.div 
             className="mt-10 flex justify-center relative z-10 w-full" 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
           >
-            {/* 上のボードと完全同一のカードデザイン */}
             <div className={`relative overflow-hidden ${cardRounded} ${glassBorder} shadow-[0_40px_80px_rgba(0,0,0,0.8)] py-5 px-8 bg-transparent w-full max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-3 text-center md:text-left`} style={gpuStyle}>
-              {/* カード背景：PainManagement同期のエレガントな磨りガラス */}
               <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-3xl z-0" />
-              
-              {/* 内側の繊細なガラス反射 */}
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-xl z-20 pointer-events-none" />
               
-              {/* 光源（下部） */}
               <div className="absolute bottom-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-sky-400/60 to-transparent shadow-[0_0_20px_rgba(56,189,248,0.6)] pointer-events-none z-20" />
               <div className="absolute bottom-0 inset-x-0 h-full bg-gradient-to-t from-sky-500/10 via-transparent to-transparent pointer-events-none z-0" />
 
