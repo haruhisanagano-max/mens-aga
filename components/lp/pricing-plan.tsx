@@ -43,12 +43,12 @@ export default function PricingPlan({ onOpenCampaign }: PricingPlanProps) {
         </div>
         
         {/* =========================================
-            2本目：右上 (Cyan系)
+            2本目：右上 (sky系)
         ========================================= */}
         <div className="absolute top-[35%] right-[5%]">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-cyan-400/30 blur-[110px] rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-sky-400/30 blur-[110px] rounded-full" />
           <div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] h-[1px] bg-gradient-to-r from-transparent via-cyan-100 to-transparent rotate-[-15deg]" 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] h-[1px] bg-gradient-to-r from-transparent via-sky-100 to-transparent rotate-[-15deg]" 
             style={{ boxShadow: '0 0 10px #22d3ee, 0 0 20px #0ea5e9' }} 
           />
         </div>
@@ -99,12 +99,12 @@ export default function PricingPlan({ onOpenCampaign }: PricingPlanProps) {
         </div>
 
         {/* =========================================
-            8本目：中央 (Cyan系)
+            8本目：中央 (sky系)
         ========================================= */}
         <div className="absolute top-[45%] right-[35%]">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/25 blur-[130px] rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sky-500/25 blur-[130px] rounded-full" />
           <div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[1px] bg-gradient-to-r from-transparent via-cyan-100 to-transparent rotate-[-15deg]" 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[1px] bg-gradient-to-r from-transparent via-sky-100 to-transparent rotate-[-15deg]" 
             style={{ boxShadow: '0 0 10px #22d3ee, 0 0 20px #0ea5e9' }} 
           />
         </div>
@@ -135,12 +135,12 @@ export default function PricingPlan({ onOpenCampaign }: PricingPlanProps) {
         
 
         {/* =========================================
-            12本目：【追加】右上寄り (Cyan系)
+            12本目：【追加】右上寄り (sky系)
         ========================================= */}
         <div className="absolute top-[20%] right-[30%]">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-cyan-400/25 blur-[110px] rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-sky-400/25 blur-[110px] rounded-full" />
           <div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] h-[1px] bg-gradient-to-r from-transparent via-cyan-100 to-transparent rotate-[-15deg]" 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] h-[1px] bg-gradient-to-r from-transparent via-sky-100 to-transparent rotate-[-15deg]" 
             style={{ boxShadow: '0 0 10px #22d3ee, 0 0 20px #0ea5e9' }} 
           />
         </div>
@@ -157,12 +157,12 @@ export default function PricingPlan({ onOpenCampaign }: PricingPlanProps) {
         </div>
 
         {/* =========================================
-            14本目：【追加】右中央寄り (Cyan系)
+            14本目：【追加】右中央寄り (sky系)
         ========================================= */}
         <div className="absolute top-[55%] right-[35%]">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/25 blur-[130px] rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sky-500/25 blur-[130px] rounded-full" />
           <div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[1px] bg-gradient-to-r from-transparent via-cyan-100 to-transparent rotate-[-15deg]" 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[1px] bg-gradient-to-r from-transparent via-sky-100 to-transparent rotate-[-15deg]" 
             style={{ boxShadow: '0 0 10px #22d3ee, 0 0 20px #0ea5e9' }} 
           />
         </div>
