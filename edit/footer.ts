@@ -15,7 +15,7 @@ export const FOOTER_CONTENT = {
     borderTopColor: "rgba(4, 75, 65, 0.1)" // 境界線をより繊細な色に
   },
   
-  copyright: "© 2024 LUXE BEAUTY CLINIC. All Rights Reserved.",
+  copyright: "© 2026 VIRGIN CLINIC.（緑風会） All Rights Reserved.",
   
   links: [] 
 };
