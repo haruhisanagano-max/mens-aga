@@ -23,20 +23,160 @@ export default function PricingPlan({ onOpenCampaign }: PricingPlanProps) {
   const gpuStyle = { transform: 'translateZ(0)', willChange: 'opacity, transform' }
 
   return (
-    // 💡 修正：バナー配置に合わせ、セクション最下部の余白（pb）をタイトに引き締め
     <section id="pricing" className={`${sectionPadding} pb-10 sm:pb-12 relative bg-[#050A15] text-slate-400 overflow-hidden`}>
       
-      {/* 【背景演出：光源の位置を調整】 */}
+      {/* 💡 【背景演出：360度アンビエント発光の静止流れ星（15本）】
+           ご提示いただいた「完全手書きのHTML構造」を100%踏襲し、
+           アンビエント（光量）微強化、広がり拡大の設定を維持したまま、15本に増やしました。 */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[3%] left-[12%] w-56 h-56 bg-sky-400/40 rounded-full blur-3xl opacity-90" />
-        <div className="absolute top-[16%] right-[10%] w-48 h-48 bg-cyan-400/40 rounded-full blur-3xl opacity-80" />
-        <div className="absolute top-[32%] left-[5%] w-64 h-64 bg-sky-400/45 rounded-full blur-3xl opacity-90" />
-        <div className="absolute top-[50%] right-[15%] w-52 h-52 bg-sky-400/40 rounded-full blur-3xl opacity-85" />
-        <div className="absolute top-[66%] left-[10%] w-60 h-60 bg-cyan-400/40 rounded-full blur-3xl opacity-80" />
-        <div className="absolute top-[80%] right-[8%] w-48 h-48 bg-sky-400/45 rounded-full blur-3xl opacity-90" />
         
-        {/* 💡 修正：バナーが上に詰まったのに合わせて、光の位置も少し上（bottom-[6%]）へスライド */}
-        <div className="absolute bottom-[6%] left-1/2 -translate-x-1/2 w-[80%] h-60 bg-sky-400/25 rounded-full blur-[120px] opacity-80" />
+        {/* =========================================
+            1本目：左上 (Sky系)
+        ========================================= */}
+        <div className="absolute top-[25%] left-[5%]">
+          {/* 広がりを少し大きく（450px -> 500px）、アンビエントをほんの少し強く（25 -> 30） */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sky-500/30 blur-[130px] rounded-full" />
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[1px] bg-gradient-to-r from-transparent via-sky-100 to-transparent rotate-[-15deg]" 
+            style={{ boxShadow: '0 0 10px #38bdf8, 0 0 20px #38bdf8' }} 
+          />
+        </div>
+        
+        {/* =========================================
+            2本目：右上 (Cyan系)
+        ========================================= */}
+        <div className="absolute top-[35%] right-[5%]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-cyan-400/30 blur-[110px] rounded-full" />
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] h-[1px] bg-gradient-to-r from-transparent via-cyan-100 to-transparent rotate-[-15deg]" 
+            style={{ boxShadow: '0 0 10px #22d3ee, 0 0 20px #0ea5e9' }} 
+          />
+        </div>
+        
+        {/* =========================================
+            3本目：左中央 (Sky系)
+        ========================================= */}
+        <div className="absolute top-[50%] left-[10%]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky-400/25 blur-[150px] rounded-full" />
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[550px] h-[1px] bg-gradient-to-r from-transparent via-sky-100 to-transparent rotate-[-15deg]" 
+            style={{ boxShadow: '0 0 15px #38bdf8, 0 0 25px #38bdf8' }} 
+          />
+        </div>
+
+        
+        {/* =========================================
+            5本目：左下 (Blue系)
+        ========================================= */}
+        <div className="absolute top-[75%] left-[15%]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-blue-500/25 blur-[120px] rounded-full" />
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] h-[1px] bg-gradient-to-r from-transparent via-blue-100 to-transparent rotate-[-15deg]" 
+            style={{ boxShadow: '0 0 15px #60a5fa, 0 0 20px #3b82f6' }} 
+          />
+        </div>
+
+        {/* =========================================
+            6本目：右下 (Sky系)
+        ========================================= */}
+        <div className="absolute top-[85%] right-[5%]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sky-400/30 blur-[130px] rounded-full" />
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[600px] h-[1px] bg-gradient-to-r from-transparent via-sky-100 to-transparent rotate-[-15deg]" 
+            style={{ boxShadow: '0 0 15px #38bdf8, 0 0 25px #7dd3fc' }} 
+          />
+        </div>
+
+        {/* =========================================
+            7本目：中央上寄り (Sky系)
+        ========================================= */}
+        <div className="absolute top-[30%] left-[45%]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-sky-400/25 blur-[120px] rounded-full" />
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] h-[1px] bg-gradient-to-r from-transparent via-sky-100 to-transparent rotate-[-15deg]" 
+            style={{ boxShadow: '0 0 10px #38bdf8, 0 0 20px #38bdf8' }} 
+          />
+        </div>
+
+        {/* =========================================
+            8本目：中央 (Cyan系)
+        ========================================= */}
+        <div className="absolute top-[45%] right-[35%]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/25 blur-[130px] rounded-full" />
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[1px] bg-gradient-to-r from-transparent via-cyan-100 to-transparent rotate-[-15deg]" 
+            style={{ boxShadow: '0 0 10px #22d3ee, 0 0 20px #0ea5e9' }} 
+          />
+        </div>
+
+        {/* =========================================
+            9本目：左下寄り (Sky系)
+        ========================================= */}
+        <div className="absolute top-[65%] left-[25%]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-sky-500/25 blur-[120px] rounded-full" />
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[400px] h-[1px] bg-gradient-to-r from-transparent via-sky-100 to-transparent rotate-[-15deg]" 
+            style={{ boxShadow: '0 0 10px #38bdf8, 0 0 20px #38bdf8' }} 
+          />
+        </div>
+
+        {/* =========================================
+            10本目：右下寄り (Blue系)
+        ========================================= */}
+        <div className="absolute top-[75%] right-[25%]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-blue-400/25 blur-[110px] rounded-full" />
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] h-[1px] bg-gradient-to-r from-transparent via-blue-100 to-transparent rotate-[-15deg]" 
+            style={{ boxShadow: '0 0 10px #60a5fa, 0 0 20px #3b82f6' }} 
+          />
+        </div>
+
+        
+
+        {/* =========================================
+            12本目：【追加】右上寄り (Cyan系)
+        ========================================= */}
+        <div className="absolute top-[20%] right-[30%]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-cyan-400/25 blur-[110px] rounded-full" />
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] h-[1px] bg-gradient-to-r from-transparent via-cyan-100 to-transparent rotate-[-15deg]" 
+            style={{ boxShadow: '0 0 10px #22d3ee, 0 0 20px #0ea5e9' }} 
+          />
+        </div>
+
+        {/* =========================================
+            13本目：【追加】左中央寄り (Sky系)
+        ========================================= */}
+        <div className="absolute top-[40%] left-[30%]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-sky-500/25 blur-[120px] rounded-full" />
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] h-[1px] bg-gradient-to-r from-transparent via-sky-100 to-transparent rotate-[-15deg]" 
+            style={{ boxShadow: '0 0 10px #38bdf8, 0 0 20px #38bdf8' }} 
+          />
+        </div>
+
+        {/* =========================================
+            14本目：【追加】右中央寄り (Cyan系)
+        ========================================= */}
+        <div className="absolute top-[55%] right-[35%]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/25 blur-[130px] rounded-full" />
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[1px] bg-gradient-to-r from-transparent via-cyan-100 to-transparent rotate-[-15deg]" 
+            style={{ boxShadow: '0 0 10px #22d3ee, 0 0 20px #0ea5e9' }} 
+          />
+        </div>
+
+        {/* =========================================
+            15本目：【追加】中央補強 (Sky系)
+        ========================================= */}
+        <div className="absolute top-[15%] left-[40%]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-sky-500/25 blur-[120px] rounded-full" />
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] h-[1px] bg-gradient-to-r from-transparent via-sky-100 to-transparent rotate-[-15deg]" 
+            style={{ boxShadow: '0 0 10px #38bdf8, 0 0 20px #38bdf8' }} 
+          />
+        </div>
+
       </div>
 
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -254,7 +394,7 @@ export default function PricingPlan({ onOpenCampaign }: PricingPlanProps) {
             </div>
           </motion.div>
 
-          {/* バナーエリア：💡 【修正】余白を引き締め。pt-10➔pt-6, mt-10➔mt-6 に縮小 */}
+          {/* バナーエリア：余白は元の設定を維持 */}
           <div className="w-full pt-6 border-t border-slate-800/40 mt-6 flex flex-col items-center relative">
             {BANNER_CONTENT.banners.map((banner) => (
               <button
