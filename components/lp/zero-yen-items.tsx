@@ -35,12 +35,12 @@ export default function ZeroYenItems() {
         
         
         {/* =========================================
-            2本目：右上 (Cyan系) - 配置を下げ、長く、青光源
+            2本目：右上 (sky系) - 配置を下げ、長く、青光源
         ========================================= */}
         <div className="absolute top-[35%] right-[5%]"> {/* タイトルを避けて少し下げました */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-cyan-400/25 blur-[100px] rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-sky-400/25 blur-[100px] rounded-full" />
           <div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] h-[1px] bg-gradient-to-r from-transparent via-cyan-100 to-transparent rotate-[-15deg]" 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] h-[1px] bg-gradient-to-r from-transparent via-sky-100 to-transparent rotate-[-15deg]" 
             style={{ boxShadow: '0 0 10px #22d3ee, 0 0 20px #0ea5e9' }} 
           />
         </div>
@@ -57,12 +57,12 @@ export default function ZeroYenItems() {
         </div>
 
         {/* =========================================
-            4本目：右中央 (Cyan系) - 長く、青光源
+            4本目：右中央 (sky系) - 長く、青光源
         ========================================= */}
         <div className="absolute top-[60%] right-[15%]">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/20 blur-[130px] rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sky-500/20 blur-[130px] rounded-full" />
           <div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[1px] bg-gradient-to-r from-transparent via-cyan-100 to-transparent rotate-[-15deg]" 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[1px] bg-gradient-to-r from-transparent via-sky-100 to-transparent rotate-[-15deg]" 
             style={{ boxShadow: '0 0 10px #22d3ee, 0 0 20px #0ea5e9' }} 
           />
         </div>
