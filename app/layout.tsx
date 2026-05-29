@@ -8,8 +8,8 @@ const notoSerifJP = Noto_Serif_JP({ subsets: ["latin"], weight: ['400', '700'], 
 const notoSansJP = Noto_Sans_JP({ subsets: ["latin"], weight: ['400', '700'], variable: '--font-sans' })
 
 export const metadata: Metadata = {
-  title: '医療脱毛キャンペーン | ヴァージンクリニック',
-  description: 'ジェントルマックスプロ導入。キャンペーン実施中。',
+  title: '医療発毛キャンペーン | ヴァージンクリニック',
+  description: 'キャンペーン実施中。',
 }
 
 export const viewport: Viewport = {
