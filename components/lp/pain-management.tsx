@@ -264,20 +264,33 @@ export default function PainManagement() {
 
            
 
-            <div className="space-y-10">
+            <div className="space-y-6 sm:space-y-8">
+              
+              {/* 💡 追加：抜け落ちていたLabel */}
+              <span className="text-[10px] font-bold tracking-[0.5em] text-sky-400 block uppercase drop-shadow-[0_0_8px_rgba(56,189,248,0.4)]">
+                {PAIN_CONTENT.reassurance.label}
+              </span>
 
               <h3 className="font-sans text-2xl sm:text-4xl font-extrabold text-white leading-tight tracking-tighter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-
                 {PAIN_CONTENT.reassurance.title}
-
               </h3>
+              
+             <div className="text-slate-300 text-sm sm:text-base leading-relaxed font-medium opacity-90 space-y-3 max-w-2xl mx-auto">
+                <p>{PAIN_CONTENT.reassurance.body1}</p>
+                <p>{PAIN_CONTENT.reassurance.body2}</p>
+                
+                {/* 💡 綺麗なデータ連携の形に戻します */}
+                <p className="text-sky-100 font-bold mt-2 whitespace-pre-line">
+                  {PAIN_CONTENT.reassurance.body3}
+                </p>
+              
+          
+              </div>
 
-              <div className="mt-4 inline-flex items-center gap-4 px-8 py-4 bg-slate-900/60 rounded-full text-slate-300 text-[11px] sm:text-xs border border-slate-700/60 font-bold shadow-2xl backdrop-blur-md">
-
+              {/* ここは元々あった注意書き（余白だけmt-6に微調整） */}
+              <div className="mt-6 inline-flex items-center gap-4 px-8 py-4 bg-slate-900/60 rounded-full text-slate-300 text-[11px] sm:text-xs border border-slate-700/60 font-bold shadow-2xl backdrop-blur-md">
                 <ShieldCheck className="w-5 h-5 text-sky-400/80" />
-
                 <span className="tracking-wide">{PAIN_CONTENT.reassurance.note}</span>
-
               </div>
 
             </div>
