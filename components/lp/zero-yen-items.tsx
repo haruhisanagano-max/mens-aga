@@ -78,16 +78,7 @@ export default function ZeroYenItems() {
           />
         </div>
 
-        {/* =========================================
-            6本目：右下 (Sky系) - 長く、青光源
-        ========================================= */}
-        <div className="absolute top-[85%] right-[5%]">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-sky-400/25 blur-[120px] rounded-full" />
-          <div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[600px] h-[1px] bg-gradient-to-r from-transparent via-sky-100 to-transparent rotate-[-15deg]" 
-            style={{ boxShadow: '0 0 15px #38bdf8, 0 0 25px #7dd3fc' }} 
-          />
-        </div>
+        
 
       </div>
 
