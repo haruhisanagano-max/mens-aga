@@ -32,12 +32,12 @@ export default function FlowFaq() {
     <section id="faq" className={`${sectionPadding} relative bg-[#050A15] text-slate-400 overflow-hidden`}>
       
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[5%] left-[5%] w-[400px] h-[400px] bg-sky-500/30 blur-[120px] rounded-full" />
+        <div className="absolute top-[20%] left-[5%] w-[400px] h-[400px] bg-sky-500/30 blur-[120px] rounded-full" />
         <div className="absolute top-[45%] right-[-5%] w-[500px] h-[500px] bg-indigo-500/25 blur-[150px] rounded-full" />
         <div className="absolute bottom-[5%] left-[10%] w-[450px] h-[450px] bg-cyan-400/25 blur-[130px] rounded-full" />
 
         <div className="absolute inset-0 z-0">
-          <div className={`${movingCyberLineStyle} top-[3%] left-[5%] w-[250px] rotate-[135deg] h-[1px] via-sky-400`} style={{ animationDuration: '6s', animationDelay: '0s' }} />
+          <div className={`${movingCyberLineStyle} top-[10%] left-[5%] w-[250px] rotate-[135deg] h-[1px] via-sky-400`} style={{ animationDuration: '6s', animationDelay: '0s' }} />
           <div className={`${movingCyberLineStyle} top-[8%] right-[8%] w-[220px] rotate-[45deg] h-[1px] via-cyan-400`} style={{ animationDuration: '8s', animationDelay: '2s' }} />
           <div className={`${movingCyberLineStyle} top-[18%] left-[2%] w-[260px] rotate-[160deg] h-[1px] via-sky-400`} style={{ animationDuration: '7s', animationDelay: '1s' }} />
           <div className={`${movingCyberLineStyle} top-[28%] right-[5%] w-[240px] rotate-[35deg] h-[1px] via-cyan-400`} style={{ animationDuration: '9s', animationDelay: '3s' }} />
