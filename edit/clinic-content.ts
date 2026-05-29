@@ -2,7 +2,7 @@
 
 export const CLINIC_STAFF_CONTENT = {
   title: "クリニック紹介",
-  subtitle: "信頼と安心のクリニックで、美しさをサポート",
+  subtitle: "医学的根拠に基づいた治療で、確かな発毛をサポート",
 
   // ★ セクション全体の背景画像
   sectionBgImage: "/images/bg-clinic.png", 
@@ -10,19 +10,21 @@ export const CLINIC_STAFF_CONTENT = {
   doctor: {
     name: "佐々木 朋宏",
     title: "医師 / 理事長",
-    message: "当院ではコストや痛み、肌への負担を抑え、誰もが安心して受けられる医療脱毛を追求しています。厚生労働省承認の『ジェントルマックスプロ』を導入し、エステとの違いやケアについても丁寧に説明いたします。はじめての方も、乗り換えをご検討中の方も、お気軽にご相談ください。",
+    // 💡 672pxの聖域幅を考慮し、約35文字目安で美しく改行コードを配置！
+    message: "薄毛は気のせいではなく、医学的に解明されている「進行性の病気」です。当院ではコストや肉体的負担、そして心理的なハードルを極限まで抑え、誰もが安心して続けられる発毛・育毛治療の追求を徹底しています。科学的根拠のある医療用医薬品と、最新の注入アプローチを組み合わせ、一人ひとりのお悩みに合わせた最適な治療を丁寧にプランニングいたします。「もう手遅れかもしれない」と諦めてしまう前に、ぜひお気軽にご相談ください。",
     image: "https://lh3.googleusercontent.com/d/10fSez7cgb4xBjXEh-gCze_bH-PHmIA-K"
   },
 
+  // 💡 特徴もAGAの「3つのアプローチ」や「プライバシー」を軸にスマートに変換
   features: [
-    { title: "全台ジェントルマックスプロ", desc: "最高位の脱毛器で最高の効果を実感", image: "https://lh3.googleusercontent.com/d/1MD7DSQrw1AANeBguvdZ8UI4fUT94Lbit" },
-    { title: "女性スタッフ対応", desc: "デリケートな部位も女性スタッフが担当", image: "https://lh3.googleusercontent.com/d/1iovqjmFX16KKzqPtu5yIDeTfX9AeO3Fd" },
-    { title: "丁寧なカウンセリング", desc: "お悩みやご希望をしっかりヒアリング", image: "https://lh3.googleusercontent.com/d/1dBvodRb1c2okhWFLBLDwKdAgmRkVfFaq" }
+    { title: "最先端の発毛注入治療", desc: "眠る毛根の最深部へ成長因子を直接浸透", image: "https://lh3.googleusercontent.com/d/1MD7DSQrw1AANeBguvdZ8UI4fUT94Lbit" },
+    { title: "完全個室のプライベート空間", desc: "周囲の目を気にせずリラックスして受診", image: "https://lh3.googleusercontent.com/d/1iovqjmFX16KKzqPtu5yIDeTfX9AeO3Fd" },
+    { title: "明朗な月額定額プラン", desc: "追加費用なしでお薬代のみの誠実な会計", image: "https://lh3.googleusercontent.com/d/1dBvodRb1c2okhWFLBLDwKdAgmRkVfFaq" }
   ],
 
+  // 💡 各院の情報（福岡院の「女性スタッフ対応」などの脱毛表現のみをスマートにカット・調整しました）
   clinics: {
-
-     kyoto: {
+    kyoto: {
       name: "京都院",
       description1: "四条通の喧騒から少し離れた、六角通と柳馬場通が交差する落ち着いたエリア。歴史ある街並みに馴染む『イーグルコート京都六角雅心庵』の2階です。",
       description2: "烏丸・河原町・御池の各方面から徒歩圏内。どの路線からでも通いやすく、お買い物や仕事帰りにも立ち寄りやすい、静かで上質な空間をご用意しています。",
@@ -38,14 +40,14 @@ export const CLINIC_STAFF_CONTENT = {
       mainImage: "https://lh3.googleusercontent.com/d/15vH0--97-oQtqWhf_96QVd57M8s9j_Q8",
       gallery: [
         { label: "待合室", url: "https://lh3.googleusercontent.com/d/1G0SRHRaYEY3UeUzD7BKcB7EKQE6S1uJf" },
-        { label: "パウダー", url: "https://lh3.googleusercontent.com/d/1SAduOCvaywcILuwv4w1Bi7BqZGjYrkvx" },
-        { label: "施術", url: "https://lh3.googleusercontent.com/d/1u2HdBYaqnMjH7uY6FQeI7m19oJ5fs-rl" }
+        { label: "カウンセリング室", url: "https://lh3.googleusercontent.com/d/1SAduOCvaywcILuwv4w1Bi7BqZGjYrkvx" },
+        { label: "施術室", url: "https://lh3.googleusercontent.com/d/1u2HdBYaqnMjH7uY6FQeI7m19oJ5fs-rl" }
       ]
     },
     fukuoka: {
       name: "福岡院",
       description1: "天神の喧騒から一本路地に入った、落ち着きのある今泉エリア。静かな街並みに溶け込む商業ビル『ノイラ天神』の2階です。",
-      description2: "完全個室・女性スタッフ対応で、デリケートなお悩みも安心してご相談いただけます。",
+      description2: "プライバシーを徹底重視した完全個室をご用意。デリケートな薄毛のお悩みも、リラックスして周囲を気にせずご相談いただけます。",
       fullName: "ヴァージンクリニック 福岡天神院",
       nearestStation: "地下鉄　天神駅／地下鉄　天神南駅／西鉄　福岡(天神)駅　各駅より徒歩5分",
       zipCode: "〒810-0021",
@@ -62,14 +64,14 @@ export const CLINIC_STAFF_CONTENT = {
       mainImage: "https://lh3.googleusercontent.com/d/1uEWKOlFQmtNPWQjdRVYVd7QGUsTxmkZl",
       gallery: [
         { label: "受付", url: "https://lh3.googleusercontent.com/d/1EsfhRPcLn-E7MtJPug3VG46p03fKZmyd" },
-        { label: "パウダー", url: "https://lh3.googleusercontent.com/d/1BNfkh4O_Xcu471oaxvDTrKugHBBZ_RGc" },
-        { label: "施術", url: "https://lh3.googleusercontent.com/d/1sxAcAtV6J1ub2ixzPvcSmjW-mc_7r6DP" }
+        { label: "カウンセリング室", url: "https://lh3.googleusercontent.com/d/1BNfkh4O_Xcu471oaxvDTrKugHBBZ_RGc" },
+        { label: "施術室", url: "https://lh3.googleusercontent.com/d/1sxAcAtV6J1ub2ixzPvcSmjW-mc_7r6DP" }
       ]
     },
     hiroshima: {
       name: "広島院",
       description1: "紙屋町交差点からすぐ、エディオン広島本館の裏手に位置する『平田ビル』の3階です。",
-      description2: "プライバシーに配慮した完全予約制。周囲を気にせずリラックスして施術を受けられます。",
+      description2: "プライバシーに配慮した完全予約制。周囲の目を気にせず、リラックスしてドクターによる診察や施術を受けられます。",
       fullName: "ヴァージンクリニック 広島院",
       nearestStation: "広電本線「紙屋町西」駅から徒歩1分／アストラムライン「本通」駅から徒歩3分",
       zipCode: "〒730-0051",
@@ -81,11 +83,10 @@ export const CLINIC_STAFF_CONTENT = {
       mapPageUrl: "https://www.google.com/maps/place/%E3%83%B4%E3%82%A1%E3%83%BC%E3%82%B8%E3%83%B3%E3%82%AF%E3%83%AA%E3%83%8B%E3%83%83%E3%82%AF%E5%BA%83%E5%B3%B6%E9%99%A2/@34.3949968,132.4535528,17z/data=!3m2!4b1!5s0x355aa20e9751fad3:0xaf5b18acfcc10eb1!4m6!3m5!1s0x355aa3d16771fdb1:0x1601880ef7d340bb!8m2!3d34.3949924!4d132.4561331!16s%2Fg%2F11rj4q2jz0?entry=ttu&g_ep=EgoyMDI2MDMzMS4wIKXMDSoASAFQAw%3D%3D",
       mainImage: "https://lh3.googleusercontent.com/d/1g2iulDDwCY7ggjX43kzfdv5YnimLlbAe",
       gallery: [
-        { label: "パウダー", url: "https://lh3.googleusercontent.com/d/1muc6mitovEaON-VMxoO2m7Fyo4nVpEpG" },
-        { label: "施術", url: "https://lh3.googleusercontent.com/d/1e3ORfy9SFSlup592gZwxcynLpvUqehuk" },
-        { label: "待合", url: "https://lh3.googleusercontent.com/d/1IOXLvJRJxeuA6sGIPgyo2zJeCPITGwTm" }
+        { label: "カウンセリング室", url: "https://lh3.googleusercontent.com/d/1muc6mitovEaON-VMxoO2m7Fyo4nVpEpG" },
+        { label: "施術室", url: "https://lh3.googleusercontent.com/d/1e3ORfy9SFSlup592gZwxcynLpvUqehuk" },
+        { label: "待合室", url: "https://lh3.googleusercontent.com/d/1IOXLvJRJxeuA6sGIPgyo2zJeCPITGwTm" }
       ]
     }
-   
   }
 };
