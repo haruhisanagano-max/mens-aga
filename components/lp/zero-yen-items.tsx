@@ -15,8 +15,8 @@ export default function ZeroYenItems() {
   const fontTitle = "font-sans font-bold tracking-tight text-slate-100"
   
   // 💡 【同期】ペインパートと完全同一のデザイン設定
-  const sectionPadding = "py-16 sm:py-28" 
-  const headerBottomMargin = "mb-16 sm:mb-24" 
+  const sectionPadding = "py-10 sm:py-16" 
+  const headerBottomMargin = "mb-8 sm:mb-12" 
   const cardRounded = "rounded-xl" 
   const gpuStyle = { transform: 'translateZ(0)', willChange: 'opacity, transform' }
   const glassBorder = "border border-slate-700/60 border-t-white/10 border-l-white/10"
@@ -136,7 +136,7 @@ export default function ZeroYenItems() {
 
           {/* 🔴 Item Grid Board */}
           <motion.div 
-            className={`relative overflow-hidden ${cardRounded} ${glassBorder} shadow-[0_40px_80px_rgba(0,0,0,0.8)] py-8 sm:py-14 px-6 sm:px-12 bg-transparent flex flex-col mb-10`}
+            className={`relative overflow-hidden ${cardRounded} ${glassBorder} shadow-[0_40px_80px_rgba(0,0,0,0.8)] py-8 sm:py-10 px-6 sm:px-12 bg-transparent flex flex-col`}
             style={gpuStyle}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -152,7 +152,7 @@ export default function ZeroYenItems() {
             <div className="absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-t from-sky-500/15 via-sky-500/5 to-transparent pointer-events-none z-0" />
 
             {/* アイテムグリッド構造 */}
-            <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-5 gap-y-8 sm:gap-y-10 gap-x-4 sm:gap-x-8 relative z-10">
+            <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-5 gap-y-6 sm:gap-y-8 gap-x-4 sm:gap-x-8 relative z-10">
               {ZERO_YEN_CONTENT.items.map((item, index) => (
                 <div key={index} className="flex flex-col items-center group">
                   <div className="w-12 h-12 sm:w-16 sm:h-16 mb-4 sm:mb-5 relative flex items-center justify-center">
@@ -179,7 +179,7 @@ export default function ZeroYenItems() {
 
           {/* 🔴 Footer：最下部カード化 */}
           <motion.div 
-            className="mt-10 flex justify-center relative z-10 w-full" 
+            className="mt-4 sm:mt-6 flex justify-center relative z-10 w-full" 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
           >
