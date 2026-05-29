@@ -32,18 +32,7 @@ export default function ZeroYenItems() {
            💡【修正点】光源（芯）の色を青に戻し、タイトル付近を避けて配置。長さも長く復元。 */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         
-        {/* =========================================
-            1本目：左上 (Sky系) - 配置を下げ、長く、青光源
-        ========================================= */}
-        <div className="absolute top-[25%] left-[5%]"> {/* タイトルを避けて少し下げました */}
-          {/* 360度広がる光源（非光のお広がり。正円。Sky-500） */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-sky-500/25 blur-[120px] rounded-full" />
-          {/* 1pxの極細の芯（芯の色を白から青へ。長く。box-shadowを青一色へ） */}
-          <div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[1px] bg-gradient-to-r from-transparent via-sky-100 to-transparent rotate-[-15deg]" 
-            style={{ boxShadow: '0 0 10px #38bdf8, 0 0 20px #38bdf8' }} 
-          />
-        </div>
+        
         
         {/* =========================================
             2本目：右上 (Cyan系) - 配置を下げ、長く、青光源
