@@ -32,15 +32,15 @@ export default function ClinicStaff() {
       {/* 💡 背景演出：11か所・まばらな淡い球体アビエントグロウ */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[2%] left-[10%] w-64 h-56 bg-sky-400/40 rounded-full blur-3xl opacity-90" />
-        <div className="absolute top-[12%] right-[10%] w-56 h-56 bg-cyan-400/40 rounded-full blur-3xl opacity-85" />
+        <div className="absolute top-[12%] right-[10%] w-56 h-56 bg-sky-400/40 rounded-full blur-3xl opacity-85" />
         <div className="absolute top-[24%] left-[5%] w-64 h-64 bg-sky-400/45 rounded-full blur-3xl opacity-90" />
         <div className="absolute top-[36%] right-[5%] w-60 h-60 bg-sky-400/40 rounded-full blur-3xl opacity-85" />
-        <div className="absolute top-[48%] left-[15%] w-64 h-64 bg-cyan-400/40 rounded-full blur-3xl opacity-80" />
+        <div className="absolute top-[48%] left-[15%] w-64 h-64 bg-sky-400/40 rounded-full blur-3xl opacity-80" />
         <div className="absolute top-[60%] right-[15%] w-52 h-52 bg-sky-400/40 rounded-full blur-3xl opacity-85" />
-        <div className="absolute top-[72%] left-[10%] w-64 h-64 bg-cyan-400/40 rounded-full blur-3xl opacity-80" />
+        <div className="absolute top-[72%] left-[10%] w-64 h-64 bg-sky-400/40 rounded-full blur-3xl opacity-80" />
         <div className="absolute top-[84%] right-[10%] w-52 h-52 bg-sky-400/45 rounded-full blur-3xl opacity-90" />
         <div className="absolute top-[95%] left-[30%] w-60 h-60 bg-sky-400/50 rounded-full blur-3xl opacity-90" />
-        <div className="absolute top-[10%] left-[25%] w-56 h-56 bg-cyan-400/35 rounded-full blur-3xl opacity-80" />
+        <div className="absolute top-[10%] left-[25%] w-56 h-56 bg-sky-400/35 rounded-full blur-3xl opacity-80" />
         <div className="absolute top-[70%] right-[5%] w-52 h-52 bg-sky-400/35 rounded-full blur-3xl opacity-80" />
       </div>
 
