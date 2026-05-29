@@ -133,3 +133,15 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* 💡 Next.js 16 (Turbopack) のスマホ強制モード下でも、\n による改行を100%絶対に最優先させるための魔法のコード */
+p, h2, h3, span {
+  white-space: pre-line !important;
+  word-break: break-word !important;
+}
+
+/* 💡 Tailwind v4 (Next.js 16) 用：最優先で改行を強制するクラスを定義 */
+@utility force-line-break {
+  white-space: pre-line !important;
+  word-break: break-word !important;
+}
