@@ -43,7 +43,7 @@ export default function Footer() {
               {logoImage ? (
                 <Image
                   src={logoImage}
-                  alt="LUXE BEAUTY CLINIC"
+                  alt="VIRGIN CLINIC"
                   width={logoWidth}
                   height={logoHeight}
                   className="object-contain"
@@ -51,7 +51,7 @@ export default function Footer() {
                 />
               ) : (
                 <div className="font-serif text-lg tracking-[0.2em] text-slate-200">
-                  LUXE BEAUTY CLINIC
+                  VIRGIN CLINIC
                 </div>
               )}
             </Link>
