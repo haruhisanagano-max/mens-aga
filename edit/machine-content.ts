@@ -1,56 +1,58 @@
+// edit/machine-content.ts
+
 export const MACHINE_CONTENT = {
-  // 💡 高級感を持たせる英字バッジとタイトル
-  badge: "CLINICAL HAIR GROWTH TREATMENT",
+  // 💡 サイバーネイビーに映える、スマートで強力なタイトル
+  badge: "DUAL CORE THERAPY",
   title: "Advanced Meso & Prescription",
-  subtitle: "内服薬でベースを整え、注入治療で直接叩き起こす。\n「最速」を追求したWアプローチ。",
+  subtitle: "内服薬で進行を止め、注入治療で直接生やす。\n「最速発毛」を追求した医療ハイブリッド。",
   
-  // 💡 旧アレキ・ヤグに相当する、2大アプローチ（上の2分割カード用）
+  // 💡 なぜ「通院」が必要なのかを明確化する2つのカード
   lasers: [
     {
-      name: "ベースを整える「内服・外用薬」",
+      name: "ベースを構築する「内服・外用薬」",
       wavelength: "HOME CARE",
-      target: "進行ストップ・ベース構築",
-      feature: "毎日のフィナステリド服用で抜け毛の原因を根本からブロックし、ミノキシジル外用で頭皮全体の血流を底上げ。24時間体制で髪が育つ確固たる土台を守り抜きます。",
-      points: ["抜け毛の原因を阻害", "頭皮の血流アップ", "毎日手軽に継続"]
+      target: "進行ストップ・土台形成",
+      feature: "毎日のフィナステリド服用で抜け毛を根元からブロック。\nミノキシジル外用で頭皮の血流を強力に底上げし、\n24時間体制で髪が育つ確固たる土台を守り抜きます。",
+      points: ["抜け毛の原因(DHT)を徹底阻害", "頭皮の毛細血管を拡張し血流UP", "毎日のホームケアで手軽に持続"]
     },
     {
       name: "毛根を叩き起こす「頭皮注入治療」",
       wavelength: "CLINICAL MESO",
-      target: "圧倒的スピード・局所集中ケア",
-      feature: "クリニックだからこそ許された、頭皮の最深部への直接アプローチ。発毛細胞を呼び覚ます成長因子を医師の手でダイレクトに届けることで、お薬単体の治療を遥かに超えるスピード発毛を実現します。",
-      points: ["成長因子を直接注入", "医師によるスピード施術", "選べる手打ち＆マシン"]
+      target: "圧倒的スピード・局所集中発毛",
+      feature: "クリニックだからこそ許された、毛根最深部への直接アプローチ。\n発毛細胞を強制起動させる高濃度な成長因子を医師が届け、\nお薬単体の治療を遥かに超えるスピード発毛を実現します。",
+      points: ["発毛成長因子をダイレクトに注入", "医師の診断に基づく精密な手技", "痛みを極限まで抑えた最新マシン"]
     }
   ],
 
-  // 💡 メインの注入治療イメージ画像とバッジ
+  // 💡 中央のメインビジュアル（頭皮への浸透CGを想定）
   diagram: {
     image: "https://lh3.googleusercontent.com/d/1nPBu1NNmwdFdLr3wL-VQZGLs8qdEF6T6",
-    limitedBadge: "最先端メソセラピー導入"
+    limitedBadge: "最先端 メディカル・メソセラピー"
   },
 
-  // 💡 真ん中の3連ミニ画像BOX（成分 / 技術 / 最新）
+  // 💡 3連ミニ画像（アンプル / 手元 / マシン を想定）
   features: [
-    { img: "https://lh3.googleusercontent.com/d/11X4lB9p3Vw7wkL7-z0GqrmVqXcF4uOCO", alt: "高濃度 成長因子×MINOX" },
-    { img: "https://lh3.googleusercontent.com/d/1MChk-WEA9gfziN0FVdVPxkWxGMXCRits", alt: "医師による精密手打ち" },
-    { img: "https://lh3.googleusercontent.com/d/1yO0HvT0RI9V7rHeBoNTZDlGj5AeLLvgE", alt: "高性能注入マシン" }
+    { img: "https://lh3.googleusercontent.com/d/11X4lB9p3Vw7wkL7-z0GqrmVqXcF4uOCO", alt: "独自ブレンドの高濃度成長因子" },
+    { img: "https://lh3.googleusercontent.com/d/1MChk-WEA9gfziN0FVdVPxkWxGMXCRits", alt: "医師による精密な診断と注入" },
+    { img: "https://lh3.googleusercontent.com/d/1yO0HvT0RI9V7rHeBoNTZDlGj5AeLLvgE", alt: "痛みを抑えるハイテク注入機器" }
   ],
 
-  // 💡 縦並びロングカードの深掘り（01, 02, 03）
+  // 💡 縦並びの深掘りカード（成分・手打ち・マシンの3要素）
   reasons: [
     {
       img: "https://lh3.googleusercontent.com/d/1Rpv5KyMY1mbkpnRDuS3pLjzHUsBcO7Qh",
-      title: "発毛細胞の再生：\n高濃度 成長因子＋MINOXのダイレクト注入",
-      desc: "市販品やただの内服薬では届きにくい毛根の最深部へ、毛根の再生スイッチを押す「成長因子（ベネブ）」と「高濃度ミノキシジル（MINOX）」の極上ブレンド液をダイレクトに注入。眠っていた毛包を最速で叩き起こし、太く長い髪の生成を強力にブーストします。"
+      title: "発毛細胞の強制起動：\n高濃度「成長因子＋MINOX」のダイレクト注入",
+      desc: "内服薬だけでは届きにくい毛根の最深部（バルジ領域・毛乳頭）へ、\n細胞の再生スイッチを押す「成長因子」と「高濃度ミノキ」を直接注入。\n機能が停止し眠っていた毛包を、最速で叩き起こします。"
     },
     {
       img: "https://lh3.googleusercontent.com/d/1OFEk5DGYdLTh4bP40vddxz4PfDmMbz35",
-      title: "医師による精密手打ち：\n生え際・M字へのピンポイント濃密注入",
-      desc: "特に毛髪の衰退が激しい「生え際のM字ライン」や「つむじのトップ」には、医師による手打ちでアプローチ。一人ひとりの頭皮の厚みや毛根の深さをプロの指先で感知しながら、最も効果の出る深さへ的確に薬剤を届けます。"
+      title: "医師による精密アプローチ：\n生え際・M字へのピンポイント濃密注入",
+      desc: "特に毛髪の衰退が激しく、薬だけでは治りにくい「生え際」や「M字」。\n頭皮の厚みや毛根の深さをプロの医師が指先で感知しながら、\n最も発毛効果が出る「深さ」へ的確に薬剤を届けます。"
     },
     {
       img: "https://lh3.googleusercontent.com/d/1a5y32hLyDxl8lwlGcTN2wriPXdA29Eb9",
-      title: "高性能マシン注入：\n痛みを極限まで抑え、頭皮全体へ素早く均一浸透",
-      desc: "頭皮全体や広範囲の薄毛には、メカニカルで洗練された高性能な注入マシンを使用。超極細の針が均一な圧力と驚異的なスピードで薬剤を機械的に注入するため、手打ちに比べて痛みが劇的に軽減されます。スピーディーな施術で頭皮への負担を最小限に抑え、ムラなく全体を発毛へと導きます。"
+      title: "最先端ハイテクマシン導入：\n痛みを極限まで抑え、頭皮全体へ均一に浸透",
+      desc: "広範囲の薄毛には、最新鋭のメカニカル注入マシンを使用。\n超極細針が均一な圧力と驚異的なスピードで薬剤を注入するため、\n手打ちに比べ痛みが劇的に軽減。ムラなく全体を発毛へ導きます。"
     }
   ],
 
