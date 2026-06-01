@@ -50,7 +50,7 @@ export const MACHINE_CONTENT = {
       desc: "特に毛髪の衰退が激しく、薬だけでは治りにくい「生え際」や「M字」。\n頭皮の厚みや毛根の深さをプロの医師が指先で感知しながら、\n最も発毛効果が出る「深さ」へ的確に薬剤を届けます。"
     },
     {
-      img: "https://lh3.googleusercontent.com/d/1iMed3MVo5eS0L7fm9VjQSECtofrdAGIQ",
+      img: "https://lh3.googleusercontent.com/d/1K0cs0ha2rJ_XWZct-ykPQw5gLEm8lI6z",
       title: "最先端ハイテクマシン導入：\n痛みを極限まで抑え、頭皮全体へ均一に浸透",
       desc: "広範囲の薄毛には、最新鋭のメカニカル注入マシンを使用。\n超極細針が均一な圧力と驚異的なスピードで薬剤を注入するため、\n手打ちに比べ痛みが劇的に軽減。ムラなく全体を発毛へ導きます。"
     }
