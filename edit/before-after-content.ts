@@ -3,7 +3,7 @@ export const BEFORE_AFTER_CONTENT = {
   sectionSubtitle: "科学的根拠に基づいた医療発毛が、あなたの未来を塗り替える。",
   
   gallery: [
-    { title: "", label: "", image: "https://lh3.googleusercontent.com/d/1w2ypWYjDp_8XlCM2HcaHUAnzzzAxECio" },
+    { title: "", label: "", image: "https://lh3.googleusercontent.com/d/1W3pAVi2O4VQvlyCfa7OLRbplECUZ5nh5" },
     
   ],
 
