@@ -90,9 +90,8 @@ export default function BeforeAfter() {
               className="group relative w-[calc(100%+3rem)] -mx-6 sm:w-full sm:mx-auto sm:max-w-md md:max-w-lg"
             >
               {/* スマホ全幅時はrounded-none、PC等で縮む時は他パート共通の rounded-xl に変化 */}
-              <div className="aspect-[3/4] relative overflow-hidden rounded-none sm:rounded-xl bg-[#050A15]">
+              <div className="aspect-[9/16] relative overflow-hidden rounded-none sm:rounded-xl bg-[#050A15]">
                 {item.image && <Image src={item.image} alt={item.label} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 <div className="absolute bottom-8 left-6 sm:left-8 text-white text-left">
                   <p className="text-[10px] font-bold tracking-widest uppercase opacity-70 mb-1">{item.title}</p>
                   <p className="text-xl font-bold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">{item.label}</p>
