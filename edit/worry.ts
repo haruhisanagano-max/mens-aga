@@ -7,3 +7,4 @@ export const WORRY_CONTENT = {
   image: "https://lh3.googleusercontent.com/d/188vlBew8w2OzOtQt1DP3jmH3FuBq6_Rw", 
   alt: "お悩み解決のイメージ画像"
 };
+　
