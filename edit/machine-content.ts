@@ -27,7 +27,7 @@ export const MACHINE_CONTENT = {
   // 💡 中央のメインビジュアル（頭皮への浸透CGを想定）
   diagram: {
     image: "https://lh3.googleusercontent.com/d/1WdG4XZowxZhHlriy_oQRQCnAlzNB2DX6",
-    limitedBadge: "最先端 メディカル・メソセラピー"
+    limitedBadge: "メディカル・メソセラピー"
   },
 
   // 💡 3連ミニ画像（アンプル / 手元 / マシン を想定）
