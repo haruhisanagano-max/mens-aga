@@ -15,7 +15,7 @@ export default function WorrySection() {
     bg: "bg-slate-950/40",               // 透過グラス背景
     backdrop: "backdrop-blur-xl",         // 磨りガラス
     rounded: "rounded-xl",               // 💡 他パートの画像と100%揃えた角丸
-    borderWidth: "border",                
+    borderWidth: "border",               
     borderColor: "border-sky-400/30",    
     shadow: "shadow-[0_0_50px_rgba(56,189,248,0.15)]",
     maxWidth: "max-w-[550px]",            // 💡 写真のサイズに合わせたタイトな横幅
@@ -28,10 +28,24 @@ export default function WorrySection() {
   }
   // ---------------------------------------------------------
 
+  // 3つの画像を順番にフワッと表示させるアニメーション設定
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  }
+
   return (
     /* 💡 背景色は最高級ネイビー（#050A15）で、前後のパートとシームレスに結合 */
     <section className="py-16 sm:py-24 bg-[#050A15] text-slate-400 relative overflow-hidden">
-     
+      
       {/* 💡 【背景演出】まだらな光（同期） */}
       <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-sky-500/20 blur-[130px] rounded-full pointer-events-none z-0" />
       <div className="absolute bottom-[5%] right-[-10%] w-[450px] h-[450px] bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none z-0" />
@@ -42,14 +56,14 @@ export default function WorrySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-         
+          
           {/* 🔴 Header: 他のダークサイバーパートと完全一致の発光タイトル */}
           <div className="text-center mb-10 sm:mb-16">
             <span className="text-[10px] font-bold tracking-[0.5em] text-amber-300 block mb-4 uppercase drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">
               {WORRY_CONTENT.badge}
             </span>
             <div className="relative inline-block">
-              <h2 className={`${fontTitle} text-3xl sm:text-5xl font-extrabold mb-6 leading-tight bg-gradient-to-b from-white via-sky-100 to-white bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(56,189,248,0.5)]`}>
+              <h2 className={`${fontTitle} text-3xl sm:text-5xl font-extrabold mb-6 leading-tight bg-gradient-to-b from-white via-sky-100 to-white bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(56,189,248,0.5)] whitespace-pre-line`}>
                 {WORRY_CONTENT.title}
               </h2>
             </div>
@@ -58,38 +72,40 @@ export default function WorrySection() {
             </p>
           </div>
 
-          {/* 🔴 Image Area: 写真とカードを一体化させたタイトなフレーム構造 */}
-          <div className="flex justify-center relative">
-           
-            {/* 💡 カード本体（フレームとして機能） */}
-            <div
-              className={`relative w-full flex items-center justify-center ${cardConfig.maxWidth} ${cardConfig.rounded} ${cardConfig.borderWidth} ${cardConfig.borderColor} ${cardConfig.shadow} ${cardConfig.bg} ${cardConfig.backdrop} ${cardConfig.padding}`}
-            >
-             
-              {/* 💡 写真コンテナ（カードとのサイズ差を最小限に） */}
+          {/* 🔴 Image Area: 3つの画像をグリッド配置 */}
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 justify-items-center"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {WORRY_CONTENT.images.map((img) => (
+              /* 💡 カード本体（フレームとして機能） */
               <motion.div
-                className={`relative w-full aspect-square overflow-hidden ${photoConfig.rounded} z-10`}
-                initial={{ opacity: 0, scale: 0.98 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
+                key={img.id}
+                variants={itemVariants}
+                className={`relative w-full flex items-center justify-center ${cardConfig.maxWidth} ${cardConfig.rounded} ${cardConfig.borderWidth} ${cardConfig.borderColor} ${cardConfig.shadow} ${cardConfig.bg} ${cardConfig.backdrop} ${cardConfig.padding}`}
               >
-                <Image
-                  src={WORRY_CONTENT.image}
-                  alt={WORRY_CONTENT.alt}
-                  fill
-                  className="object-cover opacity-90 hover:opacity-100 transition-opacity duration-700"
-                  priority
-                />
-               
-                {/* 写真の表面に薄くネイビーの質感をのせて馴染ませる */}
-                <div className="absolute inset-0 bg-blue-900/5 pointer-events-none" />
-              </motion.div>
+                
+                {/* 💡 写真コンテナ（カードとのサイズ差を最小限に） */}
+                <div className={`relative w-full aspect-square overflow-hidden ${photoConfig.rounded} z-10`}>
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover opacity-90 hover:opacity-100 transition-transform duration-700 hover:scale-105"
+                  />
+                  
+                  {/* 写真の表面に薄くネイビーの質感をのせて馴染ませる */}
+                  <div className="absolute inset-0 bg-[#050A15]/20 pointer-events-none transition-opacity duration-300 hover:opacity-0" />
+                </div>
 
-              {/* 💡 カードの底辺だけに微かな光源（Pain/BeforeAfterのテイストを継承） */}
-              <div className="absolute bottom-0 inset-x-10 h-[1px] bg-sky-400/40 blur-[4px] pointer-events-none" />
-            </div>
-          </div>
+                {/* 💡 カードの底辺だけに微かな光源 */}
+                <div className="absolute bottom-0 inset-x-10 h-[1px] bg-sky-400/40 blur-[4px] pointer-events-none" />
+              </motion.div>
+            ))}
+          </motion.div>
 
         </motion.div>
       </div>
