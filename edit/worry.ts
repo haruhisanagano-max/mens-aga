@@ -12,15 +12,15 @@ export const WORRY_CONTENT = {
       src: "https://lh3.googleusercontent.com/d/1_NzUlsbTABs3HSmwgwJo6dBeoexF4n2B", 
       alt: "終わらない出費と高額な維持費の悩み"
     },
-   // {
-      id: "02",
-      src: "https://lh3.googleusercontent.com/d/1Dm4VbjGDS4HbiUQFK339LWe7LlI8fXzv", 
-      alt: "他人の視線や行動制限の悩み"
-    },
-    //{
-      id: "03",
-      src: "https://lh3.googleusercontent.com/d/14Bo7va8QdKUwviQ-Mx3Sd-el6K14m960", 
-      alt: "頭皮へのダメージと自毛の減少"
-    }
+    // {
+    //   id: "02",
+    //   src: "https://lh3.googleusercontent.com/d/1Dm4VbjGDS4HbiUQFK339LWe7LlI8fXzv", 
+    //   alt: "他人の視線や行動制限の悩み"
+    // },
+    // {
+    //   id: "03",
+    //   src: "https://lh3.googleusercontent.com/d/14Bo7va8QdKUwviQ-Mx3Sd-el6K14m960", 
+    //   alt: "頭皮へのダメージと自毛の減少"
+    // }
   ]
 };
