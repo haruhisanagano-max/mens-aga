@@ -9,17 +9,17 @@ export const WORRY_CONTENT = {
   images: [
     {
       id: "01",
-      src: "https://lh3.googleusercontent.com/d/188vlBew8w2OzOtQt1DP3jmH3FuBq6_Rw", 
+      src: "https://lh3.googleusercontent.com/d/1n6ujIyjzvfLTs2-WeQilSu_3aCMrEMQU", 
       alt: "終わらない出費と高額な維持費の悩み"
     },
     {
       id: "02",
-      src: "http://googleusercontent.com/profile/picture/2", 
+      src: "https://lh3.googleusercontent.com/d/1Dm4VbjGDS4HbiUQFK339LWe7LlI8fXzv", 
       alt: "他人の視線や行動制限の悩み"
     },
     {
       id: "03",
-      src: "http://googleusercontent.com/profile/picture/3", 
+      src: "https://lh3.googleusercontent.com/d/14Bo7va8QdKUwviQ-Mx3Sd-el6K14m960", 
       alt: "頭皮へのダメージと自毛の減少"
     }
   ]
