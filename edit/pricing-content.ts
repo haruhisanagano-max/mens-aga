@@ -9,15 +9,15 @@ export const PRICING_CONTENT = {
   // メインの3大プラン
   mainPlans: [
     {
-      name: "全身脱毛",
-      subtitle: "顔・VIO・首（前面）除く",
+      name: "Sサイズ",
+      subtitle: "M字/生え際/天頂部",
       popularBadge: "人気No.1",
-      sessions: "5回コース（+1回）",
-      originalPrice: "223,300",
-      campaignPrice: "132,000",
+      sessions: "6回コース",
+      originalPrice: "67,320",
+      campaignPrice: "53,856",
       taxLabel: "（税込）",
-      monthlyPrice: "30,800",
-      features: ["両ワキ、両ヒジ上、両ヒジ下、手の指・甲","膝上、膝、膝下、足の指・甲","うなじ、背中（上・下）、お尻、胸、腹"],
+      monthlyPrice: "13,464",
+      features: ["1回コース ￥13,200（税込）","3回コース ￥35,640（税込）"],
       buttonText: "このプランで予約",
       // ★ 追加：全身脱毛（顔・VIO除く）の照射範囲画像パス（適宜変更してください）
       treatmentImage: "https://lh3.googleusercontent.com/d/1-wuLrV329o3TUyuvgHex1Tq1OJawns0n", 
