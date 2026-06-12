@@ -117,6 +117,17 @@ export default function BeforeAfter() {
         */}
         {/* 🔴 ここまでコメントアウト */}
 
+        {/* 💡 信頼データの代わりに、前後を自然に繋ぐメッセージを配置（コンポーネント直書き） */}
+        <div className="text-center mb-16 pt-4 relative z-10">
+          <p className="text-sky-400 text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase mb-3 drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]">
+            Treatment Process
+          </p>
+          <h3 className="text-slate-200 text-lg sm:text-2xl font-bold tracking-tight leading-relaxed drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
+            治療開始から、確かな発毛を実感するまで。<br className="hidden sm:block" />
+            <span className="text-slate-400 text-base sm:text-lg font-medium mt-2 block">段階的なアプローチで、理想の姿へ導きます。</span>
+          </h3>
+        </div>
+
         {/* 🔴 進化のタイムライン：下の3枚（💡角丸を他パート共通の rounded-xl に完璧に統一） */}
         <div className="space-y-16 relative">
           {BEFORE_AFTER_CONTENT.timelineSteps.map((step, i) => (
