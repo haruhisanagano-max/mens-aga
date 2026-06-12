@@ -1,7 +1,7 @@
 export const CAMPAIGN_CONTENT = {
   sectionBgImage: "", 
   topLabel: "SPECIAL OFFER",
-  subtitle: "最高峰マシン「ジェントルマックスプロ」による全身脱毛。今だけの特別価格です。",
+  subtitle: "「本気で生やしたい」あなたのための特別スタートプラン。今だけの特別価格です。",
   timer: {
     month: "", 
     days: 3,
@@ -12,36 +12,35 @@ export const CAMPAIGN_CONTENT = {
 
   plans: [
     {
-      name: "全身医療脱毛 5回コース（+1回）",
-      originalPrice: "223,300",
-      campaignPrice: "132,000",
+      name: "Sサイズ1回（40~60ショット）",
+      originalPrice: "12,000",
+      campaignPrice: "9,600",
       taxLabel: "（税込）", 
-      discountBadge: "実質約40%OFF", 
-      discountAmount: "91,330円引き",
+      discountBadge: "20%OFF", 
+      discountAmount: "2,400円引き",
       // 🔴 ここを追加（キャンペーンの詳細内容）
       features: [
-        "麻酔代が契約回数分0円",
-        "契約コースにプラス１回プレゼント",
-        "全身５回コース以上が20%OFF"
+        "初めての方のみ",
+        "期間限定の割引キャンペーン"
       ]
     },
       {
-      name: "全身＋VIO脱毛プラン　5回コース（+1回）",
-      originalPrice: "296,450",
-      campaignPrice: "179,520",
+      name: "Mサイズ1回（60~100ショット）",
+      originalPrice: "21,000",
+      campaignPrice: "16,800",
       taxLabel: "（税込）", 
-      discountBadge: "実質約40%OFF", 
-      discountAmount: "44,880円引き",
+      discountBadge: "20%OFF", 
+      discountAmount: "4,200円引き",
       // 🔴 ここを追加（キャンペーンの詳細内容）
     
     },
      {
-      name: "全身パーフェクト脱毛プラン 5回コース（+1回）",
-      originalPrice: "365,200",
-      campaignPrice: "227,920",
+      name: "Lサイズ1回（100~150ショット）",
+      originalPrice: "45,000",
+      campaignPrice: "36,000",
       taxLabel: "（税込）", 
-      discountBadge: "実質約40%OFF", 
-      discountAmount: "56,980円引き",
+      discountBadge: "20%OFF", 
+      discountAmount: "9,000円引き",
       // 🔴 ここを追加（キャンペーンの詳細内容）
       
     }
@@ -55,6 +54,6 @@ export const CAMPAIGN_CONTENT = {
   notes: [
     "ヴァージンクリニックでのご契約が初めての方限定の特別プランです。",
     "他の割引キャンペーン、紹介特典等との併用はできません。",
-    "お肌の状態や体質によっては、当日施術を受けられない場合がございます。"
+    "頭皮の状態や体質によっては、当日施術を受けられない場合がございます。"
   ]
 };
