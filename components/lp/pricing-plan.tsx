@@ -263,7 +263,7 @@ export default function PricingPlan({ onOpenCampaign }: PricingPlanProps) {
                     <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-900/60 rounded-full border border-slate-700/50 text-amber-300 shadow-sm drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">
                       <CreditCard className="w-3 h-3" />
                       <span className="text-[9px] font-black uppercase tracking-widest">
-                         ¥{plan.monthlyPrice}引き
+                         ¥{plan.monthlyPrice} 引き
                       </span>
                     </div>
                   </div>
