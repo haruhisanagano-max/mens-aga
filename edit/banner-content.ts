@@ -4,7 +4,7 @@ export const BANNER_CONTENT = {
   banners: [
     {
       id: "cp-01",
-      image: "https://lh3.googleusercontent.com/d/1SvZEdzhQHuDy72LStQpOa-CcfgmyGzE-", // 画像URLをここに挿入
+      image: "https://lh3.googleusercontent.com/d/1ZCPJU0ClkygpCZyW_XIbLPa9_Mrp2aJO", // 画像URLをここに挿入
       alt: "キャンペーン1",
       modal: {
         title: "ご紹介割",
