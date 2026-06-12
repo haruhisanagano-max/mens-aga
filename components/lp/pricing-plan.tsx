@@ -25,16 +25,13 @@ export default function PricingPlan({ onOpenCampaign }: PricingPlanProps) {
   return (
     <section id="pricing" className={`${sectionPadding} pb-10 sm:pb-12 relative bg-[#050A15] text-slate-400 overflow-hidden`}>
       
-      {/* 💡 【背景演出：360度アンビエント発光の静止流れ星（15本）】
-           ご提示いただいた「完全手書きのHTML構造」を100%踏襲し、
-           アンビエント（光量）微強化、広がり拡大の設定を維持したまま、15本に増やしました。 */}
+      {/* 💡 【背景演出：360度アンビエント発光の静止流れ星（15本）】 */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         
         {/* =========================================
             1本目：左上 (Sky系)
         ========================================= */}
         <div className="absolute top-[25%] left-[5%]">
-          {/* 広がりを少し大きく（450px -> 500px）、アンビエントをほんの少し強く（25 -> 30） */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sky-500/30 blur-[130px] rounded-full" />
           <div 
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[1px] bg-gradient-to-r from-transparent via-sky-100 to-transparent rotate-[-15deg]" 
@@ -130,9 +127,6 @@ export default function PricingPlan({ onOpenCampaign }: PricingPlanProps) {
             style={{ boxShadow: '0 0 10px #60a5fa, 0 0 20px #3b82f6' }} 
           />
         </div>
-
-       
-        
 
         {/* =========================================
             12本目：【追加】右上寄り (sky系)
@@ -312,7 +306,8 @@ export default function PricingPlan({ onOpenCampaign }: PricingPlanProps) {
             ))}
           </div>
 
-          {/* Pricing Table：部位別プラン表 */}
+          {/* 🔴 ここから「部位別プラン表」を丸ごとコメントアウト（非表示化） */}
+          {/*
           <motion.div 
             className={`relative overflow-hidden ${cardRounded} ${glassBorder} shadow-[0_40px_80px_rgba(0,0,0,0.8)] bg-transparent flex flex-col`}
             style={gpuStyle}
@@ -362,6 +357,8 @@ export default function PricingPlan({ onOpenCampaign }: PricingPlanProps) {
               </div>
             </div>
           </motion.div>
+          */}
+          {/* 🔴 ここまでコメントアウト */}
 
           {/* Footer */}
           <motion.div 
