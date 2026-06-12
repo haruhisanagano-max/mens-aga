@@ -28,7 +28,7 @@ export const FLOW_FAQ_CONTENT = {
     {
       number: "4",
       title: "最先端・発毛注入施術",
-      description: "眠っている毛根の最深部へ、発毛成長因子などの最新栄養成分をダイレクトに注入します。"
+      description: "眠っている毛根の最深部へ、発毛成分などの最新栄養成分をダイレクトに注入します。"
     },
     {
       number: "5",
