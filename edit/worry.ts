@@ -3,13 +3,14 @@
 export const WORRY_CONTENT = {
   badge: "NEGATIVE LOOP CHECK",
   title: "「隠す」日々への疲れ。\n終わらない出費への不安。",
-  description: "「一生これを続けるのか…」ふとした瞬間に感じる、ごまかし続けることへの限界。\n隠せば隠すほど自毛は減り、維持費は膨らんでいく。そんな「負のループ」に心当たりはありませんか？",
+  // description部分のみ
+description: "「これまで育毛剤やシャンプーに一体いくら使ってきただろう…」気休めの対策にお金を払い続け、行き着く先は何十万円もするカツラの維持費。ごまかし続ける限り出費は膨らんでいく、そんな「負のループ」に心当たりはありませんか？",
   
   // ★ 3つの画像とテキストのセットを配列（リスト）として定義
   images: [
     {
       id: "01",
-      src: "https://lh3.googleusercontent.com/d/1_NzUlsbTABs3HSmwgwJo6dBeoexF4n2B", 
+      src: "https://lh3.googleusercontent.com/d/19zwR4YA59M4YSEA5wDleflju2HOmX7AJ", 
       alt: "終わらない出費と高額な維持費の悩み"
     },
     // {
