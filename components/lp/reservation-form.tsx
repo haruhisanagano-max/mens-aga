@@ -24,7 +24,7 @@ export default function ReservationForm() {
   // ★ 追加：未成年チェック関連のステート
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false)
   const [isConsentChecked, setIsConsentChecked] = useState(false)
-  const isMinor = formData.age === '10代'
+  const isMinor = formData.age === '18歳未満（未成年）'
 
   const fontTitle = "font-sans font-bold tracking-tight text-slate-100"
   const fontBody = "font-sans"
@@ -302,7 +302,7 @@ export default function ReservationForm() {
               </p>
             </div>
 
-            {/* ★ ここから追加：10代を選択した時だけ表示される未成年同意ブロック */}
+            {/* ★ ここから追加：18歳未満（未成年）を選択した時だけ表示される未成年同意ブロック */}
             <AnimatePresence>
               {isMinor && (
                 <motion.div
