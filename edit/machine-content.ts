@@ -9,7 +9,7 @@ export const MACHINE_CONTENT = {
   // 💡 なぜ「通院」が必要なのかを明確化する2つのカード
   lasers: [
     {
-      name: "ベースを構築する「内服・外用薬」",
+      name: "ベースを構築する「内服薬」",
       wavelength: "HOME CARE",
       target: "進行ストップ・土台形成",
       feature: "毎日のフィナステリド服用で抜け毛を根元からブロック。\nミノキシジル外用で頭皮の血流を強力に底上げし、\n24時間体制で髪が育つ確固たる土台を守り抜きます。",
@@ -19,8 +19,8 @@ export const MACHINE_CONTENT = {
       name: "毛根を叩き起こす「頭皮注入治療」",
       wavelength: "CLINICAL MESO",
       target: "圧倒的スピード・局所集中発毛",
-      feature: "クリニックだからこそ許された、毛根最深部への直接アプローチ。\n発毛細胞を強制起動させる高濃度な成長因子を医師が届け、\nお薬単体の治療を遥かに超えるスピード発毛を実現します。",
-      points: ["成長因子をダイレクト注入", "診断に基づく精密手技", "痛みを極限まで抑えた高性能マシン"]
+      feature: "クリニックだからこそ許された、毛根最深部への直接アプローチ。\n発毛細胞を強制起動させる高濃度な発毛成分を医師が届け、\nお薬単体の治療を遥かに超えるスピード発毛を実現します。",
+      points: ["発毛成分をダイレクト注入", "診断に基づく精密手技", ]
     }
   ],
 
@@ -32,7 +32,7 @@ export const MACHINE_CONTENT = {
 
   // 💡 3連ミニ画像（アンプル / 手元 / マシン を想定）
   features: [
-    { img: "https://lh3.googleusercontent.com/d/11X4lB9p3Vw7wkL7-z0GqrmVqXcF4uOCO", alt: "独自ブレンドの高濃度成長因子" },
+    { img: "https://lh3.googleusercontent.com/d/11X4lB9p3Vw7wkL7-z0GqrmVqXcF4uOCO", alt: "独自ブレンドの高濃度発毛成分" },
     { img: "https://lh3.googleusercontent.com/d/1MChk-WEA9gfziN0FVdVPxkWxGMXCRits", alt: "医師による精密な診断と注入" },
     { img: "https://lh3.googleusercontent.com/d/1yO0HvT0RI9V7rHeBoNTZDlGj5AeLLvgE", alt: "痛みを抑えるハイテク注入機器" }
   ],
@@ -41,18 +41,18 @@ export const MACHINE_CONTENT = {
   reasons: [
     {
       img: "https://lh3.googleusercontent.com/d/16S6OGSlc8XNkWAWI9s4k5XgOqyh4vjLA",
-      title: "発毛細胞の強制起動：\n高濃度「成長因子＋MINOX」のダイレクト注入",
-      desc: "内服薬だけでは届きにくい毛根の最深部（バルジ領域・毛乳頭）へ、\n細胞の再生スイッチを押す「成長因子」と「高濃度ミノキ」を直接注入。\n機能が停止し眠っていた毛包を、最速で叩き起こします。"
+      title: "発毛細胞の強制起動：\n高濃度「MINOX」のダイレクト注入",
+      desc: "内服薬だけでは届きにくい毛根の最深部（バルジ領域・毛乳頭）へ、\n細胞の再生スイッチを押す「高濃度ミノキ」を直接注入。\n機能が停止し眠っていた毛包を、最速で叩き起こします。"
     },
-    {
+   {
       img: "https://lh3.googleusercontent.com/d/1O4X_5vWgpmCD1N31X5X9ha75O6EWQD81",
       title: "医師による精密アプローチ：\n生え際・M字へのピンポイント濃密注入",
-      desc: "特に毛髪の衰退が激しく、薬だけでは治りにくい「生え際」や「M字」。\n頭皮の厚みや毛根の深さをプロの医師が指先で感知しながら、\n最も発毛効果が出る「深さ」へ的確に薬剤を届けます。"
+      desc: "特に毛髪の衰退が激しく、薬だけでは治りにくい「生え際」や「M字」。\n医師が一人ひとりの進行状況や頭皮の状態を直接見極め、\n最も発毛を必要としているターゲットエリアへ、集中的かつ的確に薬剤を打ち込みます。"
     },
-    {
+   {
       img: "https://lh3.googleusercontent.com/d/1dl5LLoUZo7no8moL0CCYS2n6JnEL1OtU",
-      title: "最先端ハイテクマシン導入：\n痛みを極限まで抑え、頭皮全体へ均一に浸透",
-      desc: "広範囲の薄毛には、最新鋭のメカニカル注入マシンを使用。\n超極細針が均一な圧力と驚異的なスピードで薬剤を注入するため、\n手打ちに比べ痛みが劇的に軽減。ムラなく全体を発毛へ導きます。"
+      title: "最適なアプローチをカスタマイズ：\nご希望に合わせて「選べる注入方法」",
+      desc: "痛みの感じ方やご希望の治療スタイルに合わせて、2つの注入方法からお選びいただけます。\n気になる部位へ的確にアプローチする「医師による手打ち」と、\n極細針で痛みを極限まで抑え、広範囲へ均一に届ける「最新鋭マシン」。\nご自身にとって最もストレスのない方法で、無理なく確実な発毛を目指せます。"
     }
   ],
 
