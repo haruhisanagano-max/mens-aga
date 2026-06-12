@@ -263,7 +263,7 @@ export default function PricingPlan({ onOpenCampaign }: PricingPlanProps) {
                     <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-900/60 rounded-full border border-slate-700/50 text-amber-300 shadow-sm drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">
                       <CreditCard className="w-3 h-3" />
                       <span className="text-[9px] font-black uppercase tracking-widest">
-                        分割月々 ¥{plan.monthlyPrice}〜
+                         ¥{plan.monthlyPrice}引き
                       </span>
                     </div>
                   </div>
@@ -284,7 +284,7 @@ export default function PricingPlan({ onOpenCampaign }: PricingPlanProps) {
                     <div className="mb-3.5 border-t border-slate-800/60 pt-3">
                       <div className="text-center mb-1.5 flex items-center justify-center gap-2">
                         <UserIcon className="w-3 h-3 text-sky-400" />
-                        <span className="text-[10px] font-black text-sky-400 uppercase tracking-widest">照射範囲</span>
+                        <span className="text-[10px] font-black text-sky-400 uppercase tracking-widest">施術範囲</span>
                       </div>
                       <div className="relative w-full h-[125px] bg-white rounded-xl border border-slate-700/60 overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.08)]">
                         <Image
