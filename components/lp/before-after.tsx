@@ -82,7 +82,7 @@ export default function BeforeAfter() {
           </p>
         </div>
 
-        {/* 🔴 ギャラリー：上の1枚（💡スマホでは枠なし画面幅いっぱい表示、PCなどの大画面ではサイズを自動調整） */}
+       {/* 🔴 ギャラリー：上の1枚（💡スマホでは枠なし画面幅いっぱい表示、PCなどの大画面ではサイズを自動調整） */}
         <div className="grid grid-cols-1 gap-8 mb-12">
           {BEFORE_AFTER_CONTENT.gallery.map((item, i) => (
             <motion.div
@@ -101,7 +101,8 @@ export default function BeforeAfter() {
           ))}
         </div>
 
-        {/* 🔴 信頼データ：3列（元の完璧な余白と線をダークサイバー仕様に同期） */}
+        {/* 🔴 信頼データ：ここから丸ごとコメントアウトして非表示化 */}
+        {/* 
         <div className="grid grid-cols-3 gap-2 mb-12 py-8 border-y border-slate-800/60">
           {BEFORE_AFTER_CONTENT.trustData.map((data, i) => (
             <div key={i} className="text-center">
@@ -113,6 +114,8 @@ export default function BeforeAfter() {
             </div>
           ))}
         </div>
+        */}
+        {/* 🔴 ここまでコメントアウト */}
 
         {/* 🔴 進化のタイムライン：下の3枚（💡角丸を他パート共通の rounded-xl に完璧に統一） */}
         <div className="space-y-16 relative">
