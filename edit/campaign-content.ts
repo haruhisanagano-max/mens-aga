@@ -12,7 +12,7 @@ export const CAMPAIGN_CONTENT = {
 
   plans: [
     {
-      name: "Sサイズ1回（40~60ショット）",
+      name: "Sサイズ-1回（40~60ショット）",
       originalPrice: "12,000",
       campaignPrice: "9,600",
       taxLabel: "（税込）", 
@@ -25,7 +25,7 @@ export const CAMPAIGN_CONTENT = {
       ]
     },
       {
-      name: "Mサイズ1回（60~100ショット）",
+      name: "Mサイズ-1回（60~100ショット）",
       originalPrice: "21,000",
       campaignPrice: "16,800",
       taxLabel: "（税込）", 
@@ -35,7 +35,7 @@ export const CAMPAIGN_CONTENT = {
     
     },
      {
-      name: "Lサイズ1回（100~150ショット）",
+      name: "Lサイズ-1回（100~150ショット）",
       originalPrice: "45,000",
       campaignPrice: "36,000",
       taxLabel: "（税込）", 
