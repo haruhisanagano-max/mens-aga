@@ -29,9 +29,9 @@ export const BEFORE_AFTER_CONTENT = {
     }
   ],
 
-  trustData: [
-    { label: "発毛実感率", value: "99.4", unit: "%" },
-    { label: "平均満足度", value: "98.2", unit: "%" },
-    { label: "累計患者様数", value: "1.8万", unit: "人超" },
-  ]
+ // trustData: [
+  //   { label: "発毛実感率", value: "99.4", unit: "%" },
+  //   { label: "平均満足度", value: "98.2", unit: "%" },
+  //   { label: "累計患者様数", value: "1.8万", unit: "人超" },
+  // ],
 };
