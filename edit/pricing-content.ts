@@ -23,7 +23,7 @@ export const PRICING_CONTENT = {
       treatmentImage: "https://lh3.googleusercontent.com/d/1-wuLrV329o3TUyuvgHex1Tq1OJawns0n", 
     },
      {
-      name: "ミディアムプラン（手打ち/50~100ショット）",
+      name: "ミディアムプラン\n（手打ち/50~100ショット）",
       subtitle: "M字/生え際/天頂部",
        popularBadge: "人気No.1",
       sessions: "6回コース",
@@ -37,7 +37,7 @@ export const PRICING_CONTENT = {
       treatmentImage: "https://lh3.googleusercontent.com/d/1-wuLrV329o3TUyuvgHex1Tq1OJawns0n", 
     },
     {
-      name: "ラージプラン（手打ち/90~150ショット）",
+      name: "ラージプラン\n（手打ち/90~150ショット）",
       subtitle: "M字/生え際/天頂部",
       
       sessions: "6回コース",
@@ -52,7 +52,7 @@ export const PRICING_CONTENT = {
     },
 
      {
-      name: "BENEVメソセラピー（機械注入）",
+      name: "BENEVメソセラピー\n（機械注入）",
       subtitle: "M字/生え際/天頂部",
       
       sessions: "6回コース",
@@ -85,5 +85,6 @@ export const PRICING_CONTENT = {
   },
   */
 
-  paymentMethods: "お支払い方法：現金 / クレジットカード / 医療ローン（最大60回分割）"
+  paymentMethods: "お支払い方法：現金 / クレジットカード / 医療ローン（最大60回分割）",
+  paymentMethods: "分割お支払い例 \n12回"
 };
