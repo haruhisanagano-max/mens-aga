@@ -9,43 +9,43 @@ export const PRICING_CONTENT = {
   // メインの3大プラン
   mainPlans: [
     {
-      name: "スモールプラン（手打ち/30~40ショット）",
+      name: "スモールプラン（手打ち/30~50ショット）",
       subtitle: "M字/生え際/天頂部",
     
       sessions: "6回コース",
-      originalPrice: "67,320",
-      campaignPrice: "53,856",
+      originalPrice: "",
+      campaignPrice: "67,320",
       taxLabel: "（税込）",
-      monthlyPrice: "13,464",
-      features: ["1回コース ￥13,200（税込）","3回コース ￥35,640（税込）"],
+      monthlyPrice: "13,200",
+      features: ["1回コース ￥13,200（税込）","3回コース ￥35,640（税込）","6回コース ￥67,320（税込）"],
       buttonText: "このプランで予約",
       // ★ 追加：全身脱毛（顔・VIO除く）の照射範囲画像パス（適宜変更してください）
       treatmentImage: "https://lh3.googleusercontent.com/d/1-wuLrV329o3TUyuvgHex1Tq1OJawns0n", 
     },
      {
-      name: "ミディアムプラン（手打ち/50~90ショット）",
+      name: "ミディアムプラン（手打ち/50~100ショット）",
       subtitle: "M字/生え際/天頂部",
        popularBadge: "人気No.1",
       sessions: "6回コース",
-      originalPrice: "117,810",
-      campaignPrice: "94,248",
+      originalPrice: "",
+      campaignPrice: "117,810",
       taxLabel: "（税込）",
-      monthlyPrice: "23,562",
-      features: ["1回コース ￥23,100（税込）","3回コース ￥62,370（税込）"],
+      monthlyPrice: "23,100",
+      features: ["1回コース ￥23,100（税込）","3回コース ￥62,370（税込）","6回コース ￥117,810（税込）"],
       buttonText: "このプランで予約",
       // ★ 追加：全身脱毛（顔・VIO除く）の照射範囲画像パス（適宜変更してください）
       treatmentImage: "https://lh3.googleusercontent.com/d/1-wuLrV329o3TUyuvgHex1Tq1OJawns0n", 
     },
     {
-      name: "ラージプラン（手打ち/90~140ショット）",
+      name: "ラージプラン（手打ち/90~150ショット）",
       subtitle: "M字/生え際/天頂部",
       
       sessions: "6回コース",
-      originalPrice: "252,450",
-      campaignPrice: "201,960",
+      originalPrice: "",
+      campaignPrice: "252,450",
       taxLabel: "（税込）",
       monthlyPrice: "50,490",
-      features: ["1回コース ￥49,500（税込）","3回コース ￥133,650（税込）"],
+      features: ["1回コース ￥49,500（税込）","3回コース ￥133,650（税込）","6回コース ￥252,450（税込）"],
       buttonText: "このプランで予約",
       // ★ 追加：全身脱毛（顔・VIO除く）の照射範囲画像パス（適宜変更してください）
       treatmentImage: "https://lh3.googleusercontent.com/d/1-wuLrV329o3TUyuvgHex1Tq1OJawns0n", 
