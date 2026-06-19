@@ -12,7 +12,7 @@ export const CAMPAIGN_CONTENT = {
 
   plans: [
     {
-      name: "スモールプラン-1回（手打ち/30~40ショット）",
+      name: "スモールプラン-1回（手打ち/30~50ショット）",
       originalPrice: "13,200",
       campaignPrice: "10,560",
       taxLabel: "（税込）", 
@@ -25,7 +25,7 @@ export const CAMPAIGN_CONTENT = {
       ]
     },
       {
-      name: "ミディアムプラン-1回（手打ち/50~90ショット）",
+      name: "ミディアムプラン-1回（手打ち/50~100ショット）",
       originalPrice: "23,100",
       campaignPrice: "18,480",
       taxLabel: "（税込）", 
@@ -35,7 +35,7 @@ export const CAMPAIGN_CONTENT = {
     
     },
      {
-      name: "ラージプラン-1回（100~140ショット）",
+      name: "ラージプラン-1回（100~150ショット）",
       originalPrice: "49,500",
       campaignPrice: "39,600",
       taxLabel: "（税込）", 
