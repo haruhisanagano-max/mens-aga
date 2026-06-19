@@ -204,106 +204,123 @@ export default function PricingPlan({ onOpenCampaign }: PricingPlanProps) {
             </p>
           </div>
 
-          {/* Main Plans Grid */}
+        {/* Main Plans Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8 items-stretch">
-            {PRICING_CONTENT.mainPlans.map((plan, index) => (
-              <motion.div
-                key={index}
-                className={`relative flex flex-col ${cardRounded} ${glassBorder} shadow-[0_40px_80px_rgba(0,0,0,0.8)] overflow-hidden group bg-transparent`}
-                style={gpuStyle}
-                whileHover={{ y: -5, borderColor: 'rgba(56,189,248,0.4)' }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="absolute inset-0 bg-slate-900/50 backdrop-blur-[100px] z-0" />
-                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.1] via-transparent to-transparent pointer-events-none z-0" />
-                <div className="absolute inset-0 bg-gradient-to-bl from-white/[0.06] via-transparent to-transparent pointer-events-none z-0" />
+            {PRICING_CONTENT.mainPlans.map((plan, index) => {
+              // 💡 今描画しているのが「一番最後のカード」かどうかを判定
+              const isLastCard = index === PRICING_CONTENT.mainPlans.length - 1;
 
-                {/* 下部光源 */}
-                <div className="absolute bottom-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-sky-400/80 to-transparent shadow-[0_0_30px_rgba(56,189,248,0.8)] pointer-events-none z-20" />
-                <div className="absolute bottom-0 inset-x-0 h-[70%] bg-gradient-to-t from-sky-500/10 via-sky-500/5 to-transparent pointer-events-none z-0" />
-                <div className="absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-t from-sky-500/15 via-sky-500/5 to-transparent pointer-events-none z-0" />
+              // 💡 最後のカード専用のカラー設定（ベースはSky青、最後だけEmerald緑に変化）
+              const lightColor = isLastCard ? "via-emerald-400/80" : "via-sky-400/80";
+              const shadowGlow = isLastCard ? "shadow-[0_0_30px_rgba(52,211,153,0.8)]" : "shadow-[0_0_30px_rgba(56,189,248,0.8)]";
+              const bgGrad1 = isLastCard ? "from-emerald-500/10 via-emerald-500/5" : "from-sky-500/10 via-sky-500/5";
+              const bgGrad2 = isLastCard ? "from-emerald-500/15 via-emerald-500/5" : "from-sky-500/15 via-sky-500/5";
+              const textShadow = isLastCard ? "drop-shadow-[0_0_20px_rgba(52,211,153,0.65)]" : "drop-shadow-[0_0_20px_rgba(56,189,248,0.65)]";
+              const iconColor = isLastCard ? "text-emerald-400" : "text-sky-400";
+              const hoverBorder = isLastCard ? "rgba(52,211,153,0.4)" : "rgba(56,189,248,0.4)";
 
-                {plan.popularBadge && (
-                  <div className="absolute top-0 right-0 bg-gradient-to-r from-amber-400 to-amber-300 text-slate-950 text-[9px] font-black px-4 py-1.5 rounded-bl-xl shadow-md z-20 flex items-center gap-1 uppercase tracking-widest drop-shadow-[0_0_10px_rgba(251,191,36,0.6)]">
-                    <Sparkles className="w-3 h-3 fill-slate-950" />
-                    <span>{plan.popularBadge}</span>
-                  </div>
-                )}
-                
-                <div className="pt-5 pb-5 px-5 sm:px-6 flex flex-col h-full relative z-10">
-                  <div className="text-center mb-3.5">
-                    <h3 className="font-sans text-lg sm:text-xl font-bold text-white mb-1 tracking-tight">
-                      {plan.name}
-                    </h3>
-                    <div className="flex items-center justify-center gap-2 mb-1">
-                      <Minus className="w-3 h-[1px] text-sky-400/40" />
-                      <span className="text-[10px] font-black text-sky-400 uppercase tracking-widest">{plan.sessions}</span>
-                      <Minus className="w-3 h-[1px] text-sky-400/40" />
-                    </div>
-                    <p className="text-xs text-slate-400 font-bold tracking-wide">{plan.subtitle}</p>
-                  </div>
+              return (
+                <motion.div
+                  key={index}
+                  className={`relative flex flex-col ${cardRounded} ${glassBorder} shadow-[0_40px_80px_rgba(0,0,0,0.8)] overflow-hidden group bg-transparent`}
+                  style={gpuStyle}
+                  whileHover={{ y: -5, borderColor: hoverBorder }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="absolute inset-0 bg-slate-900/50 backdrop-blur-[100px] z-0" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.1] via-transparent to-transparent pointer-events-none z-0" />
+                  <div className="absolute inset-0 bg-gradient-to-bl from-white/[0.06] via-transparent to-transparent pointer-events-none z-0" />
 
-                  <div className="bg-slate-950/40 rounded-2xl p-3.5 mb-3.5 border border-slate-800 text-center relative z-10 shadow-inner">
-                    <div className="text-[10px] text-slate-500 font-bold line-through mb-0.5">
-                      通常価格 ¥{plan.originalPrice}
-                    </div>
-                    <div className="flex items-baseline justify-center gap-0.5 mb-1.5">
-                      <span className="text-base font-bold text-white mr-1">¥</span>
-                      <span className={`font-sans text-3xl sm:text-4xl font-black text-white leading-none tracking-tight drop-shadow-[0_0_20px_rgba(56,189,248,0.65)]`}>
-                        {plan.campaignPrice}
-                      </span>
-                      <span className="text-[10px] font-bold text-slate-400 ml-1">{plan.taxLabel}</span>
-                    </div>
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-900/60 rounded-full border border-slate-700/50 text-amber-300 shadow-sm drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">
-                      <CreditCard className="w-3 h-3" />
-                      <span className="text-[9px] font-black uppercase tracking-widest">
-                         ¥{plan.monthlyPrice} 引き
-                      </span>
-                    </div>
-                  </div>
+                  {/* 下部光源（色を切り替え） */}
+                  <div className={`absolute bottom-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent ${lightColor} to-transparent ${shadowGlow} pointer-events-none z-20`} />
+                  <div className={`absolute bottom-0 inset-x-0 h-[70%] bg-gradient-to-t ${bgGrad1} to-transparent pointer-events-none z-0`} />
+                  <div className={`absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-t ${bgGrad2} to-transparent pointer-events-none z-0`} />
 
-                  {/* 特徴リスト */}
-                  <ul className="space-y-2 mb-3.5 flex-grow border-t border-slate-800/60 pt-3">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2.5">
-                        <div className="w-4 h-4 rounded-full bg-slate-950/60 border border-slate-700/60 flex items-center justify-center shrink-0 mt-0.5 shadow-inner">
-                          <Check className="w-2.5 h-2.5 text-sky-400" />
-                        </div>
-                        <span className="text-xs font-semibold text-slate-300 leading-tight">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {plan.treatmentImage && (
-                    <div className="mb-3.5 border-t border-slate-800/60 pt-3">
-                      <div className="text-center mb-1.5 flex items-center justify-center gap-2">
-                        <UserIcon className="w-3 h-3 text-sky-400" />
-                        <span className="text-[10px] font-black text-sky-400 uppercase tracking-widest">施術範囲</span>
-                      </div>
-                      <div className="relative w-full h-[125px] bg-white rounded-xl border border-slate-700/60 overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.08)]">
-                        <Image
-                          src={plan.treatmentImage}
-                          alt={`${plan.name}の施術対象部位`}
-                          fill
-                          className="object-contain p-1.5"
-                        />
-                      </div>
+                  {plan.popularBadge && (
+                    <div className="absolute top-0 right-0 bg-gradient-to-r from-amber-400 to-amber-300 text-slate-950 text-[9px] font-black px-4 py-1.5 rounded-bl-xl shadow-md z-20 flex items-center gap-1 uppercase tracking-widest drop-shadow-[0_0_10px_rgba(251,191,36,0.6)]">
+                      <Sparkles className="w-3 h-3 fill-slate-950" />
+                      <span>{plan.popularBadge}</span>
                     </div>
                   )}
+                  
+                  <div className="pt-5 pb-5 px-5 sm:px-6 flex flex-col h-full relative z-10">
+                    <div className="text-center mb-3.5">
+                      <h3 className="font-sans text-lg sm:text-xl font-bold text-white mb-1 tracking-tight">
+                        {plan.name}
+                      </h3>
+                      <div className="flex items-center justify-center gap-2 mb-1">
+                        {/* アイコンの色を切り替え */}
+                        <Minus className={`w-3 h-[1px] opacity-40 ${iconColor}`} />
+                        <span className={`text-[10px] font-black uppercase tracking-widest ${iconColor}`}>{plan.sessions}</span>
+                        <Minus className={`w-3 h-[1px] opacity-40 ${iconColor}`} />
+                      </div>
+                      <p className="text-xs text-slate-400 font-bold tracking-wide">{plan.subtitle}</p>
+                    </div>
 
-                  <Button
-                    asChild
-                    className={`w-full py-4.5 rounded-xl font-black transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 relative z-10 text-sm tracking-wide ${
-                      plan.popularBadge 
-                        ? "bg-gradient-to-r from-amber-400 to-amber-300 text-slate-950 font-black shadow-[0_0_20px_rgba(251,191,36,0.3)] hover:from-amber-300 hover:to-amber-200" 
-                        : "bg-slate-800 text-white border border-slate-700 hover:bg-slate-700"
-                    }`}
-                  >
-                    <a href="#reservation">{plan.buttonText}</a>
-                  </Button>
-                </div>
-              </motion.div>
-            ))}
+                    <div className="bg-slate-950/40 rounded-2xl p-3.5 mb-3.5 border border-slate-800 text-center relative z-10 shadow-inner">
+                      <div className="text-[10px] text-slate-500 font-bold line-through mb-0.5">
+                        通常価格 ¥{plan.originalPrice}
+                      </div>
+                      <div className="flex items-baseline justify-center gap-0.5 mb-1.5">
+                        <span className="text-base font-bold text-white mr-1">¥</span>
+                        {/* 価格の発光色を切り替え */}
+                        <span className={`font-sans text-3xl sm:text-4xl font-black text-white leading-none tracking-tight ${textShadow}`}>
+                          {plan.campaignPrice}
+                        </span>
+                        <span className="text-[10px] font-bold text-slate-400 ml-1">{plan.taxLabel}</span>
+                      </div>
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-900/60 rounded-full border border-slate-700/50 text-amber-300 shadow-sm drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">
+                        <CreditCard className="w-3 h-3" />
+                        <span className="text-[9px] font-black uppercase tracking-widest">
+                           ¥{plan.monthlyPrice} 引き
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* 特徴リスト */}
+                    <ul className="space-y-2 mb-3.5 flex-grow border-t border-slate-800/60 pt-3">
+                      {plan.features.map((feature, i) => (
+                        <li key={i} className="flex items-start gap-2.5">
+                          <div className="w-4 h-4 rounded-full bg-slate-950/60 border border-slate-700/60 flex items-center justify-center shrink-0 mt-0.5 shadow-inner">
+                            {/* チェックマークの色を切り替え */}
+                            <Check className={`w-2.5 h-2.5 ${iconColor}`} />
+                          </div>
+                          <span className="text-xs font-semibold text-slate-300 leading-tight">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {plan.treatmentImage && (
+                      <div className="mb-3.5 border-t border-slate-800/60 pt-3">
+                        <div className="text-center mb-1.5 flex items-center justify-center gap-2">
+                          <UserIcon className={`w-3 h-3 ${iconColor}`} />
+                          <span className={`text-[10px] font-black uppercase tracking-widest ${iconColor}`}>施術範囲</span>
+                        </div>
+                        <div className="relative w-full h-[125px] bg-white rounded-xl border border-slate-700/60 overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.08)]">
+                          <Image
+                            src={plan.treatmentImage}
+                            alt={`${plan.name}の施術対象部位`}
+                            fill
+                            className="object-contain p-1.5"
+                          />
+                        </div>
+                      </div>
+                    )}
+
+                    <Button
+                      asChild
+                      className={`w-full py-4.5 rounded-xl font-black transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 relative z-10 text-sm tracking-wide ${
+                        plan.popularBadge 
+                          ? "bg-gradient-to-r from-amber-400 to-amber-300 text-slate-950 font-black shadow-[0_0_20px_rgba(251,191,36,0.3)] hover:from-amber-300 hover:to-amber-200" 
+                          : "bg-slate-800 text-white border border-slate-700 hover:bg-slate-700"
+                      }`}
+                    >
+                      <a href="#reservation">{plan.buttonText}</a>
+                    </Button>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* 🔴 ここから「部位別プラン表」を丸ごとコメントアウト（非表示化） */}
