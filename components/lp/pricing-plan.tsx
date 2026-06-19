@@ -259,7 +259,7 @@ export default function PricingPlan({ onOpenCampaign }: PricingPlanProps) {
 
                     <div className="bg-slate-950/40 rounded-2xl p-3.5 mb-3.5 border border-slate-800 text-center relative z-10 shadow-inner">
                       <div className="text-[10px] text-slate-500 font-bold line-through mb-0.5">
-                        通常価格 ¥{plan.originalPrice}
+                        {plan.originalPrice}
                       </div>
                       <div className="flex items-baseline justify-center gap-0.5 mb-1.5">
                         <span className="text-base font-bold text-white mr-1">¥</span>
