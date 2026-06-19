@@ -9,7 +9,7 @@ export const PRICING_CONTENT = {
   // メインの3大プラン
   mainPlans: [
     {
-      name: "スモールプラン（手打ち/30~50ショット）",
+      name: "スモールプラン\n（手打ち/30~50ショット）",
       subtitle: "M字/生え際/天頂部",
     
       sessions: "6回コース",
