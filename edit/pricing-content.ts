@@ -9,9 +9,9 @@ export const PRICING_CONTENT = {
   // メインの3大プラン
   mainPlans: [
     {
-      name: "Sサイズ",
+      name: "スモールプラン（手打ち/30~40ショット）",
       subtitle: "M字/生え際/天頂部",
-      popularBadge: "人気No.1",
+    
       sessions: "6回コース",
       originalPrice: "67,320",
       campaignPrice: "53,856",
@@ -23,9 +23,9 @@ export const PRICING_CONTENT = {
       treatmentImage: "https://lh3.googleusercontent.com/d/1-wuLrV329o3TUyuvgHex1Tq1OJawns0n", 
     },
      {
-      name: "Mサイズ",
+      name: "ミディアムプラン（手打ち/50~90ショット）",
       subtitle: "M字/生え際/天頂部",
-      
+       popularBadge: "人気No.1",
       sessions: "6回コース",
       originalPrice: "117,810",
       campaignPrice: "94,248",
@@ -37,7 +37,7 @@ export const PRICING_CONTENT = {
       treatmentImage: "https://lh3.googleusercontent.com/d/1-wuLrV329o3TUyuvgHex1Tq1OJawns0n", 
     },
     {
-      name: "Lサイズ",
+      name: "ラージプラン（手打ち/90~140ショット）",
       subtitle: "M字/生え際/天頂部",
       
       sessions: "6回コース",
@@ -46,6 +46,21 @@ export const PRICING_CONTENT = {
       taxLabel: "（税込）",
       monthlyPrice: "50,490",
       features: ["1回コース ￥49,500（税込）","3回コース ￥133,650（税込）"],
+      buttonText: "このプランで予約",
+      // ★ 追加：全身脱毛（顔・VIO除く）の照射範囲画像パス（適宜変更してください）
+      treatmentImage: "https://lh3.googleusercontent.com/d/1-wuLrV329o3TUyuvgHex1Tq1OJawns0n", 
+    },
+
+     {
+      name: "BENEVメソセラピー（機械注入）",
+      subtitle: "M字/生え際/天頂部",
+      
+      sessions: "6回コース",
+      originalPrice: "95,370",
+      campaignPrice: "76,296",
+      taxLabel: "（税込）",
+      monthlyPrice: "19,074",
+      features: ["1回コース ￥18,700（税込）","3回コース ￥50,490（税込）"],
       buttonText: "このプランで予約",
       // ★ 追加：全身脱毛（顔・VIO除く）の照射範囲画像パス（適宜変更してください）
       treatmentImage: "https://lh3.googleusercontent.com/d/1-wuLrV329o3TUyuvgHex1Tq1OJawns0n", 
