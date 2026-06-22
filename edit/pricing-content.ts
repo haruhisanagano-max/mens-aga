@@ -20,7 +20,7 @@ export const PRICING_CONTENT = {
       features: ["1回コース ￥13,200（税込）","3回コース ￥35,640（税込）","6回コース ￥67,320（税込）"],
       buttonText: "このプランで予約",
       // ★ 追加：全身脱毛（顔・VIO除く）の照射範囲画像パス（適宜変更してください）
-      treatmentImage: "https://lh3.googleusercontent.com/d/1PPMKD-bIdnzPD5XkuLSDlboi7kKW_j1-", 
+      treatmentImage: "https://lh3.googleusercontent.com/d/1wv6Oe7R09fyFcTXLpIKJu30bcBHfLV3C", 
     },
      {
       name: "ミディアムプラン\n（手打ち/50~100ショット）",
@@ -34,7 +34,7 @@ export const PRICING_CONTENT = {
       features: ["1回コース ￥23,100（税込）","3回コース ￥62,370（税込）","6回コース ￥117,810（税込）"],
       buttonText: "このプランで予約",
       // ★ 追加：全身脱毛（顔・VIO除く）の照射範囲画像パス（適宜変更してください）
-      treatmentImage: "https://lh3.googleusercontent.com/d/1-wuLrV329o3TUyuvgHex1Tq1OJawns0n", 
+      treatmentImage: "https://lh3.googleusercontent.com/d/14QEzwUASrELNLJ5gkez511CHAa8qAGiE", 
     },
     {
       name: "ラージプラン\n（手打ち/90~150ショット）",
@@ -48,7 +48,7 @@ export const PRICING_CONTENT = {
       features: ["1回コース ￥49,500（税込）","3回コース ￥133,650（税込）","6回コース ￥252,450（税込）"],
       buttonText: "このプランで予約",
       // ★ 追加：全身脱毛（顔・VIO除く）の照射範囲画像パス（適宜変更してください）
-      treatmentImage: "https://lh3.googleusercontent.com/d/1-wuLrV329o3TUyuvgHex1Tq1OJawns0n", 
+      treatmentImage: "https://lh3.googleusercontent.com/d/1eZbtw1M-JatfpO5vS4lO_P390FWs6CU9", 
     },
 
      {
@@ -63,7 +63,7 @@ export const PRICING_CONTENT = {
       features: ["1回コース ￥18,700（税込）","3回コース ￥50,490（税込）","6回コース ￥95,370（税込）"],
       buttonText: "このプランで予約",
       // ★ 追加：全身脱毛（顔・VIO除く）の照射範囲画像パス（適宜変更してください）
-      treatmentImage: "https://lh3.googleusercontent.com/d/1-wuLrV329o3TUyuvgHex1Tq1OJawns0n", 
+      treatmentImage: "https://lh3.googleusercontent.com/d/1wv6Oe7R09fyFcTXLpIKJu30bcBHfLV3C", 
     }
   ],
 
