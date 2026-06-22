@@ -4,7 +4,7 @@ export const CTA_MODAL_CONTENT = {
   // 画面下の追いかけボタン
   floatingCta: {
     badge: "今だけ20%OFF",
-    priceText: "全身脱毛 ¥132,000",
+    priceText: "スモールプラン1回 ¥10,560",
     reserveButton: "カウンセリング予約",
     lineButton: "LINEで相談"
   },
