@@ -44,7 +44,7 @@ export const PRICING_CONTENT = {
       originalPrice: "",
       campaignPrice: "252,450",
       taxLabel: "（税込）",
-      monthlyPrice: "50,490",
+      monthlyPrice: "49,500",
       features: ["1回コース ￥49,500（税込）","3回コース ￥133,650（税込）","6回コース ￥252,450（税込）"],
       buttonText: "このプランで予約",
       // ★ 追加：全身脱毛（顔・VIO除く）の照射範囲画像パス（適宜変更してください）
@@ -56,11 +56,11 @@ export const PRICING_CONTENT = {
       subtitle: "M字/生え際/天頂部",
       
       sessions: "6回コース",
-      originalPrice: "95,370",
-      campaignPrice: "76,296",
+      originalPrice: "",
+      campaignPrice: "95,370",
       taxLabel: "（税込）",
-      monthlyPrice: "19,074",
-      features: ["1回コース ￥18,700（税込）","3回コース ￥50,490（税込）"],
+      monthlyPrice: "18,700",
+      features: ["1回コース ￥18,700（税込）","3回コース ￥50,490（税込）","6回コース ￥95,370（税込）"],
       buttonText: "このプランで予約",
       // ★ 追加：全身脱毛（顔・VIO除く）の照射範囲画像パス（適宜変更してください）
       treatmentImage: "https://lh3.googleusercontent.com/d/1-wuLrV329o3TUyuvgHex1Tq1OJawns0n", 
@@ -85,6 +85,6 @@ export const PRICING_CONTENT = {
   },
   */
 
-  paymentMethods: "お支払い方法：現金 / クレジットカード / 医療ローン（最大60回分割）",
-  paymentMethods: "分割お支払い例 \n12回"
+  paymentMethods: "お支払い方法：現金 / クレジットカード / 医療ローン（最大60回分割）\n医療ローン お支払い例（12回支払い）月々￥000000",
+ 
 };
