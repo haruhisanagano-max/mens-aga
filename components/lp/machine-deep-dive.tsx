@@ -183,7 +183,6 @@ export default function MachineDeepDive() {
               <ShieldCheck className="w-5 h-5 text-sky-400/70 shrink-0 mt-0.5" />
               <span className="whitespace-pre-line text-left opacity-80">
                 {`※当院のAGA注入治療および処方薬は、医師の診断に基づき、適切なリスク管理のもとで行われます。
-                ※成長因子（グロスファクター）および各種有効成分の配合比率は、患者様の進行度に合わせて調整いたします。
                 ※無料カウンセリングにて、施術内容の詳細や副作用（初期脱毛・赤み等）について丁寧にご説明いたします。`}
               </span>
             </div>
