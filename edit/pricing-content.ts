@@ -20,7 +20,7 @@ export const PRICING_CONTENT = {
       features: ["1回コース ￥13,200（税込）","3回コース ￥35,640（税込）","6回コース ￥67,320（税込）"],
       buttonText: "このプランで予約",
       // ★ 追加：全身脱毛（顔・VIO除く）の照射範囲画像パス（適宜変更してください）
-      treatmentImage: "https://lh3.googleusercontent.com/d/1-wuLrV329o3TUyuvgHex1Tq1OJawns0n", 
+      treatmentImage: "https://lh3.googleusercontent.com/d/1PPMKD-bIdnzPD5XkuLSDlboi7kKW_j1-", 
     },
      {
       name: "ミディアムプラン\n（手打ち/50~100ショット）",
