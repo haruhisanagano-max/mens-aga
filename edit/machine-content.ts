@@ -26,16 +26,18 @@ export const MACHINE_CONTENT = {
 
   // 💡 中央のメインビジュアル（頭皮への浸透CGを想定）
   diagram: {
-    image: "https://lh3.googleusercontent.com/d/1L-h581ZKRFx8UPHgu3gj_CCvYKShvqLK",
+    image: "https://lh3.googleusercontent.com/d/17MFBjk18xHy_6i9n-KcLobfjdTLzkj71",
     limitedBadge: "メソセラピー"
   },
 
-  // 💡 3連ミニ画像（アンプル / 手元 / マシン を想定）
-  features: [
-    { img: "https://lh3.googleusercontent.com/d/11X4lB9p3Vw7wkL7-z0GqrmVqXcF4uOCO", alt: "独自ブレンドの高濃度発毛成分" },
-    { img: "https://lh3.googleusercontent.com/d/1MChk-WEA9gfziN0FVdVPxkWxGMXCRits", alt: "医師による精密な診断と注入" },
-    { img: "https://lh3.googleusercontent.com/d/1yO0HvT0RI9V7rHeBoNTZDlGj5AeLLvgE", alt: "痛みを抑えるハイテク注入機器" }
-  ],
+ // 💡 3連ミニ画像（アンプル / 手元 / マシン を想定）
+/*
+features: [
+  { img: "https://lh3.googleusercontent.com/d/11X4lB9p3Vw7wkL7-z0GqrmVqXcF4uOCO", alt: "独自ブレンドの高濃度発毛成分" },
+  { img: "https://lh3.googleusercontent.com/d/1MChk-WEA9gfziN0FVdVPxkWxGMXCRits", alt: "医師による精密な診断と注入" },
+  { img: "https://lh3.googleusercontent.com/d/1yO0HvT0RI9V7rHeBoNTZDlGj5AeLLvgE", alt: "痛みを抑えるハイテク注入機器" }
+],
+*/
 
   // 💡 縦並びの深掘りカード（成分・手打ち・マシンの3要素）
   reasons: [
