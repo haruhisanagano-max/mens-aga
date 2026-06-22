@@ -20,7 +20,7 @@ export const MACHINE_CONTENT = {
       wavelength: "CLINICAL MESO",
       target: "圧倒的スピード・局所集中発毛",
       feature: "クリニックだからこそ許された、毛根最深部への直接アプローチ。\n発毛細胞を強制起動させる高濃度な発毛成分を医師が届け、\nお薬単体の治療を遥かに超えるスピード発毛を実現します。",
-      points: ["発毛成分をダイレクト注入", "診断に基づく精密手技", ]
+      points: ["発毛成分をダイレクト注入", "診断に基づく精密手技" ] // ※ここの最後のカンマの後ろは空でも一応動きますが、消すか埋めるとより綺麗です
     }
   ],
 
@@ -30,13 +30,13 @@ export const MACHINE_CONTENT = {
     limitedBadge: "メソセラピー"
   },
 
-{/* 💡 3連ミニ画像（アンプル / 手元 / マシン を想定）
+/* 💡 3連ミニ画像（アンプル / 手元 / マシン を想定）
 features: [
   { img: "https://lh3.googleusercontent.com/d/11X4lB9p3Vw7wkL7-z0GqrmVqXcF4uOCO", alt: "独自ブレンドの高濃度発毛成分" },
   { img: "https://lh3.googleusercontent.com/d/1MChk-WEA9gfziN0FVdVPxkWxGMXCRits", alt: "医師による精密な診断と注入" },
   { img: "https://lh3.googleusercontent.com/d/1yO0HvT0RI9V7rHeBoNTZDlGj5AeLLvgE", alt: "痛みを抑えるハイテク注入機器" }
 ],
-*/}
+*/
 
   // 💡 縦並びの深掘りカード（成分・手打ち・マシンの3要素）
   reasons: [
