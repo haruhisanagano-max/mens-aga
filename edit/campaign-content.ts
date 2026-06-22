@@ -12,7 +12,7 @@ export const CAMPAIGN_CONTENT = {
 
   plans: [
     {
-      name: "スモールプラン-1回（手打ち/30~50ショット）",
+      name: "スモールプラン-1回\n（手打ち/30~50ショット）",
       originalPrice: "13,200",
       campaignPrice: "10,560",
       taxLabel: "（税込）", 
