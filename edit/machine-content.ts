@@ -45,7 +45,7 @@ export const MACHINE_CONTENT = {
       desc: "内服薬だけでは届きにくい毛根の最深部（バルジ領域・毛乳頭）へ、\n細胞の再生スイッチを押す「高濃度ミノキ」を直接注入。\n機能が停止し眠っていた毛包を、最速で叩き起こします。"
     },
    {
-      img: "https://lh3.googleusercontent.com/d/1O4X_5vWgpmCD1N31X5X9ha75O6EWQD81",
+      img: "https://lh3.googleusercontent.com/d/12XUwd4LK-KuEhFQf-ejIHOrRCoeL6WEo",
       title: "医師による精密アプローチ：\n生え際・M字へのピンポイント濃密注入",
       desc: "特に毛髪の衰退が激しく、薬だけでは治りにくい「生え際」や「M字」。\n医師が一人ひとりの進行状況や頭皮の状態を直接見極め、\n最も発毛を必要としているターゲットエリアへ、集中的かつ的確に薬剤を打ち込みます。"
     },
