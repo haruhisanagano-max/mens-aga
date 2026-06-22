@@ -111,19 +111,6 @@ export default function MachineDeepDive() {
             </div>
           </motion.div>
 
-          {/* 🔴 2. 特徴ギャラリー（3連ミニBOX） */}
-          <div className="mb-12 grid grid-cols-3 gap-3 sm:gap-6">
-            {MACHINE_CONTENT.features.map((f, i) => (
-              <motion.div 
-                key={i} 
-                className={`aspect-[4/3] relative overflow-hidden ${cardRounded} border border-slate-700/60 bg-[#050A15] shadow-xl`} 
-                whileHover={{ y: -4, borderColor: 'rgba(56,189,248,0.4)' }}
-                transition={{ duration: 0.3 }}
-              >
-                <Image src={f.img} alt="" fill className="object-cover opacity-90 hover:opacity-100 transition-opacity duration-300" />
-              </motion.div>
-            ))}
-          </div>
 
           {/* 🔴 3. 下部ロングカード（3段構成） */}
           <motion.div 
