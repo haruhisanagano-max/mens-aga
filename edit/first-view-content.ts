@@ -1,7 +1,7 @@
 export const FIRST_VIEW_CONTENT = {
   // 🖼️ 画像設定（PCとスマホで完全に分ける）
-  pcImage: "https://lh3.googleusercontent.com/d/1qz27f3SOzL6I6bnz58PtwbP8vGVDuO3B",
-  spImage: "https://lh3.googleusercontent.com/d/1qz27f3SOzL6I6bnz58PtwbP8vGVDuO3B", 
+  pcImage: "https://lh3.googleusercontent.com/d/1alSlTmmBIjiqFjgwzDYf0R6uFfR-Z7Uw",
+  spImage: "https://lh3.googleusercontent.com/d/1alSlTmmBIjiqFjgwzDYf0R6uFfR-Z7Uw", 
 
   // 🎨 下から上がってくる霧の色（例：#FDFBF7 = オフホワイト / #EDF7F3 = ミント系）
   mistColor: "#FDFBF7", 
