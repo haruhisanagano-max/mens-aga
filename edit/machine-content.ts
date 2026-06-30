@@ -41,7 +41,7 @@ features: [
   // 💡 縦並びの深掘りカード（成分・手打ち・マシンの3要素）
   reasons: [
     {
-      img: "https://lh3.googleusercontent.com/d/16S6OGSlc8XNkWAWI9s4k5XgOqyh4vjLA",
+      img: "https://lh3.googleusercontent.com/d/16DH1MIC5j7xGyTQrUmh93_aosYQV5o6s",
       title: "発毛細胞の強制起動：\n高濃度「MINOX」のダイレクト注入",
       desc: "内服薬だけでは届きにくい毛根の最深部（バルジ領域・毛乳頭）へ、\n細胞の再生スイッチを押す「高濃度ミノキ」を直接注入。\n機能が停止し眠っていた毛包を、最速で叩き起こします。"
     },
