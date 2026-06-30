@@ -112,16 +112,36 @@ export default function MachineDeepDive() {
           </motion.div>
 
 
-          {/* 🔴 3. 下部ロングカード（3段構成） */}
+         {/* 🔴 3. 下部ロングカード（3段構成） */}
           <motion.div 
             className={`overflow-hidden ${cardRounded} ${glassBorder} shadow-[0_30px_60px_rgba(0,0,0,0.7)] bg-transparent`}
           >
             {MACHINE_CONTENT.reasons.map((reason, i) => (
               <div key={i} className={`relative grid md:grid-cols-2 items-stretch ${i !== 0 ? 'border-t border-slate-700/50' : ''}`}>
                 
-                {/* 画像側（100%クリア） */}
+                {/* 画像/動画側 */}
                 <div className={`relative aspect-video bg-[#050A15] overflow-hidden ${i % 2 !== 0 ? 'md:order-last border-l border-slate-700/50' : 'border-r border-slate-700/50'} z-20`}>
-                  <Image src={reason.img} alt="" fill className="object-cover opacity-95 hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* 💡 isVideoフラグがある場合は HTML5のvideoタグ で自動再生 */}
+                  {(reason as any).isVideo ? (
+                    <video 
+                      src={reason.img} 
+                      autoPlay 
+                      loop 
+                      muted 
+                      playsInline // iOSで全画面にならずインラインで自動再生させるための必須属性
+                      className="absolute inset-0 w-full h-full object-cover opacity-95 hover:opacity-100 transition-opacity duration-300"
+                    />
+                  ) : (
+                    /* 通常の画像の場合 */
+                    <Image 
+                      src={reason.img} 
+                      alt="" 
+                      fill 
+                      className="object-cover opacity-95 hover:opacity-100 transition-opacity duration-300" 
+                    />
+                  )}
+                  
                 </div>
                 
                 {/* テキスト側（透過グラス：完全な左寄せ・上詰めに統一） */}
