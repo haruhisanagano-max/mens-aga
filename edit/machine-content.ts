@@ -42,6 +42,7 @@ features: [
   reasons: [
     {
       img: "https://lh3.googleusercontent.com/d/16DH1MIC5j7xGyTQrUmh93_aosYQV5o6s",
+      isVideo: true,
       title: "発毛細胞の強制起動：\n高濃度「MINOX」のダイレクト注入",
       desc: "内服薬だけでは届きにくい毛根の最深部（バルジ領域・毛乳頭）へ、\n細胞の再生スイッチを押す「高濃度ミノキ」を直接注入。\n機能が停止し眠っていた毛包を、最速で叩き起こします。"
     },
