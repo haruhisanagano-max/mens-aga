@@ -43,7 +43,7 @@ features: [
   reasons: [
     {
       // 💡 ココを教えていただいたWordPressのURLに変更！
-      img: "https://v-clinic.jp/wp-content/uploads/202606301015-4.mp4",
+      img: "https://v-clinic.jp/wp-content/uploads/202606301015-5.mp4",
       isVideo: true, // 👈 これは忘れずに残してくださいね！
       title: "発毛細胞の強制起動：\n高濃度「MINOX」のダイレクト注入",
       desc: "内服薬だけでは届きにくい毛根の最深部（バルジ領域・毛乳頭）へ、\n細胞の再生スイッチを押す「高濃度ミノキ」を直接注入。\n機能が停止し眠っていた毛包を、最速で叩き起こします。"
