@@ -43,7 +43,7 @@ features: [
   reasons: [
     {
       // 💡 ココを教えていただいたWordPressのURLに変更！
-      img: "https://lh3.googleusercontent.com/d/1lGtGTcxrCmKRN-7ye9cxbHDu0TE4GjVU",
+      img: "https://lh3.googleusercontent.com/d/1ZkE93B4FkVPPxEf_svMGoR77AVCyIPO0",
       
       title: "発毛再生因子の覚醒：\n高濃度「BENEV（ベネブ）」の頭皮浸透",
       desc: "国内外の医療機関で高い評価を受ける発毛再生因子「BENEV（ベネブ）」を採用。\n機械がもたらす頭皮の自己治癒力と組み合わせることで、細胞の再生スイッチをオン。\n機能が停止し眠っていた毛包を、最速で叩き起こします。"
