@@ -9,7 +9,7 @@ export const PRICING_CONTENT = {
   // メインの3大プラン
   mainPlans: [
     {
-      name: "スモールプラン\n（手打ち/目安:/30~50ショット）",
+      name: "スモールプラン\n（目安:/30~50ショット）",
       subtitle: "M字/生え際/天頂部",
     
       sessions: "6回コース",
@@ -23,7 +23,7 @@ export const PRICING_CONTENT = {
       treatmentImage: "https://lh3.googleusercontent.com/d/1wv6Oe7R09fyFcTXLpIKJu30bcBHfLV3C", 
     },
      {
-      name: "ミディアムプラン\n（手打ち/目安:50~100ショット）",
+      name: "ミディアムプラン\n（目安:50~100ショット）",
       subtitle: "M字/生え際/天頂部",
        popularBadge: "人気No.1",
       sessions: "6回コース",
@@ -37,7 +37,7 @@ export const PRICING_CONTENT = {
       treatmentImage: "https://lh3.googleusercontent.com/d/14QEzwUASrELNLJ5gkez511CHAa8qAGiE", 
     },
     {
-      name: "ラージプラン\n（手打ち/目安:90~150ショット）",
+      name: "ラージプラン\n（目安:90~150ショット）",
       subtitle: "M字/生え際/天頂部",
       
       sessions: "6回コース",
