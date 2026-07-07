@@ -49,7 +49,7 @@ features: [
       desc: "国内外の医療機関で高い評価を受ける発毛再生因子「BENEV（ベネブ）」を採用。\n機械がもたらす頭皮の自己治癒力と組み合わせることで、細胞の再生スイッチをオン。\n機能が停止し眠っていた毛包を、最速で叩き起こします。"
     },
    {
-      img: "https://lh3.googleusercontent.com/d/12XUwd4LK-KuEhFQf-ejIHOrRCoeL6WEo",
+      img: "https://lh3.googleusercontent.com/d/1DC-1_bcjIDAva0vxT9vHd190U8GbYCy_",
       title: "最速発毛へのアプローチ：\n「ミノキシジル」の高密マルチ注入",
       desc: "血流を強力に促進し発毛を促す「ミノキシジル」を、機械を用いて頭皮全体へ浸透させます。\n内服薬だけでは届きにくい局所的な薄毛部位や、M字・生え際へも均一かつ確実に薬剤を届けることで、発毛までの期間を劇的に短縮します。"
     },
