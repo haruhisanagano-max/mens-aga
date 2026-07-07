@@ -17,7 +17,7 @@ export const CLINIC_STAFF_CONTENT = {
 
   // 💡 特徴もAGAの「3つのアプローチ」や「プライバシー」を軸にスマートに変換
   features: [
-    { title: "最先端の発毛注入治療", desc: "眠る毛根の最深部へ成長因子を直接浸透", image: "https://lh3.googleusercontent.com/d/1MD7DSQrw1AANeBguvdZ8UI4fUT94Lbit" },
+    { title: "最先端の発毛注入治療", desc: "眠る毛根の最深部へ成長因子を直接浸透", image: "https://lh3.googleusercontent.com/d/1rw_A8hmKQ26U0yH3IHDeajEu32KSEfbY" },
     { title: "完全個室のプライベート空間", desc: "周囲の目を気にせずリラックスして受診", image: "https://lh3.googleusercontent.com/d/1iovqjmFX16KKzqPtu5yIDeTfX9AeO3Fd" },
     { title: "明朗な月額定額プラン", desc: "追加費用なしでお薬代のみの誠実な会計", image: "https://lh3.googleusercontent.com/d/1dBvodRb1c2okhWFLBLDwKdAgmRkVfFaq" }
   ],
