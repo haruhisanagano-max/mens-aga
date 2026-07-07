@@ -43,8 +43,8 @@ features: [
   reasons: [
     {
       // 💡 ココを教えていただいたWordPressのURLに変更！
-      img: "https://v-clinic.jp/wp-content/uploads/202606301015-5.mp4",
-      isVideo: true, // 👈 これは忘れずに残してくださいね！
+      img: "https://lh3.googleusercontent.com/d/1lGtGTcxrCmKRN-7ye9cxbHDu0TE4GjVU",
+      
       title: "発毛再生因子の覚醒：\n高濃度「BENEV（ベネブ）」の頭皮浸透",
       desc: "国内外の医療機関で高い評価を受ける発毛再生因子「BENEV（ベネブ）」を採用。\n機械がもたらす頭皮の自己治癒力と組み合わせることで、細胞の再生スイッチをオン。\n機能が停止し眠っていた毛包を、最速で叩き起こします。"
     },
@@ -54,7 +54,8 @@ features: [
       desc: "血流を強力に促進し発毛を促す「ミノキシジル」を、機械を用いて頭皮全体へ浸透させます。\n内服薬だけでは届きにくい局所的な薄毛部位や、M字・生え際へも均一かつ確実に薬剤を届けることで、発毛までの期間を劇的に短縮します。"
     },
    {
-      img: "https://lh3.googleusercontent.com/d/1dl5LLoUZo7no8moL0CCYS2n6JnEL1OtU",
+      img: "https://v-clinic.jp/wp-content/uploads/202606301015-5.mp4",
+     isVideo: true, // 👈 これは忘れずに残してくださいね！
       title: "痛みを極限まで抑える：最先端マシーンによる注入法",
       desc: "従来の注射による手打ち治療のような、強い痛みの心配はありません。\n極細針が1秒間に無数の微細な穴をあけ、痛みを極限まで抑えながら、広範囲へ均一に薬剤を届けます。\n頭皮環境そのものを健やかに育てる、最もストレスのない先進の発毛治療です。"
     }
