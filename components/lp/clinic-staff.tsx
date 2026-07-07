@@ -230,7 +230,7 @@ export default function ClinicStaff() {
                             <tbody className="divide-y divide-slate-800/40">
                               <tr><td className="py-1.5 font-bold text-slate-300">平日</td><td className="py-1.5 text-right text-slate-400">{clinic.hours.weekday}</td></tr>
                               <tr><td className="py-1.5 font-bold text-slate-300">土日祝</td><td className="py-1.5 text-right text-slate-400">{clinic.hours.weekend}</td></tr>
-                              <tr><td className="py-1.5 font-bold text-rose-400">定休日</td><td className="py-1.5 text-right text-rose-400 font-black">{clinic.hours.closed}</td></tr>
+                              <tr><td className="py-1.5 font-bold text-rose-400">休診日</td><td className="py-1.5 text-right text-rose-400 font-black">{clinic.hours.closed}</td></tr>
                             </tbody>
                           </table>
                         </div>
