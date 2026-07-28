@@ -104,9 +104,9 @@ export default function ZeroYenItems() {
             {/* 💡 【スマホでのクリップバグ完全解消】 */}
             <div className="relative inline-block py-4">
               <div className="absolute inset-x-4 inset-y-2 bg-sky-500/20 blur-2xl rounded-full pointer-events-none" />
-              <h2 className={`${fontTitle} text-2xl sm:text-5xl font-extrabold leading-tight bg-gradient-to-b from-white via-sky-100 to-white bg-clip-text text-transparent relative z-10 whitespace-pre-wrap break-keep antialiased`}>
-                {ZERO_YEN_CONTENT.title}
-              </h2>
+              <h2 className={`${fontTitle} text-3xl sm:text-5xl font-extrabold leading-tight bg-gradient-to-b from-white via-sky-100 to-white bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(56,189,248,0.5)] relative z-10 whitespace-pre-line`}>
+  {ZERO_YEN_CONTENT.title}
+</h2>
             </div>
 
             <p className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-medium opacity-60 whitespace-pre-line">
