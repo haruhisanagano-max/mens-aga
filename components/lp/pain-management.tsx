@@ -271,9 +271,9 @@ export default function PainManagement() {
                 {PAIN_CONTENT.reassurance.label}
               </span>
 
-              <h3 className="font-sans text-2xl sm:text-4xl font-extrabold text-white leading-tight tracking-tighter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-                {PAIN_CONTENT.reassurance.title}
-              </h3>
+              <h3 className="font-sans text-2xl sm:text-4xl font-extrabold text-white leading-tight tracking-tighter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] whitespace-pre-line">
+  {PAIN_CONTENT.reassurance.title}
+</h3>
               
              <div className="text-slate-300 text-sm sm:text-base leading-relaxed font-medium opacity-90 space-y-3 max-w-2xl mx-auto">
                 <p>{PAIN_CONTENT.reassurance.body1}</p>
