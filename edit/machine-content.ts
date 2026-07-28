@@ -3,7 +3,7 @@
 export const MACHINE_CONTENT = {
   // 💡 サイバーネイビーに映える、スマートで強力なタイトル
   badge: "DUAL CORE THERAPY",
-  title: "Advanced Meso & Prescription",
+  title: "Advanced Meso & \nPrescription",
   subtitle: "内服薬で進行を止め、注入治療で直接生やす。\n「最速発毛」を追求した医療ハイブリッド。",
   
   // 💡 なぜ「通院」が必要なのかを明確化する2つのカード
