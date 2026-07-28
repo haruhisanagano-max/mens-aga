@@ -73,7 +73,7 @@ export default function BeforeAfter() {
             The Evolution of Skin
           </span>
           <div className="relative inline-block">
-            <h2 className={`${fontTitle} text-3xl sm:text-5xl ... bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(56,189,248,0.5)] whitespace-pre-line`}>
+            <h2 className={`${fontTitle} text-3xl sm:text-5xl font-extrabold mb-6 leading-tight bg-gradient-to-b from-white via-sky-100 to-white bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(56,189,248,0.5)] whitespace-pre-line`}>
   {BEFORE_AFTER_CONTENT.sectionTitle}
 </h2>
           </div>
