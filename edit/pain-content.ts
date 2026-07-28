@@ -32,7 +32,7 @@ export const PAIN_CONTENT = {
 
   reassurance: {
     label: "SMART TRANSITION",
-    title: "毎月の「隠す費用」を、「生やす投資」へ",
+    title: "毎月の「隠す費用」を、\n「生やす投資」へ",
     body1: "隠し続けてAGAを進行させるほど、将来的な発毛難易度も高くなります。",
     body2: "いま支払っている高額な維持費を、ご自身の髪を取り戻すための根本治療に回しませんか？",
     
