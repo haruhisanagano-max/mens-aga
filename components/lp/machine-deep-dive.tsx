@@ -171,7 +171,7 @@ export default function MachineDeepDive() {
                     </div>
                     
                     {/* 💡 【下部カードタイトル発光】こちらもtext-white＋drop-shadowで完璧に統一して発光 */}
-                    <h3 className="font-sans text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-5 tracking-tight drop-shadow-[0_0_15px_rgba(56,189,248,0.4)]">
+                    <h3 className="font-sans text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-5 tracking-tight drop-shadow-[0_0_15px_rgba(56,189,248,0.4)] whitespace-pre-line">
   {reason.title}
 </h3>
 
