@@ -1,7 +1,7 @@
 // edit/comparison-content.ts
 
 export const COMPARISON_CONTENT = {
-  title: "根本投資（医療発毛）\n vs\n 終わらない維持費（隠す対処）",
+  title: "根本投資（医療発毛）\n vs\n 隠す対処の維持費",
   subtitle: "5年間の総額と将来性で見る、賢明なコストパフォーマンスの選択",
 
   // ★ セクション全体の背景画像
