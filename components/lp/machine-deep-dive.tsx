@@ -120,7 +120,7 @@ export default function MachineDeepDive() {
               <div key={i} className={`relative grid md:grid-cols-2 items-stretch ${i !== 0 ? 'border-t border-slate-700/50' : ''}`}>
                 
                 {/* 画像/動画側 */}
-                <div className={`relative aspect-video bg-[#050A15] overflow-hidden ${i % 2 !== 0 ? 'md:order-last border-l border-slate-700/50' : 'border-r border-slate-700/50'} z-20`}>
+                <div className={`relative ${i === 2 ? 'aspect-[9/16]' : 'aspect-video'} bg-[#050A15] ...`}>
                   
                   {/* 💡 isVideoフラグがある場合は HTML5のvideoタグ で自動再生 */}
                   {(reason as any).isVideo ? (
