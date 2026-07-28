@@ -1,5 +1,5 @@
 export const BEFORE_AFTER_CONTENT = {
-  sectionTitle: "『劇的変化』\n6ヶ月間の発毛実感\nリアルストーリー",
+  sectionTitle: "『劇的変化』\n６ヶ月間の発毛実感\nリアルストーリー",
   sectionSubtitle: "科学的根拠に基づいた医療発毛が、あなたの未来を塗り替える。",
   
   gallery: [
