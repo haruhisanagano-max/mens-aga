@@ -40,9 +40,9 @@ export default function MachineDeepDive() {
               {MACHINE_CONTENT.badge}
             </span>
             {/* 💡 【メインタイトル発光】痛みのセクションのH2と完全に同じ、最上級の発光グラデーション */}
-            <h2 className={`${fontTitle} text-3xl sm:text-5xl font-extrabold mb-6 leading-tight bg-gradient-to-b from-white via-sky-100 to-white bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(56,189,248,0.5)]`}>
-              {MACHINE_CONTENT.title}
-            </h2>
+            <h2 className={`${fontTitle} text-3xl sm:text-5xl font-extrabold mb-6 leading-tight bg-gradient-to-b from-white via-sky-100 to-white bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(56,189,248,0.5)] whitespace-pre-line`}>
+  {MACHINE_CONTENT.title}
+</h2>
             <p className="text-slate-400 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed font-medium opacity-70">
               {MACHINE_CONTENT.subtitle}
             </p>
