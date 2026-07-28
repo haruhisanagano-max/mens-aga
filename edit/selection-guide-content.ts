@@ -1,7 +1,7 @@
 export const SELECTION_CONTENT = {
   sectionBgImage: "", 
   badge: "High Credibility",
-  title: "多くの患者様から、\n高い評価を頂戴してます。",
+  title: "多くの患者様から、\n高評価を頂戴してます。",
   subtitle: "寄せられた評価の数々は、私たちの誇りであり、誠実に向き合ってきた証。皆様のリアルな声が、私たちの何よりの励みとなります。",
 
   google: {
