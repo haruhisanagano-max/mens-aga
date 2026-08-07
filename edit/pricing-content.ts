@@ -9,43 +9,43 @@ export const PRICING_CONTENT = {
   // メインの3大プラン
   mainPlans: [
     {
-      name: "スモールプラン\n（目安:/30~50ショット）",
+      name: "スモールプラン\n［ダーマペン導入］\n（目安:50㎠ 以内）",
       subtitle: "M字/生え際/天頂部",
     
       sessions: "6回コース",
       originalPrice: "",
-      campaignPrice: "67,320",
+      campaignPrice: "140,250",
       taxLabel: "（税込）",
-      monthlyPrice: "13,200",
-      features: ["1回コース ￥13,200（税込）","3回コース ￥35,640（税込）","6回コース ￥67,320（税込）"],
+      monthlyPrice: "25,000",
+      features: ["1回コース ￥25,000（税込）","3回コース ￥74,250（税込）","6回コース ￥140,250（税込）"],
       buttonText: "このプランで予約",
       // ★ 追加：全身脱毛（顔・VIO除く）の照射範囲画像パス（適宜変更してください）
       treatmentImage: "https://lh3.googleusercontent.com/d/1wv6Oe7R09fyFcTXLpIKJu30bcBHfLV3C", 
     },
      {
-      name: "ミディアムプラン\n（目安:50~100ショット）",
+      name: "ミディアムプラン\n［ダーマペン導入］\n（目安:150㎠ 以内）",
       subtitle: "M字/生え際/天頂部",
        popularBadge: "人気No.1",
       sessions: "6回コース",
       originalPrice: "",
-      campaignPrice: "117,810",
+      campaignPrice: "185,130",
       taxLabel: "（税込）",
-      monthlyPrice: "23,100",
-      features: ["1回コース ￥23,100（税込）","3回コース ￥62,370（税込）","6回コース ￥117,810（税込）"],
+      monthlyPrice: "33,000",
+      features: ["1回コース ￥33,000（税込）","3回コース ￥98,010（税込）","6回コース ￥185,130（税込）"],
       buttonText: "このプランで予約",
       // ★ 追加：全身脱毛（顔・VIO除く）の照射範囲画像パス（適宜変更してください）
       treatmentImage: "https://lh3.googleusercontent.com/d/14QEzwUASrELNLJ5gkez511CHAa8qAGiE", 
     },
     {
-      name: "ラージプラン\n（目安:90~150ショット）",
+      name: "ラージプラン\n［ダーマペン導入］\n（目安:250㎠ 以内）",
       subtitle: "M字/生え際/天頂部",
       
       sessions: "6回コース",
       originalPrice: "",
-      campaignPrice: "252,450",
+      campaignPrice: "224,400",
       taxLabel: "（税込）",
-      monthlyPrice: "49,500",
-      features: ["1回コース ￥49,500（税込）","3回コース ￥133,650（税込）","6回コース ￥252,450（税込）"],
+      monthlyPrice: "40,000",
+      features: ["1回コース ￥40,000（税込）","3回コース ￥118,800（税込）","6回コース ￥224,400（税込）"],
       buttonText: "このプランで予約",
       // ★ 追加：全身脱毛（顔・VIO除く）の照射範囲画像パス（適宜変更してください）
       treatmentImage: "https://lh3.googleusercontent.com/d/1eZbtw1M-JatfpO5vS4lO_P390FWs6CU9", 
@@ -57,10 +57,10 @@ export const PRICING_CONTENT = {
       
       sessions: "6回コース",
       originalPrice: "",
-      campaignPrice: "95,370",
+      campaignPrice: "168,300",
       taxLabel: "（税込）",
-      monthlyPrice: "18,700",
-      features: ["1回コース ￥18,700（税込）","3回コース ￥50,490（税込）","6回コース ￥95,370（税込）"],
+      monthlyPrice: "30,000",
+      features: ["1回コース ￥30,000（税込）","3回コース ￥89,100（税込）","6回コース ￥168,300（税込）"],
       buttonText: "このプランで予約",
       // ★ 追加：全身脱毛（顔・VIO除く）の照射範囲画像パス（適宜変更してください）
       treatmentImage: "https://lh3.googleusercontent.com/d/1wv6Oe7R09fyFcTXLpIKJu30bcBHfLV3C", 
