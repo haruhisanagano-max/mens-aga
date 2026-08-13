@@ -12,12 +12,12 @@ export const CAMPAIGN_CONTENT = {
 
   plans: [
     {
-      name: "スモールプラン-1回\n（目安:30~50ショット）",
-      originalPrice: "13,200",
-      campaignPrice: "10,560",
+      name: "スモールプラン-1回\n（目安:50㎠以内）",
+      originalPrice: "25,000",
+      campaignPrice: "20,000",
       taxLabel: "（税込）", 
       discountBadge: "20%OFF", 
-      discountAmount: "2,640円引き",
+      discountAmount: "5,000円引き",
       // 🔴 ここを追加（キャンペーンの詳細内容）
       features: [
         "初めての方のみ",
@@ -25,22 +25,22 @@ export const CAMPAIGN_CONTENT = {
       ]
     },
       {
-      name: "ミディアムプラン-1回（目安:50~100ショット）",
-      originalPrice: "23,100",
-      campaignPrice: "18,480",
+      name: "ミディアムプラン-1回（目安:150㎠以内）",
+      originalPrice: "33,000",
+      campaignPrice: "26,400",
       taxLabel: "（税込）", 
       discountBadge: "20%OFF", 
-      discountAmount: "4,620円引き",
+      discountAmount: "6,600円引き",
       // 🔴 ここを追加（キャンペーンの詳細内容）
     
     },
      {
-      name: "ラージプラン-1回（目安:100~150ショット）",
-      originalPrice: "49,500",
-      campaignPrice: "39,600",
+      name: "ラージプラン-1回（目安:250㎠以内）",
+      originalPrice: "40,000",
+      campaignPrice: "32,000",
       taxLabel: "（税込）", 
       discountBadge: "20%OFF", 
-      discountAmount: "9,900円引き",
+      discountAmount: "8,000円引き",
       // 🔴 ここを追加（キャンペーンの詳細内容）
       
     }
