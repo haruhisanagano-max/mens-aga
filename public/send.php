@@ -46,7 +46,7 @@ $msg
 --------------------------------------------------";
 
     // メールの送り主（エックスサーバーで作成済みのメールアドレス）
-    $from_email = "reserve-flp@v-clinic.jp"; 
+    $from_email = "reserve-agalp@v-clinic.jp"; 
     $headers = "From: " . mb_encode_mimeheader("ヴァージンクリニック予約システム") . " <$from_email>";
 
     // --- 2. 院・管理者への通知メール送信 ---
