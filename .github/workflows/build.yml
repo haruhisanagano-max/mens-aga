@@ -1,17 +1,27 @@
 name: Build Static Files
+
 on:
   push:
     branches: [ main ] # mainに保存されるたびに動きます
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+
       - run: npm install
-      - run: npm run build
+
+      - name: Build for Xserver
+        run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /aga1lp
+
       - uses: actions/upload-artifact@v4
         with:
           name: xserver-files # 変換後のファイルに名前をつけます
