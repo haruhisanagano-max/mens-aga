@@ -31,9 +31,9 @@ export default function SelectionGuide() {
         {/* Header */}
         <div className="max-w-6xl mx-auto px-6 text-center mb-8 sm:mb-12">
           {/* バッジも氷結青に同期 */}
-          <span className="inline-block px-5 py-1 bg-sky-500/10 text-sky-400 text-[10px] font-bold tracking-[0.4em] uppercase mb-3 rounded-full border border-sky-500/20 drop-shadow-[0_0_5px_rgba(56,189,248,0.3)]">
-            {SELECTION_CONTENT.badge}
-          </span>
+          <span className="block w-fit mx-auto px-5 py-1 bg-sky-500/10 text-sky-400 text-[10px] font-bold tracking-[0.4em] uppercase mb-3 rounded-full border border-sky-500/20 drop-shadow-[0_0_5px_rgba(56,189,248,0.3)]">
+  {SELECTION_CONTENT.badge}
+</span>
           <div className="relative inline-block">
             {/* 💡 【純白の美しいタイトル発光】濁りゼロのホワイトクリア発光 */}
             <h2 className={`${fontTitle} text-3xl sm:text-5xl font-extrabold mb-4 leading-tight bg-gradient-to-b from-white via-slate-100 to-white bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,255,255,0.35)]`}>
