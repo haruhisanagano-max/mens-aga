@@ -16,8 +16,8 @@ export const PRICING_CONTENT = {
       originalPrice: "",
       campaignPrice: "140,250",
       taxLabel: "（税込）",
-      monthlyPrice: "25,000",
-      features: ["1回コース ￥25,000（税込）","3回コース ￥74,250（税込）","6回コース ￥140,250（税込）"],
+      monthlyPrice: "27,500",
+      features: ["1回コース ￥27,500（税込）","3回コース ￥74,250（税込）","6回コース ￥140,250（税込）"],
       buttonText: "このプランで予約",
       // ★ 追加：全身脱毛（顔・VIO除く）の照射範囲画像パス（適宜変更してください）
       treatmentImage: "https://lh3.googleusercontent.com/d/1wv6Oe7R09fyFcTXLpIKJu30bcBHfLV3C", 
@@ -30,8 +30,8 @@ export const PRICING_CONTENT = {
       originalPrice: "",
       campaignPrice: "185,130",
       taxLabel: "（税込）",
-      monthlyPrice: "33,000",
-      features: ["1回コース ￥33,000（税込）","3回コース ￥98,010（税込）","6回コース ￥185,130（税込）"],
+      monthlyPrice: "36,300",
+      features: ["1回コース ￥36,300（税込）","3回コース ￥98,010（税込）","6回コース ￥185,130（税込）"],
       buttonText: "このプランで予約",
       // ★ 追加：全身脱毛（顔・VIO除く）の照射範囲画像パス（適宜変更してください）
       treatmentImage: "https://lh3.googleusercontent.com/d/14QEzwUASrELNLJ5gkez511CHAa8qAGiE", 
@@ -44,8 +44,8 @@ export const PRICING_CONTENT = {
       originalPrice: "",
       campaignPrice: "224,400",
       taxLabel: "（税込）",
-      monthlyPrice: "40,000",
-      features: ["1回コース ￥40,000（税込）","3回コース ￥118,800（税込）","6回コース ￥224,400（税込）"],
+      monthlyPrice: "44,000",
+      features: ["1回コース ￥44,000（税込）","3回コース ￥118,800（税込）","6回コース ￥224,400（税込）"],
       buttonText: "このプランで予約",
       // ★ 追加：全身脱毛（顔・VIO除く）の照射範囲画像パス（適宜変更してください）
       treatmentImage: "https://lh3.googleusercontent.com/d/1eZbtw1M-JatfpO5vS4lO_P390FWs6CU9", 
@@ -59,8 +59,8 @@ export const PRICING_CONTENT = {
       originalPrice: "",
       campaignPrice: "168,300",
       taxLabel: "（税込）",
-      monthlyPrice: "30,000",
-      features: ["1回コース ￥30,000（税込）","3回コース ￥89,100（税込）","6回コース ￥168,300（税込）"],
+      monthlyPrice: "33,000",
+      features: ["1回コース ￥33,000（税込）","3回コース ￥89,100（税込）","6回コース ￥168,300（税込）"],
       buttonText: "このプランで予約",
       // ★ 追加：全身脱毛（顔・VIO除く）の照射範囲画像パス（適宜変更してください）
       treatmentImage: "https://lh3.googleusercontent.com/d/1wv6Oe7R09fyFcTXLpIKJu30bcBHfLV3C", 
