@@ -4,7 +4,7 @@ export const RESERVATION_CONTENT = {
 
   clinics: [
     { name: "京都院", tel: "075-708-8113" },
-    { name: "福岡院", tel: "092-791-3912" },
+    // { name: "福岡院", tel: "092-791-3912" },
     { name: "広島院", tel: "082-207-0007" }
   ],
 
